@@ -1,0 +1,173 @@
+/* MixComponent's private CSS styles TODO à nettoyer (copié de fooditem)*/
+.search input {
+  margin: 1rem 0;
+}
+
+.mix tr td {
+  width: 11.1%;
+  text-align: center;
+}
+
+
+.diaas-mix {
+  display: grid;
+  grid-template-rows: 5rem max-content;
+  grid-template-columns: 25% 35% 40%;
+  grid-template-areas: "total-label diaas-mix dummy";
+  margin: 1rem 0;
+  align-items: center;
+  background-color: #eee;
+  border-radius: 4px;
+  border: 2px solid black;
+}
+
+.diaas-mix li .total-label {
+  grid-area: total-label;
+}
+
+.diaas-mix li diaas-mix {
+  grid-area: diaas-mix;
+}
+
+.diaas-mix li .dummy {
+  grid-area: dummy;
+}
+
+
+.diaas-mix .total-label {
+  padding: 0.5rem 0.6rem;
+  color: white;
+  background-color: #435B60;
+  margin-right: 0.8rem;
+  border-radius: 4px 0 0 4px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+
+
+.diaas-mix table {
+  width: 100%;
+}
+
+
+.food-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.food-items li {
+  display: grid;
+  grid-template-columns: 25% 35% repeat(2, 5%) repeat(3, 10%);
+  grid-template-areas: "name diaas protein-content-and-weight quantity editProteinContent editQuantity remove";
+  margin: 1rem 0;
+  align-items: center;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.food-items li .name {
+  grid-area: name;
+  margin-top: 0.3rem;
+}
+
+
+.food-items li .diaas {
+  grid-area: diaas;
+}
+
+.food-items li .protein-content-and-weight {
+  grid-area: protein-content-and-weight;
+  text-align: center;
+}
+
+.food-items li .protein-content-and-weight .protein-content {
+  text-align: center;
+  width: 40px;
+}
+
+
+.food-items li .quantity {
+  grid-area: quantity;
+  text-align: center;
+}
+
+.food-items li button {
+  margin: 0.3rem;
+  padding: 0.3rem 0.2rem;
+  justify-self: center;
+}
+
+.food-items li button.editProteinContent {
+  grid-area: editProteinContent;
+}
+
+.food-items li button.editQuantity {
+  grid-area: editQuantity;
+}
+
+.food-items li button.remove {
+  grid-area: remove;
+}
+
+.food-items li button:hover, .food-items li button:focus {
+  color: #eee;
+  background-color: #000;
+}
+
+.food-items .name {
+  padding: 0.5rem 0.6rem;
+  color: white;
+  background-color: #435B60;
+  margin-right: 0.8rem;
+  border-radius: 4px 0 0 4px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.food-items li .diaas table {
+  width: 100%;
+}
+
+
+.food-items li .diaas table tr td {
+  width: 11.1%;
+  text-align: center;
+}
+
+
+.food-items input {
+  max-width: 12rem;
+  padding: .25rem;
+}
+
+/* average screen: leave more % to diaas */
+@media (max-width: 1200px) {
+  .food-items li {
+    grid-template-columns: 15% 45% repeat(2, 5%) repeat(3, 10%);
+  }
+
+  .diaas-mix {
+    grid-template-columns: 15% 45% 40%;
+  }
+  
+}
+
+@media (max-width: 900px) {
+  .food-items li {
+    grid-template-rows: 4rem max-content;
+    grid-template-columns: 
+      repeat(6, 16.6%)
+      repeat(6, 16.6%);
+    grid-template-areas: 
+      "name diaas diaas diaas diaas diaas"
+      "name protein-content-and-weight quantity editProteinContent editQuantity remove";
+  }
+
+  .diaas-mix {
+    grid-template-columns: 16.6% 83.4% 0%;
+  }
+}

@@ -1,0 +1,79 @@
+<h2>Select food items</h2>
+<div class="search">
+  <label for="foodItem-name">Food item name: </label>
+  <input type="text" [(ngModel)]="foodItemName" id="foodItem-name">
+
+  <!--
+  <button type="button" [disabled]="!foodItemName"
+    (click)="add(foodItemName)">Add foodItem</button>
+-->
+
+  <button type="button" (click)="search(foodItemName)">
+    Search
+  </button>
+</div>
+
+<ul class="food-items">
+  <li *ngFor="let foodItem of foodItems">
+    <span class="name">{{foodItem.name}}</span>
+    <div class="diaas">
+      <table>
+        <tr>
+          <td>his</td>
+          <td>iso</td>
+          <td>leu</td>
+          <td>lys</td>
+          <td>saa</td>
+          <td>aaa</td>
+          <td>thr</td>
+          <td>trp</td>
+          <td>val</td>
+        </tr>
+        <tr>
+          <td [ngStyle]=getDiaasStyle(foodItem.histidine_score,foodItem)>{{foodItem.histidine_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.isoleucine_score,foodItem)>{{foodItem.isoleucine_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.leucine_score,foodItem)>{{foodItem.leucine_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.lysine_score,foodItem)>{{foodItem.lysine_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.saa_score,foodItem)>{{foodItem.saa_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.aaa_score,foodItem)>{{foodItem.aaa_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.threonine_score,foodItem)>{{foodItem.threonine_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.tryptophane_score,foodItem)>{{foodItem.tryptophane_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.valine_score,foodItem)>{{foodItem.valine_score}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <span class="protein-weight" title="Protein content per 100g of food">{{foodItem.protein_content}}g</span>
+    <button type="button" class="details" title="view details"
+      (click)="foodItemDetails = foodItem; openFoodItemDetail(content)">
+      View details
+    </button>
+
+    <button type="button" class="addtomix" title="add to mix"
+      (click)="addToMix(foodItem)">
+      Add to mix
+    </button>
+  </li>
+</ul>
+
+<!-- food item details modal -->
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Food item details</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <div class="food-item-details-name">{{foodItemDetails?.name}}</div>
+    <div><span class="fid-title">Score type: </span>{{foodItemDetails?.score_type}}</div>
+    <div><span class="fid-title">Protein content: </span>{{foodItemDetails?.protein_content}} <button type="button" class="btn btn-outline-secondary" ngbTooltip="Weight of protein per 100g of food" triggers="click:blur">?</button></div>
+    <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
+    <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
+    <div><span class="fid-title">Cooked state for DIAAS computation as per the study: </span>{{foodItemDetails?.diaas_cooked_state}}</div>
+    <div><span class="fid-title">Reference: </span><a href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</div>
+    <div><span class="fid-title">Comment: </span>{{foodItemDetails?.comment}}</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+	</div>
+</ng-template>
+
