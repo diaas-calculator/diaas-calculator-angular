@@ -15,7 +15,7 @@ const httpOptions = {
   })
 };
 
-// TODO classes à supprimer?? c'est tout en front en fait
+// Not used currently but will be probably required in the future
 @Injectable()
 export class MixService {
   private handleError: HandleError;

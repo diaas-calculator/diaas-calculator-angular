@@ -1,13 +1,8 @@
-/* MixComponent's private CSS styles TODO à nettoyer (copié de fooditem)*/
-.search input {
-  margin: 1rem 0;
-}
-
+/* MixComponent's private CSS styles*/
 .mix tr td {
   width: 11.1%;
   text-align: center;
 }
-
 
 .diaas-mix {
   display: grid;
@@ -33,7 +28,6 @@
   grid-area: dummy;
 }
 
-
 .diaas-mix .total-label {
   padding: 0.5rem 0.6rem;
   color: white;
@@ -46,12 +40,9 @@
   font-weight: bold;
 }
 
-
-
 .diaas-mix table {
   width: 100%;
 }
-
 
 .food-items {
   list-style-type: none;

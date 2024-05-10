@@ -4,7 +4,7 @@ import { CustomJsonInterceptor , CustomJsonParser, JsonParser} from './custom-js
 
 import { AuthInterceptor } from './auth-interceptor';
 import { CachingInterceptor } from './caching-interceptor';
-//TODO a reactiver
+//TODO to activate only in prod deployment
 //import { EnsureHttpsInterceptor } from './ensure-https-interceptor';
 import { LoggingInterceptor } from './logging-interceptor';
 import { NoopInterceptor } from './noop-interceptor';

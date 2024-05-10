@@ -1,7 +1,7 @@
 <h2>Select food items</h2>
 <div class="search">
   <label for="foodItem-name">Food item name: </label>
-  <input type="text" [(ngModel)]="foodItemName" id="foodItem-name">
+  <input type="text" [(ngModel)]="foodItemName" id="foodItem-name"  (keydown.enter)="search(foodItemName)">
 
   <!--
   <button type="button" [disabled]="!foodItemName"
@@ -10,6 +10,10 @@
 
   <button type="button" (click)="search(foodItemName)">
     Search
+  </button>
+
+  <button type="button" (click)="foodItemName = ''; search('')">
+    Clear search
   </button>
 </div>
 
@@ -69,7 +73,7 @@
     <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
     <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
     <div><span class="fid-title">Cooked state for DIAAS computation as per the study: </span>{{foodItemDetails?.diaas_cooked_state}}</div>
-    <div><span class="fid-title">Reference: </span><a href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</div>
+    <div><span class="fid-title">Reference: </span><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</div>
     <div><span class="fid-title">Comment: </span>{{foodItemDetails?.comment}}</div>
 	</div>
 	<div class="modal-footer">

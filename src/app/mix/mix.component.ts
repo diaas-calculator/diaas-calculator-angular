@@ -89,9 +89,14 @@ export class MixComponent implements OnInit {
   }
 
   editProteinContent(foodItemProteinContent: string) {
-    //TODO gérer erreur de conversion
-    let foodItemProteinContentNumber: number = + foodItemProteinContent;
     if (foodItemProteinContent && this.editFoodItemProteinContent) {
+      //let foodItemProteinContentNumber: number = + foodItemProteinContent;
+      let foodItemProteinContentNumber: number = Number(foodItemProteinContent)
+      if (isNaN(foodItemProteinContentNumber)) {
+        alert("Not a number")
+        this.editProteinContent("" + this.editFoodItemProteinContent.protein_content)
+        return
+      }
       this.editFoodItemProteinContent.protein_content = foodItemProteinContentNumber;
       let mixProteinWeight: number = this.editFoodItemProteinContent.protein_content / 100 * this.editFoodItemProteinContent.food_weight;
       this.editFoodItemProteinContent.protein_weight = Math.round(mixProteinWeight * 10) / 10;
@@ -102,8 +107,12 @@ export class MixComponent implements OnInit {
 
   editQuantity(foodItemQuantity: string) {
     if (foodItemQuantity && this.editFoodItemQuantity) {
-      //TODO gérer erreur de conversion
-      let foodItemQuantityNumber: number = + foodItemQuantity;
+      let foodItemQuantityNumber: number = Number(foodItemQuantity)
+      if (isNaN(foodItemQuantityNumber)) {
+        alert("Not a number")
+        this.editQuantity("" + this.editFoodItemQuantity.food_weight)
+        return
+      }
       this.editFoodItemQuantity.food_weight = foodItemQuantityNumber;
       let mixProteinWeight: number = this.editFoodItemQuantity.protein_content / 100 * this.editFoodItemQuantity.food_weight;
       this.editFoodItemQuantity.protein_weight = Math.round(mixProteinWeight * 10) / 10;
