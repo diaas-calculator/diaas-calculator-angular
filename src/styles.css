@@ -1,4 +1,10 @@
 /* Global Styles */
+
+/* mobiles devices : redefines the REM to make everything smaller*/
+@media only screen and (hover: none) and (pointer: coarse){
+  html {font-size: 65%;}
+}
+
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
