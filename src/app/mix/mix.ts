@@ -15,6 +15,7 @@ export interface Mix extends ScoredObject {
     threonine_score: number,
     tryptophane_score: number,
     valine_score: number,
+    protein_content: number,
     food_weight: number,
     protein_weight: number
   }

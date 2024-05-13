@@ -27,3 +27,16 @@ export interface FoodItem extends ScoredObject {
 export interface Results<FoodItem> {
   results: FoodItem[];
 }
+
+export interface FoodItemTranslation{
+  lang: string;
+  food_id: number;
+  name_translation: string,
+}
+
+
+// first element is the FoodItem, second element is the FoodItemTranslation
+export interface ResultsI18n {
+  results: (FoodItem|FoodItemTranslation)[][];
+}
+

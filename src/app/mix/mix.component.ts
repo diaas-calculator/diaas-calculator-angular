@@ -5,7 +5,7 @@ import { FoodItem } from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { Mix } from './mix';
 import { MixService } from './mix.service';
-import { getDiaasStyle } from '../common/common';
+import { getDiaasStyle, roundOneDecimal } from '../common/common';
 
 @Component({
   standalone: true,
@@ -68,6 +68,7 @@ export class MixComponent implements OnInit {
       threonine_score: 0,
       tryptophane_score: 0,
       valine_score: 0,
+      protein_content: 0,
       food_weight: 0,
       protein_weight: 0
     }
@@ -83,9 +84,10 @@ export class MixComponent implements OnInit {
   }
 
 
+
   remove(foodItem: FoodItem): void {
     this.foodItems = this.foodItems.filter(h => h !== foodItem);
-    this.computeMixDiaas();
+    this.computeMixDiaasAndTotals();
   }
 
   editProteinContent(foodItemProteinContent: string) {
@@ -99,9 +101,9 @@ export class MixComponent implements OnInit {
       }
       this.editFoodItemProteinContent.protein_content = foodItemProteinContentNumber;
       let mixProteinWeight: number = this.editFoodItemProteinContent.protein_content / 100 * this.editFoodItemProteinContent.food_weight;
-      this.editFoodItemProteinContent.protein_weight = Math.round(mixProteinWeight * 10) / 10;
+      this.editFoodItemProteinContent.protein_weight = roundOneDecimal(mixProteinWeight);
       this.editFoodItemProteinContent = undefined;
-      this.computeMixDiaas();
+      this.computeMixDiaasAndTotals();
     }
   }
 
@@ -115,9 +117,9 @@ export class MixComponent implements OnInit {
       }
       this.editFoodItemQuantity.food_weight = foodItemQuantityNumber;
       let mixProteinWeight: number = this.editFoodItemQuantity.protein_content / 100 * this.editFoodItemQuantity.food_weight;
-      this.editFoodItemQuantity.protein_weight = Math.round(mixProteinWeight * 10) / 10;
+      this.editFoodItemQuantity.protein_weight = roundOneDecimal(mixProteinWeight);
       this.editFoodItemQuantity = undefined;
-      this.computeMixDiaas();
+      this.computeMixDiaasAndTotals();
     }
   }
 
@@ -128,7 +130,7 @@ export class MixComponent implements OnInit {
       foodItem.food_weight = 100;
       foodItem.protein_weight = foodItem.protein_content;
       this.foodItems.push(foodItem);
-      this.computeMixDiaas();
+      this.computeMixDiaasAndTotals();
     }
     else{
       alert("Already in mix");
@@ -136,10 +138,17 @@ export class MixComponent implements OnInit {
   }
 
   // Ref: https://onlinelibrary.wiley.com/doi/full/10.1002/fsn3.1809 "2.3 DIAAS of protein mixtures"
-  computeMixDiaas(): void {
+  computeMixDiaasAndTotals(): void {
     let mixUpdated: Mix = this.getInitialMix();
-    let mixTotalProteinWeight = this.foodItems.reduce((prevVal, elem) => prevVal + elem.protein_weight, 0); 
-    
+    let mixTotalProteinWeight = this.foodItems.reduce((prevVal, elem) => prevVal + elem.protein_weight, 0);
+    let mixTotalFoodWeight = this.foodItems.reduce((prevVal, elem) => prevVal + elem.food_weight, 0);
+
+    // Update totals
+    mixUpdated.protein_weight = mixTotalProteinWeight;
+    mixUpdated.food_weight = mixTotalFoodWeight;
+    mixUpdated.protein_content = mixUpdated.food_weight !=0 ? roundOneDecimal(mixTotalProteinWeight/mixTotalFoodWeight*100) : 0;
+
+    // Compute DIAAS
     for (let i: number = 0; i<this.foodItems.length; i++){
       if(this.foodItems[i].score_type == 'pdcaas'){
         mixUpdated.score_type = 'pdcaas';
@@ -165,5 +174,13 @@ export class MixComponent implements OnInit {
     mixUpdated.tryptophane_score = Math.round(mixUpdated.tryptophane_score);
     mixUpdated.valine_score = Math.round(mixUpdated.valine_score);
     this.mix=mixUpdated;
+  }
+
+  roundScoreForDisplay(myNumber: number): number {
+    return Math.round(myNumber);
+  }
+
+  roundWeightForDisplay(myNumber: number): number {
+    return roundOneDecimal(myNumber);
   }
 }

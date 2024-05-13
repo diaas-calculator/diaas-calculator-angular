@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild, inject, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FoodItem } from '../common/food-item';
+import { FoodItem, FoodItemTranslation} from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { FoodItemsService } from './food-items.service';
 import { MixComponent } from '../mix/mix.component';
-import { getDiaasStyle } from '../common/common';
+import { getDiaasStyle, roundOneDecimal} from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -42,8 +42,28 @@ export class FoodItemsComponent implements OnInit {
 
 
   getFoodItems(): void {
-    this.foodItemsService.getFoodItems()
-      .subscribe(foodItems => (this.foodItems = foodItems));
+    let lang : string|null = sessionStorage.getItem('lang');
+    if(lang && lang !== 'en'){
+      //TODO error handling?
+      console.log("lang: " + lang)
+      this.foodItemsService
+        .getFoodItemsI18n(lang)
+        .subscribe(
+          foodItemsI18n => (this.foodItems = foodItemsI18n.map(
+            fiI18n => {
+              let fi: FoodItem = fiI18n[0] as FoodItem
+              let fit: FoodItemTranslation = fiI18n[1] as FoodItemTranslation
+              fi.name = fit.name_translation
+              return fi
+            }
+          ))
+        );
+    }
+    else{
+      console.log("get with no lang or en lang")
+      this.foodItemsService.getFoodItems()
+        .subscribe(foodItems => (this.foodItems = foodItems));
+    }
   }
 
   add(name: string): void {
@@ -60,34 +80,57 @@ export class FoodItemsComponent implements OnInit {
       .subscribe(foodItem => this.foodItems.push(foodItem));
   }
 
-  /*
   delete(foodItem: FoodItem): void {
     this.foodItems = this.foodItems.filter(h => h !== foodItem);
     this.foodItemsService
       .deleteFoodItem(foodItem.id)
       .subscribe();
   }
-  */
 
-  /*
   edit(foodItemName: string) {
     this.update(foodItemName);
     this.foodItemDetails = undefined;
   }
-  */
 
   search(searchTerm: string) {
+    let lang : string|null = sessionStorage.getItem('lang');
     this.foodItemDetails = undefined;
-    if (searchTerm) {
-      this.foodItemsService
-        .searchFoodItems(searchTerm)
-        .subscribe(foodItems => (this.foodItems = foodItems));
-    } else {
-      this.getFoodItems();
+
+    if(lang && lang !== 'en'){
+      //TODO error handling?
+      console.log("lang: " + lang)
+      if (searchTerm) {
+        this.foodItemsService
+          .searchFoodItemsI18n(searchTerm, lang)
+          .subscribe(
+            foodItemsI18n => (this.foodItems = foodItemsI18n.map(
+              fiI18n => {
+                let fi: FoodItem = fiI18n[0] as FoodItem
+                let fit: FoodItemTranslation = fiI18n[1] as FoodItemTranslation
+                fi.name = fit.name_translation
+                return fi
+              }
+            ))
+          );
+      } else {
+        // If searchTerm empty, we call "GET /api/food" which is the LIST function
+        this.getFoodItems();
+      }
     }
+    else{
+      console.log("no lang or en lang")
+      if (searchTerm) {
+        this.foodItemsService
+          .searchFoodItems(searchTerm)
+          .subscribe(foodItems => (this.foodItems = foodItems));
+      } else {
+        // If searchTerm empty, we call "GET /api/food" which is the LIST function
+        this.getFoodItems();
+      }
+    }
+
   }
 
-  /*
   update(foodItemName: string) {
     if (foodItemName && this.foodItemDetails && this.foodItemDetails.name !== foodItemName) {
       this.foodItemsService
@@ -102,7 +145,6 @@ export class FoodItemsComponent implements OnInit {
       this.foodItemDetails = undefined;
     }
   }
-  */
 
 
   addToMix(foodItem: FoodItem): void {
@@ -117,4 +159,13 @@ export class FoodItemsComponent implements OnInit {
 	openFoodItemDetail(content: TemplateRef<any>) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
 	}
+
+
+  roundScoreForDisplay(myNumber: number): number {
+    return Math.round(myNumber);
+  }
+
+  roundWeightForDisplay(myNumber: number): number {
+    return roundOneDecimal(myNumber);
+  }
 }

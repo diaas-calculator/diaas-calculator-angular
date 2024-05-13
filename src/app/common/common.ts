@@ -20,3 +20,7 @@ export function getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): o
     return Object.assign({}, {'background-color': 'green'}, minScoreStyle)
   }
 }
+
+export function roundOneDecimal(myNumber: number){
+  return  Math.round(myNumber * 10) / 10;
+}

@@ -24,30 +24,30 @@
       <table>
         <tr>
           <td>his</td>
-          <td>iso</td>
-          <td>leu</td>
+          <td><b>iso</b></td>
+          <td class="anabolic"><b>leu</b></td>
           <td>lys</td>
           <td>saa</td>
           <td>aaa</td>
           <td>thr</td>
           <td>trp</td>
-          <td>val</td>
+          <td><b>val</b></td>
         </tr>
         <tr>
-          <td [ngStyle]=getDiaasStyle(foodItem.histidine_score,foodItem)>{{foodItem.histidine_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.isoleucine_score,foodItem)>{{foodItem.isoleucine_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.leucine_score,foodItem)>{{foodItem.leucine_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.lysine_score,foodItem)>{{foodItem.lysine_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.saa_score,foodItem)>{{foodItem.saa_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.aaa_score,foodItem)>{{foodItem.aaa_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.threonine_score,foodItem)>{{foodItem.threonine_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.tryptophane_score,foodItem)>{{foodItem.tryptophane_score}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.valine_score,foodItem)>{{foodItem.valine_score}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.histidine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.histidine_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.isoleucine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.isoleucine_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.leucine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.leucine_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.lysine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.lysine_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.saa_score,foodItem)>{{this.roundScoreForDisplay(foodItem.saa_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.aaa_score,foodItem)>{{this.roundScoreForDisplay(foodItem.aaa_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.threonine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.threonine_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.tryptophane_score,foodItem)>{{this.roundScoreForDisplay(foodItem.tryptophane_score)}}</td>
+          <td [ngStyle]=getDiaasStyle(foodItem.valine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.valine_score)}}</td>
         </tr>
       </table>
     </div>
 
-    <span class="protein-weight" title="Protein content per 100g of food">{{foodItem.protein_content}}g</span>
+    <span class="protein-weight" title="Protein content per 100g of food">{{this.roundWeightForDisplay(foodItem.protein_content)}}g</span>
     <button type="button" class="details" title="view details"
       (click)="foodItemDetails = foodItem; openFoodItemDetail(content)">
       View details

@@ -1,5 +1,5 @@
 /* MixComponent's private CSS styles*/
-.mix tr td {
+.diaas-mix table tr td {
   width: 11.1%;
   text-align: center;
 }
@@ -7,8 +7,8 @@
 .diaas-mix {
   display: grid;
   grid-template-rows: 5rem max-content;
-  grid-template-columns: 25% 35% 40%;
-  grid-template-areas: "total-label diaas-mix dummy";
+  grid-template-columns: 25% 35% repeat(2, 5%) 30%;
+  grid-template-areas: "total-label diaas protein-content-and-weight quantity dummy";
   margin: 1rem 0;
   align-items: center;
   background-color: #eee;
@@ -16,15 +16,33 @@
   border: 2px solid black;
 }
 
-.diaas-mix li .total-label {
+.diaas-mix .total-label {
   grid-area: total-label;
 }
 
-.diaas-mix li diaas-mix {
-  grid-area: diaas-mix;
+.diaas-mix .diaas {
+  grid-area: diaas;
 }
 
-.diaas-mix li .dummy {
+.diaas-mix .protein-content-and-weight {
+  grid-area: protein-content-and-weight;
+  text-align: center;
+}
+
+.diaas-mix .protein-content-and-weight .protein-content{
+  text-align: center;
+  width: 2.5rem;
+}
+
+
+
+.diaas-mix .quantity {
+  grid-area: quantity;
+  text-align: center;
+}
+
+
+.diaas-mix .dummy {
   grid-area: dummy;
 }
 
@@ -76,7 +94,7 @@
 
 .food-items li .protein-content-and-weight .protein-content {
   text-align: center;
-  width: 40px;
+  width: 2.5rem;
 }
 
 
@@ -142,7 +160,7 @@
   }
 
   .diaas-mix {
-    grid-template-columns: 15% 45% 40%;
+    grid-template-columns: 15% 45% repeat(2, 5%) 30%;
   }
   
 }
@@ -159,6 +177,12 @@
   }
 
   .diaas-mix {
-    grid-template-columns: 16.6% 83.4% 0%;
+    grid-template-rows: 4rem max-content;
+    grid-template-columns: 
+      repeat(4, 16.6%)
+      repeat(4, 16.6%);
+    grid-template-areas: 
+      "total-label diaas diaas diaas"
+      "total-label protein-content-and-weight quantity dummy";
   }
 }

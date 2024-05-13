@@ -4,8 +4,9 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 import { Observable, catchError, map } from 'rxjs';
+import {tap} from 'rxjs/operators';
 
-import { FoodItem, Results } from '../common/food-item';
+import { FoodItem, Results, FoodItemTranslation, ResultsI18n } from '../common/food-item';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
 import { environment } from '../../environments/environment';
@@ -19,7 +20,9 @@ const httpOptions = {
 
 @Injectable()
 export class FoodItemsService {
-  foodItemsUrl = environment.apiUrl + '/food';  // URL to web api
+  // URL to web api
+  foodItemsUrl = environment.apiUrl + '/food'; 
+  foodItemsUrlI18n = environment.apiUrl + '/food_i18n';
   private handleError: HandleError;
 
   constructor(
@@ -37,6 +40,23 @@ export class FoodItemsService {
         catchError(this.handleError('getFoodItems', []))
       );
   }
+  
+  /** List foodItems from the server with a translation*/
+  getFoodItemsI18n(lang: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
+    const options = 
+    { 
+      params: new HttpParams()
+        .set('lang', lang)
+    };
+
+    return this.http.get<ResultsI18n>(this.foodItemsUrlI18n, options)
+    //TODO error handling?
+    // unwrap the "result" object content to get the inner food items. 
+    .pipe(map(resI18n => resI18n.results))
+    .pipe(
+      catchError(this.handleError<(FoodItem|FoodItemTranslation)[][]>('searchFoodItemsI18n', []))
+    );
+  }
 
   /* GET foodItems whose name contains search term */
   searchFoodItems(term: string): Observable<FoodItem[]> {
@@ -45,14 +65,56 @@ export class FoodItemsService {
     // Add safe, URL encoded search parameter if there is a search term
     const options = term ?
      { params: new HttpParams().set('name', term) } : {};
+    
+    
     const url = `${this.foodItemsUrl}/search/`
     return this.http.get<Results<FoodItem>>(url, options)
       //TODO error handling?
+      // unwrap the "result" object content to get the inner food items
       .pipe(map(obj => obj.results))
       .pipe(
         catchError(this.handleError<FoodItem[]>('searchFoodItems', []))
       );
   }
+
+    /* GET foodItems whose name contains search term with a translation */
+     searchFoodItemsI18n(term: string, lang: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
+      term = term.trim();
+  
+      // Add safe, URL encoded search parameter if there is a search term
+      const options = term ?
+        { 
+          params: new HttpParams()
+            .set('name', term)
+            .set('lang', lang)
+        } : 
+        { 
+          params: new HttpParams()
+            .set('lang', lang)
+        };
+      
+        
+      const url = `${this.foodItemsUrlI18n}/search/`
+      /*
+      //debug
+      console.log("appel get")
+      this.http.get<ResultsI18n<FoodItemI18n>>(url, options)
+        .pipe(map(resI18n => resI18n.results))
+        .pipe(
+          tap( res => console.log('after results:', res))
+        )
+        .subscribe()
+        */
+
+      return this.http.get<ResultsI18n>(url, options)
+        //TODO error handling?
+        // unwrap the "result" object content to get the inner food items. 
+        .pipe(map(resI18n => resI18n.results))
+        .pipe(
+          catchError(this.handleError<(FoodItem|FoodItemTranslation)[][]>('searchFoodItemsI18n', []))
+        );
+        
+    }
 
 
   //////// Save methods //////////
@@ -85,4 +147,5 @@ export class FoodItemsService {
         catchError(this.handleError('updateFoodItem', foodItem))
       );
   }
+
 }
