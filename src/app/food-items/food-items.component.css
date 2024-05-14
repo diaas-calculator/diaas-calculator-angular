@@ -130,3 +130,9 @@ div.food-item-details-name {
   padding: .25rem;
   margin-bottom: 20px
 }
+
+
+/* Food item details*/
+div.footer {
+  font-style: italic;
+}
