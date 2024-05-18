@@ -5,7 +5,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 import { Observable, catchError, map } from 'rxjs';
 
-import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
+import { HttpErrorHandler, HandleError } from '../../http-error-handler.service';
 import { FoodItem } from '../common/food-item';
 
 const httpOptions = {

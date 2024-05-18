@@ -9,19 +9,22 @@ import { HttpClientXsrfModule } from '@angular/common/http';
 import { httpInterceptorProviders } from '../app/http-interceptors/index';
 import { noopInterceptorProvider } from '../app/http-interceptors/noop-interceptor';
 
-// #region example helper services; not shown in docs
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '../app/in-memory-data.service';
-
 import { AuthService } from '../app/auth.service';
 import { HttpErrorHandler } from '../app/http-error-handler.service';
 import { MessageService } from '../app/message.service';
 import { RequestCache, RequestCacheWithMap } from '../app/request-cache.service';
 // #endregion example helper services; not shown in docs
+import { provideRouter } from '@angular/router';
+import { AppRoutes } from './app.routes';
 
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideRouter(AppRoutes),
+    provideHttpClient(),
+    provideMarkdown({ loader: HttpClient }),
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(HttpClientJsonpModule),
     noopInterceptorProvider,

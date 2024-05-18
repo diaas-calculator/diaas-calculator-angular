@@ -1,21 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { MixComponent } from './mix/mix.component';
-import { FoodItemsComponent } from './food-items/food-items.component';
-import { LangComponent } from './lang/lang.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  imports: [
-    CommonModule,
-    MixComponent,
-    FoodItemsComponent,
-    LangComponent
-  ],
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
+  title = 'Protein DIAAS calculator';
 }

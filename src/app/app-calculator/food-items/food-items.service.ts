@@ -7,9 +7,9 @@ import { Observable, catchError, map } from 'rxjs';
 import {tap} from 'rxjs/operators';
 
 import { FoodItem, Results, FoodItemTranslation, ResultsI18n } from '../common/food-item';
-import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
+import { HttpErrorHandler, HandleError } from '../../http-error-handler.service';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({

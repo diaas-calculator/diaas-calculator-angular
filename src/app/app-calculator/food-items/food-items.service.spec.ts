@@ -6,8 +6,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { FoodItem } from '../common/food-item';
 import { FoodItemsService } from './food-items.service';
-import { HttpErrorHandler } from '../http-error-handler.service';
-import { MessageService } from '../message.service';
+import { HttpErrorHandler } from '../../http-error-handler.service';
+import { MessageService } from '../../message.service';
 
 describe('FoodItemsService', () => {
   let httpClient: HttpClient;
