@@ -26,6 +26,19 @@ html {
   .section-nav li > a {
     background: #fff;
   }
+
+  
+  .section-nav ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .section-nav li {
+    margin-left: 1rem;
+  }
+  
+
   
   /* Sidebar Navigation */
   .section-nav {
@@ -55,22 +68,6 @@ html {
     background: #fff;
   }
   
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  }
-  
-  ul, ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    margin-left: 1rem;
-  }
-  
-  h1 {
-    font-weight: 300;
-  }
   
   /** page layout **/
   main {
