@@ -26,11 +26,11 @@ export class DiaasInfoComponent implements OnInit{
       entries.forEach(entry => {
         const id = entry.target.getAttribute('id');
         if (entry.intersectionRatio > 0) {
-          document.querySelector(`nav li a[href="diaas-info#${id}"]`)!
+          document.querySelector(`nav li a[href="diaas-information#${id}"]`)!
             .parentElement!
               .classList.add('active');
         } else {
-          document.querySelector(`nav li a[href="diaas-info#${id}"]`)!.parentElement!.classList.remove('active');
+          document.querySelector(`nav li a[href="diaas-information#${id}"]`)!.parentElement!.classList.remove('active');
         }
       });
     });

@@ -8,7 +8,7 @@ export const MenuRoutes: Routes = [
       import('../app-calculator/app.calculator.component').then((x) => x.AppCalculatorComponent),
   },
   {
-    path: 'diaas-info',
+    path: 'diaas-information',
     loadComponent: () =>
       import('../diaas-info/diaas-info.component').then((x) => x.DiaasInfoComponent),
   },
