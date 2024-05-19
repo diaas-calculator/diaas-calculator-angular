@@ -14,7 +14,7 @@ import { HttpErrorHandler } from '../app/http-error-handler.service';
 import { MessageService } from '../app/message.service';
 import { RequestCache, RequestCacheWithMap } from '../app/request-cache.service';
 // #endregion example helper services; not shown in docs
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { AppRoutes } from './app.routes';
 
 import { HttpClient, provideHttpClient } from '@angular/common/http';
@@ -22,7 +22,9 @@ import { provideMarkdown } from 'ngx-markdown';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(AppRoutes),
+    provideRouter(
+      AppRoutes,
+      withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})),
     provideHttpClient(),
     provideMarkdown({ loader: HttpClient }),
     importProvidersFrom(HttpClientModule),
