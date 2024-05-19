@@ -1,0 +1,85 @@
+<main>
+    <div>
+
+        <h1 id="what-am-i-looking-at-">What am I looking at?</h1>
+        <p>This is a calculator that helps calculate the <em>DIAAS</em> value of a mix of food items. Make sure you&#39;ve read the <a href="/diaas-information">DIAAS information</a> page first as we won&#39;t detail <em>DIAAS</em> basics in this documentation. </p>
+        <p>As a rule of thumb, all the proteins that come from animals contain enough of all of the indispensable amino acids but most of the proteins that come from plants don&#39;t. By choosing the right mix food items with the right quantity (to be consumed within the same meal), it is possible to balance the 9 indispensable amino acids when looking for protein sources in plants.</p>
+        <p>Ultimately, the goal of this calculator is to reduce the carbon footprint related to meat consumption. It can also be used by vegetarians/vegans who want to make sure they eat enough &quot;complete proteins&quot;.</p>
+        <h1 id="language">Language</h1>
+        <p>You can switch between French and English at the top-right of the application. </p>
+        <p>For now only food item names are translated. </p>
+        <h1 id="contextual-help">Contextual help</h1>
+        <p>On personal computer, place the mouse over a figure to have information about what it is. Work needs to be done for mobile devices to improve the contextual help. </p>
+        <h1 id="listing-food-items-searching-for-food-items">Listing food items, searching for food items</h1>
+        <p>In the &quot;Select food items&quot; section you can find the food items you&#39;ll add into your mix. </p>
+        <p>When loading the page the first time, a search is automatically launched so that all the food items in our database are displayed. </p>
+        <p>You can enter a food item name and click the &quot;Search&quot; button to filter by name</p>
+        <p>Clicking the &quot;Clear search&quot; button will re-run the search with no filter.</p>
+        <h1 id="information-about-food-items">Information about food items</h1>
+        <p>In the &quot;Select food items&quot; section, for each food item, the below elements are displayed: </p>
+        <ul>
+        <li><em>Name</em></li>
+        <li><em>DIAAS</em> for each indispensable amino acid</li>
+        <li>Protein content for 100g of food</li>
+        </ul>
+        <p>To have more information, click the &quot;View details&quot; button:</p>
+        <ul>
+        <li><em>Score type</em>. As of now possible values are:<ul>
+        <li><em>DIAAS</em>: the &quot;regular&quot; DIAAS, established in-vivo, on pig model, using the true ileal digestibility. It is the most precise data</li>
+        <li><em>DIAAS-rat</em> : DIAAS on the rodents model instead of the pigs</li>
+        <li><em>DIAAS-rat-fecal</em> : DIAAS on the rodents model and using <em>fecal digestibility</em> instead of <em>true ileal digestibility</em></li>
+        <li><em>DIAAS-invitro</em> : <em>DIAAS</em> established in vitro instead of in vivo</li>
+        <li><em>PDCAAS</em> : PDCAAS instead of DIAAS. Included in the app when DIAAS data is not available.</li>
+        </ul>
+        </li>
+        <li><em>Protein content</em> : g of protein per 100g of food.</li>
+        <li><em>Food type</em></li>
+        <li><em>Cooked state for protein content</em> : this is the cooked state related to the protein content figure provided. You should use it when you weight your ingredients. </li>
+        <li><p><em>Cooked state for DIAAS computation as per the study</em> : this is the state of the product for which the DIAAS was evaluated in the study. For precise results, you should eat the product in that state. For example, if you&#39;re looking at the <em>DIAAS</em> of a flour: ideally the &quot;Cooked state for protein content&quot; should be given <em>crude</em> so that you can weight the flour before cooking it, and the <em>Cooked state for DIAAS computation as per the study</em> should be <em>baked</em> if you&#39;re going to bake the flour in an oven. </p>
+        </li>
+        <li><p><em>Reference</em> : Link to the study that established the <em>DIAAS</em> value</p>
+        </li>
+        <li><em>Comment</em> : any precision about the data provided.</li>
+        </ul>
+        <h1 id="information-about-the-mix">Information about the mix</h1>
+        <p>In the <em>Diaas calculation for the mix of selected food items</em> section, the first line gives global informations about the mix:</p>
+        <ul>
+        <li><em>DIAAS</em> value for the mix</li>
+        <li><em>Average protein content per 100g</em> and <em>Total protein weight</em> (on the same column)</li>
+        <li><em>Total food weight</em> : sum of all food weights in the mix</li>
+        </ul>
+        <p>Then you&#39;ll find one line for each food item in the mix with: </p>
+        <ul>
+        <li>Name of the food item</li>
+        <li><em>DIAAS</em> score</li>
+        <li><em>Protein content per 100g</em> and <em>Protein weight in mix</em> (on the same column)</li>
+        <li><em>Food weight in mix</em> : quantity of food in grams present in the mix</li>
+        </ul>
+        <p>You can use the <em>Edit protein content</em> button if the protein content in our database doesn&#39;t match the product you have at home. Currently, this change will not persist for future mixes.</p>
+        <h1 id="diaas-display">DIAAS display</h1>
+        <p>A color code is adopted to show which amino acids are missing:</p>
+        <ul>
+        <li>DIAAS &lt; 60 : red</li>
+        <li>60 &lt;= DIAAS &lt; 75 : orange</li>
+        <li>75 &lt;= DIAAS &lt;= 100 : yellow-green.</li>
+        <li>DIAAS &gt; 100: green. Typically this is what&#39;s you&#39;ll be looking for in other food items when trying to balance a limiting amino acid.</li>
+        </ul>
+        <p>Inside a thicker border is the value of the limiting amino acid (the lowest value of all 9 amino acids)</p>
+        <p>The BCAA names are displayed in bold. In bold and red is the leucine (the most anabolic BCAA)</p>
+        <p>For now, all DIAAS scores are given for the reference pattern of older children, adolescents and adults (&gt; 3 years old).</p>
+        
+
+
+    </div>
+    <nav class="section-nav">
+        <ol>
+            <li><a href="user-manual#what-am-i-looking-at-">What am I looking at?</a></li>
+            <li><a href="user-manual#language">Language</a></li>
+            <li><a href="user-manual#contextual-help">Contextual help</a></li>
+            <li><a href="user-manual#listing-food-items-searching-for-food-items">Listing food items, searching for food items</a></li>
+            <li><a href="user-manual#information-about-food-items">Information about food items</a></li>
+            <li><a href="user-manual#information-about-the-mix">Information about the mix</a></li>
+            <li><a href="user-manual#diaas-display">DIAAS display</a></li>
+        </ol>
+    </nav>
+</main>
