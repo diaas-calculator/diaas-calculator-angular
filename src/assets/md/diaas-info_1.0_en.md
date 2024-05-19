@@ -125,6 +125,8 @@ The *DIAAS* is never an exact value as many factors may impact the result.
   - Difference between the pig digestive system and the human digestive system
 
   - Difference between each individual digestive system which can vary depending on our genes and our eating habits
+  
+  - Difference between products (varietal difference of the crops/ breed)
 
 
 - Parameters that we can control
