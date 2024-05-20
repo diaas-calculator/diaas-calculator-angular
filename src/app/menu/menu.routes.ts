@@ -17,6 +17,11 @@ export const MenuRoutes: Routes = [
     loadComponent: () =>
       import('../user-manual/user-manual.component').then((x) => x.UserManualComponent),
   },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('../about/about.component').then((x) => x.AboutComponent),
+  },
   {path: '',   redirectTo: '/protein-diaas-calculator', pathMatch: 'full' },
   {
     path: '**',
