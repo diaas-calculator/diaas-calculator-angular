@@ -1,12 +1,12 @@
 # What is this project
 
-This is the rust frontend for the [Protein DIAAS calculator](https://www.diaas-calculator.com/)
+This is the angular frontend for the [Protein DIAAS calculator](https://www.diaas-calculator.com/)
 
 See also the backend project [here](https://github.com/diaas-calculator/diaas-calculator-rust) with common information not duplicated here. 
 
 # Running locally
 
-There is no mock for the backend. If you need to work on the front without having the backend running locally, you can point to the production server: edit the `src/proxy.conf.json` with: 
+There is no mock for the backend for now. If you need to work on the front without having the backend running locally, you can point to the production server: edit the `src/proxy.conf.json` with: 
 
 ```
     "target": "https://www.diaas-calculator.com/",
