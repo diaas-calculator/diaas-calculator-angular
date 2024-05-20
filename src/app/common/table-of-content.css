@@ -1,0 +1,94 @@
+/* 1. Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* 2. Make nav sticky */
+  main > nav {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+  }
+  
+  /* 3. ScrollSpy active styles handled by ngOnInit */
+  .section-nav li.active > a {
+    color: #333;
+    font-weight: 500;
+  }
+  .section-nav li > a {
+    background: #fff;
+  }
+  
+  .section-nav ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .section-nav li {
+    margin-left: 1rem;
+  }
+  
+  
+  /* Sidebar Navigation */
+  .section-nav {
+    padding-left: 0;
+    border-left: 1px solid #efefef;
+  }
+  
+  .section-nav a {
+    text-decoration: none;
+    display: block;
+    padding: 0 0;
+    color: #ccc;
+    transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+  }
+  
+  .section-nav a:hover,
+  .section-nav a:focus {
+    color: #666;
+  }
+  
+  /** Poor man's reset **/
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    background: #fff;
+  }
+  
+  
+  /** page layout **/
+  main {
+    display: grid;
+    grid-template-columns: 1fr 15em;
+    max-width: 100em;
+    width: 90%;
+    margin: 0 auto;
+  }
+    
+  /* small screens*/
+  @media (max-width: 900px) {
+      /* Puts the table of content at the top instead of on the right*/
+      main > nav {
+          grid-area: nav;
+          position: inherit;
+        }
+        main > div {
+          grid-area: div;
+        }
+      main {
+          grid-template-areas: 
+              "nav"
+              "div";
+          grid-template-columns: 
+              100%
+              100%;
+        }
+  
+        /* Do not change the table of contents colors*/
+        .section-nav li.active > a {
+          color: #ccc;
+          font-weight: inherit;
+        }
+  }
