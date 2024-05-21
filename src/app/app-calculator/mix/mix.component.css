@@ -4,6 +4,12 @@
   text-align: center;
 }
 
+.diaas-mix table tr .anabolic {
+  color: red;
+}
+
+
+
 .diaas-mix {
   display: grid;
   grid-template-rows: 5rem max-content;
@@ -145,6 +151,10 @@
 .food-items li .diaas table tr td {
   width: 11.1%;
   text-align: center;
+}
+
+.food-items li .diaas table tr .anabolic {
+  color: red;
 }
 
 

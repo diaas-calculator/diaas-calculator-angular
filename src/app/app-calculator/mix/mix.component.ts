@@ -150,6 +150,7 @@ export class MixComponent implements OnInit {
 
     // Compute DIAAS
     for (let i: number = 0; i<this.foodItems.length; i++){
+      //TODO handle all combinations
       if(this.foodItems[i].score_type == 'pdcaas'){
         mixUpdated.score_type = 'pdcaas';
       }
@@ -164,15 +165,15 @@ export class MixComponent implements OnInit {
       mixUpdated.valine_score += this.foodItems[i].valine_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
     }
 
-    mixUpdated.histidine_score = Math.round(mixUpdated.histidine_score);
-    mixUpdated.isoleucine_score = Math.round(mixUpdated.isoleucine_score);
-    mixUpdated.leucine_score = Math.round(mixUpdated.leucine_score);
-    mixUpdated.lysine_score = Math.round(mixUpdated.lysine_score);
-    mixUpdated.saa_score = Math.round(mixUpdated.saa_score);
-    mixUpdated.aaa_score = Math.round(mixUpdated.aaa_score);
-    mixUpdated.threonine_score = Math.round(mixUpdated.threonine_score);
-    mixUpdated.tryptophane_score = Math.round(mixUpdated.tryptophane_score);
-    mixUpdated.valine_score = Math.round(mixUpdated.valine_score);
+    mixUpdated.histidine_score = roundOneDecimal(mixUpdated.histidine_score);
+    mixUpdated.isoleucine_score = roundOneDecimal(mixUpdated.isoleucine_score);
+    mixUpdated.leucine_score = roundOneDecimal(mixUpdated.leucine_score);
+    mixUpdated.lysine_score = roundOneDecimal(mixUpdated.lysine_score);
+    mixUpdated.saa_score = roundOneDecimal(mixUpdated.saa_score);
+    mixUpdated.aaa_score = roundOneDecimal(mixUpdated.aaa_score);
+    mixUpdated.threonine_score = roundOneDecimal(mixUpdated.threonine_score);
+    mixUpdated.tryptophane_score = roundOneDecimal(mixUpdated.tryptophane_score);
+    mixUpdated.valine_score = roundOneDecimal(mixUpdated.valine_score);
     this.mix=mixUpdated;
   }
 
