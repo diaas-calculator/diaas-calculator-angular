@@ -27,7 +27,7 @@
         <h2 id="human-needs-and-reference-pattern">Human needs and reference pattern</h2>
         <p>The human needs were estimated based on three age groups: </p>
         <ul>
-        <li><em>Infant</em>: 0 -&gt; 6 month</li>
+        <li><em>Infants</em>: 0 -&gt; 6 month</li>
         <li><em>Children</em>: 6 month -&gt; 3 years</li>
         <li><em>Older children, adolescents and adults</em> : &gt; 3 years</li>
         </ul>
@@ -78,18 +78,27 @@
         <h1 id="diaas-variations-and-other-measuring-systems">DIAAS variations and other measuring systems</h1>
         <h2 id="chemical-score">Chemical score</h2>
         <p>A first estimate can be done by looking at the content of each amino acid in the food item without taking into account the digestibility. It is used by many commercial products who advertise their product to be a &quot;complete&quot; protein. It can be far from reality as a digestibility of 50% is not uncommon meaning that you&#39;d need to ingest twice the quantity of food to reach the desired amino acid inputs.</p>
+        <h2 id="per">PER</h2>
+        <p><em>PER</em> or <em>Protein efficiency ratio</em> consists of evaluating the protein quality by observing the weight gain of rats fed with it.</p>
         <h2 id="pdcaas">PDCAAS</h2>
         <p>The <em>PDCAAS</em> or <em>Protein Digestibility Corrected Amino Acid Score</em> was adopted by the  US FDA and the Food and Agriculture Organization of the United Nations/World Health Organization (FAO/WHO) in 1993 :  <a href="https://www.fao.org/4/U5900t/u5900t07.htm">Recent developments in protein quality evaluation</a></p>
         <p>It is taking into account the digestibility of each amino acid and comparing the quantity of amino acid made available to the body after digestion with a reference value for that amino acid, just like the DIAAS.</p>
+        <p>Establishing the <em>PDCAAS</em> for a product requires taking measurements during <em>in-vivo</em> experimentations.</p>
+        <p>Note that the computation of the PDCAAS incolves a hypothesis on protein nitrogen content. Two values may be used, <code>N*5.30</code>or <code>N*6.25</code>. Which one should be used depends on the type of food item and which regulatory entity&#39;s advise you follow (see discussion paragraph in <a href="https://www.frontiersin.org/articles/10.3389/fnut.2021.702857/full">this study</a>)</p>
+        <p>To simplify things, as we know that the <em>PDCAAS</em> tends to over-evaluates the scores compared to the <em>DIAAS</em>, we&#39;ll always use <code>N*6.25</code> which gives the lowest score.</p>
         <h2 id="diaas">DIAAS</h2>
         <p>The DIAAS was proposed by the Food and Agriculture Organization (FAO) in 2011: <a href="https://www.fao.org/ag/humannutrition/35978-02317b979a686a57aa4593304ffc17f06.pdf">Dietary protein quality evaluation in human nutrition</a>.</p>
-        <p>The differences with the PDCAAS are:</p>
+        <p>The differences with the <em>PDCAAS</em> are:</p>
         <ul>
-        <li>the protocol for evaluating the PDCAAS involve experiments with rats which have a digesting system quite different from the humans. For the DIAAS,  the recommended animal model is the pig : <em>it is recommended that true ileal amino acid digestibility values from the growing pig be used, and where these data are not available from the growing laboratory rat.</em></li>
-        <li><p>The reference values for the PDCAAS are based on a unique age group, the 2- to 5-year-old child which is deemed to be the more demanding. The DIAAS provides values for three different age groups</p>
-        </li>
-        <li><p>The PDCAAS uses the global faecal digestibility while the DIAAS considers the true ileal digestibility of each amino acid (more info: <a href="https://www.prodiet-fluid.com/blog/how-to-characterize-protein-quality/">How to characterize protein quality?</a>)</p>
-        </li>
+        <li>The <em>PDCAAS</em> uses the faecal digestibility while the DIAAS considers the ileal digestibility. Using faecal digestibility tends overestimate the score.</li>
+        <li>The <em>PDCAAS</em> experimentation protocol that determines the digestibility involves rats while the <em>DIAAS</em> advise to use pigs preferably as the pig digesting system is closer to the human&#39;s system.</li>
+        <li>The <em>PDCAAS</em> considers the global digestibility of the product&#39;s protein (a single figure) while the <em>DIAAS</em> accounts for a specific digestibility factor for each indispensable amino acid</li>
+        <li>The reference values for the <em>PDCAAS</em> are based on a unique age group, the 2- to 5-year-old child which is deemed to be the more demanding. The <em>DIAAS</em> provides values for three different age groups, with more up to date data about human needs. Note that sometimes authors publish the <em>PDCAAS</em> for other age groups (it is just a multiplying factor to apply for each amino acid). In the calculator, we convert <em>PDCAAS</em> scores to the <em>DIAAS</em> reference pattern for <em>older children, adolescents and adults (&gt; 3 years old)</em> for an easier comparison with <em>DIAAS</em> scores. More information about the conversions: see <a href="https://github.com/diaas-calculator/diaas-calculator-rust?tab=readme-ov-file#dataset">readme on github</a></li>
+        </ul>
+        <p>More info on <em>PDCAAS</em> vs <em>DIAAS:</em></p>
+        <ul>
+        <li><a href="https://www.prodiet-fluid.com/blog/how-to-characterize-protein-quality/">How to characterize protein quality?</a></li>
+        <li><a href="https://medium.com/illumination/the-nutritional-quality-of-plant-protein-sources-part-2-7d94e7ca3fa8">The nutritional quality of plant protein sources (part 2)</a></li>
         </ul>
         <p>Recently, a new method appeared to simplify the protocol of determination of DIAAS: it is an in vitro method based on the INFOGEST protocol. More info: </p>
         <ul>
@@ -125,7 +134,7 @@
         <li>Parameters that we can control<ul>
         <li>Preparation of the food:<ul>
         <li>Is it crude, cooked or baked? (cooking/baking can increase or lower the <em>DIAAS</em> depending on the product)<ul>
-        <li>Is it soaked, or germinated before cooking? (may improves the <em>DIAAS</em> of grains/legumes by reducing the quantity of some anti-nutrients)</li>
+        <li>Is it soaked, or germinated before cooking? (may improves the <em>DIAAS</em>  of grains/legumes by reducing the quantity of some anti-nutrients)</li>
         <li>Is is extruded?</li>
         <li>Did it go through a specific processing that our food doesn&#39;t usually go through?</li>
         </ul>
@@ -141,6 +150,7 @@
         <li>or use a very specific preparation instead of using the food as we usually eat it (use of unfatted food, use of protein extraction processes...)</li>
         <li>or study a crude food for a product that we only consume cooked</li>
         </ul>
+        
     </div>
     <nav class="section-nav">
         <ol>
@@ -160,6 +170,7 @@
             <li><a href="diaas-information#mixing-food-items">Mixing food items</a></li>
             <li><a href="diaas-information#diaas-variations-and-other-measuring-systems">DIAAS variations and other measuring systems</a><ul>
             <li><a href="diaas-information#chemical-score">Chemical score</a></li>
+            <li><a href="diaas-information#per">PER</a></li>
             <li><a href="diaas-information#pdcaas">PDCAAS</a></li>
             <li><a href="diaas-information#diaas">DIAAS</a></li>
             </ul>
