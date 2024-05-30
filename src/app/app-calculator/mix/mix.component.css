@@ -165,17 +165,26 @@
 
 /* average screen: leave more % to diaas */
 @media (max-width: 1200px) {
-  .food-items li {
-    grid-template-columns: 15% 45% repeat(2, 5%) repeat(3, 10%);
-  }
-
   .diaas-mix {
     grid-template-columns: 15% 45% repeat(2, 5%) 30%;
   }
-  
+
+  .food-items li {
+    grid-template-columns: 15% 45% repeat(2, 5%) repeat(3, 10%);
+  }  
 }
 
 @media (max-width: 900px) {
+  .diaas-mix {
+    grid-template-rows: 4rem max-content;
+    grid-template-columns: 
+      16.6% repeat(3, 27.8%)
+      16.6% repeat(3, 27.8%);
+    grid-template-areas: 
+      "total-label diaas diaas diaas"
+      "total-label protein-content-and-weight quantity dummy";
+  }
+
   .food-items li {
     grid-template-rows: 4rem max-content;
     grid-template-columns: 
@@ -184,15 +193,5 @@
     grid-template-areas: 
       "name diaas diaas diaas diaas diaas"
       "name protein-content-and-weight quantity editProteinContent editQuantity remove";
-  }
-
-  .diaas-mix {
-    grid-template-rows: 4rem max-content;
-    grid-template-columns: 
-      repeat(4, 16.6%)
-      repeat(4, 16.6%);
-    grid-template-areas: 
-      "total-label diaas diaas diaas"
-      "total-label protein-content-and-weight quantity dummy";
   }
 }
