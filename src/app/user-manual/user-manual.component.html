@@ -29,24 +29,45 @@
         </ul>
         <p>To have more information, click the &quot;View details&quot; button:</p>
         <ul>
-        <li><em>Score type</em>. As of now possible values are:<ul>
-        <li><em>DIAAS-pig-TID</em> / <em>DIAAS-pig-SID</em>: the &quot;regular&quot; DIAAS, established in-vivo, on pig model, using the true ileal digestibility (<em>TID</em>) or standardized ileal digestibility (<em>SID</em>). It is the most precise data</li>
-        <li><em>DIAAS-human-TID</em> : experimentation with human subjects, using a specific protocol (naso-ileal intubation technique). Probably accurate data too, if not better than regular <em>DIAAS</em> (rarely seen)</li>
-        <li><em>DIAAS-rat-TID</em> / <em>DIAAS-rat-SID</em> : DIAAS on the rodents model instead of the pigs</li>
-        <li><em>DIAAS-rat-FD</em> : DIAAS on the rodents model and using <em>fecal digestibility</em> instead of <em>SID</em>/<em>TID</em></li>
-        <li><em>DIAAS-IVPD</em> : <em>DIAAS</em> established in vitro instead of in vivo</li>
-        <li><em>PDCAAS-rat-TID</em>, <em>PDCAAS-IVPD</em> : PDCAAS instead of DIAAS. Included in the app when DIAAS data is not available.</li>
+        <li><p><em>Score type</em>. Built as : <code>&lt;score-standard&gt;-[&lt;animal-model&gt;]-&lt;digestibility-model&gt;</code>. All the categories below are given from most precise to least precise data for human interpolation (see <a href="/diaas-information">DIAAS information</a> page for more details*):</p>
+        <ul>
+        <li><p><code>&lt;score-standard&gt;</code> :</p>
+        <ul>
+        <li><em>DIAAS</em> : Digestible Indispensable Amino Acid Score</li>
+        <li><em>PDCAAS</em>: Protein Digestibility Corrected Amino Acid Score. A few food items use this score when <code>DIAAS</code> data is not available. It is usually higher than the <em>DIAAS</em>.</li>
         </ul>
         </li>
-        <li><em>Protein content</em> : g of protein per 100g of food.</li>
+        <li><p><code>&lt;animal-model&gt;</code>. Only present for in-vivo studies.</p>
+        <ul>
+        <li><em>human</em> :  experimentation with human subjects (rarely seen)</li>
+        <li><em>pig</em></li>
+        <li><em>rats</em></li>
+        </ul>
+        </li>
+        <li><p><code>&lt;digestibility-model&gt;</code> (invivo):</p>
+        <ul>
+        <li><em>TID</em> : <em>true ileal digestibility</em> (sometimes called <em>real ileal digestibility</em>)</li>
+        <li><em>SID</em> : <em>standardized ileal digestibility</em></li>
+        <li><em>TFPD</em> : <em>True fecal protein digestibility</em></li>
+        <li><em>AFD</em> : <em>Apparent Fecal digestibility</em> </li>
+        </ul>
+        </li>
+        <li><p><code>&lt;digestibility-model&gt;</code> (invitro):</p>
+        <ul>
+        <li><em>IVPD</em>: <em>In Vitro Protein Digestibility</em> : studies conducted without any human or animal but only invitro.</li>
+        </ul>
+        </li>
+        </ul>
+        </li>
+        <li><p><em>Protein content</em> : g of protein per 100g of food.</p>
+        </li>
         <li><em>Food type</em></li>
         <li><em>Cooked state for protein content</em> : this is the cooked state related to the protein content figure provided. You should use it when you weight your ingredients. We almost always display the cooked state as crude to facilitate protein content comparison between food items. And it&#39;s more precise because weight may change for cooked grains and legumes depending on how long they were cooked for and how much water they absorbed.</li>
-        <li><p><em>Cooked state for DIAAS computation as per the study</em> : this is the state of the product for which the DIAAS was evaluated in the study. For precise results, you should eat the product in that state. For example, if you&#39;re looking at the <em>DIAAS</em> of a flour: ideally the &quot;Cooked state for protein content&quot; should be given <em>crude</em> so that you can weight the flour before cooking it, and the <em>Cooked state for DIAAS computation as per the study</em> should be <em>baked</em> if you&#39;re going to bake the flour in an oven. </p>
-        </li>
-        <li><p><em>Reference</em> : Link to the study that established the <em>DIAAS</em> value</p>
-        </li>
+        <li><em>Cooked state for DIAAS computation as per the study</em> : this is the state of the product for which the DIAAS was evaluated in the study. For precise results, you should eat the product in that state. For example, if you&#39;re looking at the <em>DIAAS</em> of a flour: ideally the &quot;Cooked state for protein content&quot; should be given <em>crude</em> so that you can weight the flour before cooking it, and the <em>Cooked state for DIAAS computation as per the study</em> should be <em>baked</em> if you&#39;re going to bake the flour in an oven. </li>
+        <li><em>Reference</em> : Link to the study that established the <em>DIAAS</em> value</li>
         <li><em>Comment</em> : any precision about the data provided.</li>
         </ul>
+        
         <h1 id="information-about-the-mix">Information about the mix</h1>
         <p>In the <em>Diaas calculation for the mix of selected food items</em> section, the first line gives global informations about the mix:</p>
         <ul>
