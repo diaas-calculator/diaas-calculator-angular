@@ -5,7 +5,7 @@ import { FoodItem, FoodItemTranslation} from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { FoodItemsService } from './food-items.service';
 import { MixComponent } from '../mix/mix.component';
-import { getDiaasStyle, roundOneDecimal} from '../common/common';
+import { getDiaasStyle, roundOneDecimal, getScoreLetter} from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -38,6 +38,10 @@ export class FoodItemsComponent implements OnInit {
 
   getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): object {
     return getDiaasStyle(diaasScore, scoredObject);
+  }
+
+  getScoreLetter(scoreStandard: String): String{
+    return getScoreLetter(scoreStandard);
   }
 
 

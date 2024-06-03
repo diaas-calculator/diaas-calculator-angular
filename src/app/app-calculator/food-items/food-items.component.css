@@ -10,7 +10,7 @@
 
 .food-items li {
   display: grid;
-  grid-template-areas: "name diaas protein-weight details addtomix";
+  grid-template-areas: "score-letter-and-name diaas protein-weight details addtomix";
   grid-template-columns: 40% 35% 5% repeat(2, 10%);
   margin: 1rem 0;
   align-items: center;
@@ -18,8 +18,8 @@
   border-radius: 4px;
 }
 
-.food-items li .name {
-  grid-area: name;
+.food-items li .score-letter-and-name {
+  grid-area: score-letter-and-name;
 }
 
 .food-items li .diaas {
@@ -50,8 +50,8 @@
   background-color: #000;
 }
 
-.food-items .name {
-  padding: 0.5rem 0.6rem;
+.food-items .score-letter-and-name {
+  padding: 0.5rem 0.4rem;
   color: white;
   background-color: #435B60;
   margin-right: 0.4rem;
@@ -59,6 +59,16 @@
   align-self: stretch;
   display: flex;
   align-items: center;
+}
+
+
+.food-items .score-letter {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 2em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-size: 0.75em; 
 }
 
 .food-items li .diaas table {
@@ -96,14 +106,14 @@
   .food-items li {
     grid-template-rows: 4rem max-content;
     grid-template-areas:
-      "name diaas diaas diaas"
-      "name protein-weight details addtomix";
+      "score-letter-and-name diaas diaas diaas"
+      "score-letter-and-name protein-weight details addtomix";
     grid-template-columns: 
       repeat(4, 25%)
       repeat(4, 25%);
   }
 
-  .food-items li .name {
+  .food-items li .score-letter-and-name {
     margin-top: 0.3rem;
   }
 

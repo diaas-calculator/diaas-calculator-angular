@@ -24,3 +24,8 @@ export function getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): o
 export function roundOneDecimal(myNumber: number){
   return  Math.round(myNumber * 10) / 10;
 }
+
+export function getScoreLetter(scoreStandard: String): String{
+  return scoreStandard.startsWith("DIAAS")?"D":"P";
+}
+
