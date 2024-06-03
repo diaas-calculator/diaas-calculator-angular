@@ -187,8 +187,8 @@
   .diaas-mix {
     grid-template-rows: 4rem max-content;
     grid-template-columns: 
-      16.6% repeat(3, 27.8%)
-      16.6% repeat(3, 27.8%);
+      repeat(4, 25%)
+      repeat(4, 25%);
     grid-template-areas: 
       "total-label diaas diaas diaas"
       "total-label protein-content-and-weight quantity dummy";
@@ -197,8 +197,8 @@
   .food-items li {
     grid-template-rows: 4rem max-content;
     grid-template-columns: 
-      repeat(6, 16.6%)
-      repeat(6, 16.6%);
+      25% repeat(5, 15%)
+      25% repeat(5, 15%);
     grid-template-areas: 
       "score-letter-and-name diaas diaas diaas diaas diaas"
       "score-letter-and-name protein-content-and-weight quantity editProteinContent editQuantity remove";
