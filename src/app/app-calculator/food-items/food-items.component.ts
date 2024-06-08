@@ -33,7 +33,7 @@ export class FoodItemsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getFoodItems();
+    this.search("");
   }
 
   getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): object {
@@ -44,31 +44,6 @@ export class FoodItemsComponent implements OnInit {
     return getScoreLetter(scoreStandard);
   }
 
-
-  getFoodItems(): void {
-    let lang : string|null = sessionStorage.getItem('lang');
-    if(lang && lang !== 'en'){
-      //TODO error handling?
-      console.log("lang: " + lang)
-      this.foodItemsService
-        .getFoodItemsI18n(lang)
-        .subscribe(
-          foodItemsI18n => (this.foodItems = foodItemsI18n.map(
-            fiI18n => {
-              let fi: FoodItem = fiI18n[0] as FoodItem
-              let fit: FoodItemTranslation = fiI18n[1] as FoodItemTranslation
-              fi.name = fit.name_translation
-              return fi
-            }
-          ))
-        );
-    }
-    else{
-      console.log("get with no lang or en lang")
-      this.foodItemsService.getFoodItems()
-        .subscribe(foodItems => (this.foodItems = foodItems));
-    }
-  }
 
   add(name: string): void {
     this.foodItemDetails = undefined;
@@ -103,34 +78,24 @@ export class FoodItemsComponent implements OnInit {
     if(lang && lang !== 'en'){
       //TODO error handling?
       console.log("lang: " + lang)
-      if (searchTerm) {
-        this.foodItemsService
-          .searchFoodItemsI18n(searchTerm, lang)
-          .subscribe(
-            foodItemsI18n => (this.foodItems = foodItemsI18n.map(
-              fiI18n => {
-                let fi: FoodItem = fiI18n[0] as FoodItem
-                let fit: FoodItemTranslation = fiI18n[1] as FoodItemTranslation
-                fi.name = fit.name_translation
-                return fi
-              }
-            ))
-          );
-      } else {
-        // If searchTerm empty, we call "GET /api/food" which is the LIST function
-        this.getFoodItems();
-      }
+      this.foodItemsService
+        .searchFoodItemsI18n(searchTerm, lang)
+        .subscribe(
+          foodItemsI18n => (this.foodItems = foodItemsI18n.map(
+            fiI18n => {
+              let fi: FoodItem = fiI18n[0] as FoodItem
+              let fit: FoodItemTranslation = fiI18n[1] as FoodItemTranslation
+              fi.name = fit.name_translation
+              return fi
+            }
+          ))
+        );
     }
     else{
       console.log("no lang or en lang")
-      if (searchTerm) {
-        this.foodItemsService
-          .searchFoodItems(searchTerm)
-          .subscribe(foodItems => (this.foodItems = foodItems));
-      } else {
-        // If searchTerm empty, we call "GET /api/food" which is the LIST function
-        this.getFoodItems();
-      }
+      this.foodItemsService
+        .searchFoodItems(searchTerm)
+        .subscribe(foodItems => (this.foodItems = foodItems));
     }
 
   }

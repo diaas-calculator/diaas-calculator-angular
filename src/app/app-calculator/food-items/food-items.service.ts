@@ -4,9 +4,9 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 import { Observable, catchError, map } from 'rxjs';
-import {tap} from 'rxjs/operators';
+//import {tap} from 'rxjs/operators';
 
-import { FoodItem, Results, FoodItemTranslation, ResultsI18n } from '../common/food-item';
+import { FoodItem, FoodItemTranslation } from '../common/food-item';
 import { HttpErrorHandler, HandleError } from '../../http-error-handler.service';
 
 import { environment } from '../../../environments/environment';
@@ -31,33 +31,6 @@ export class FoodItemsService {
     this.handleError = httpErrorHandler.createHandleError('FoodItemsService');
   }
 
-  /** List foodItems from the server */
-  getFoodItems(): Observable<FoodItem[]> {
-    return this.http.get<Results<FoodItem>>(this.foodItemsUrl)
-      //TODO error handling?
-      .pipe(map(obj => obj.results))
-      .pipe(
-        catchError(this.handleError('getFoodItems', []))
-      );
-  }
-  
-  /** List foodItems from the server with a translation*/
-  getFoodItemsI18n(lang: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
-    const options = 
-    { 
-      params: new HttpParams()
-        .set('lang', lang)
-    };
-
-    return this.http.get<ResultsI18n>(this.foodItemsUrlI18n, options)
-    //TODO error handling?
-    // unwrap the "result" object content to get the inner food items. 
-    .pipe(map(resI18n => resI18n.results))
-    .pipe(
-      catchError(this.handleError<(FoodItem|FoodItemTranslation)[][]>('searchFoodItemsI18n', []))
-    );
-  }
-
   /* GET foodItems whose name contains search term */
   searchFoodItems(term: string): Observable<FoodItem[]> {
     term = term.trim();
@@ -68,10 +41,7 @@ export class FoodItemsService {
     
     
     const url = `${this.foodItemsUrl}/search/`
-    return this.http.get<Results<FoodItem>>(url, options)
-      //TODO error handling?
-      // unwrap the "result" object content to get the inner food items
-      .pipe(map(obj => obj.results))
+    return this.http.get<FoodItem[]>(url, options)
       .pipe(
         catchError(this.handleError<FoodItem[]>('searchFoodItems', []))
       );
@@ -106,10 +76,7 @@ export class FoodItemsService {
         .subscribe()
         */
 
-      return this.http.get<ResultsI18n>(url, options)
-        //TODO error handling?
-        // unwrap the "result" object content to get the inner food items. 
-        .pipe(map(resI18n => resI18n.results))
+      return this.http.get<(FoodItem|FoodItemTranslation)[][]>(url, options)
         .pipe(
           catchError(this.handleError<(FoodItem|FoodItemTranslation)[][]>('searchFoodItemsI18n', []))
         );

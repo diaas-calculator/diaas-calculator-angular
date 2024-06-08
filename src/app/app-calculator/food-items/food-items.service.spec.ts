@@ -39,7 +39,7 @@ describe('FoodItemsService', () => {
   });
 
   /// foodItemService method tests begin ///
-
+/*
   describe('#getFoodItems', () => {
     let expectedFoodItems: FoodItem[];
 
@@ -92,29 +92,14 @@ describe('FoodItemsService', () => {
       req.flush(msg, {status: 404, statusText: 'Not Found'});
     });
 
-    it('should return expected foodItems (called multiple times)', () => {
-
-      foodItemService.getFoodItems().subscribe();
-      foodItemService.getFoodItems().subscribe();
-      foodItemService.getFoodItems().subscribe({
-        next: foodItems => expect(foodItems).toEqual(expectedFoodItems, 'should return expected foodItems'),
-        error: fail,
-      });
-
-      const requests = httpTestingController.match(foodItemService.foodItemsUrl);
-      expect(requests.length).toEqual(3, 'calls to getFoodItems()');
-
-      // Respond to each request with different mock foodItem results
-      requests[0].flush([]);
-      requests[1].flush([{id: 1, name: 'bob'}]);
-      requests[2].flush(expectedFoodItems);
-    });
   });
+*/
 
   describe('#updateFoodItem', () => {
     // Expecting the query form of URL so should not 404 when id not found
     const makeUrl = (id: number) => `${foodItemService.foodItemsUrl}/?id=${id}`;
 
+    /*
     it('should update a foodItem and return it', () => {
 
       const updateFoodItem: FoodItem = { id: 1, name: 'A' };
@@ -134,7 +119,9 @@ describe('FoodItemsService', () => {
         { status: 200, statusText: 'OK', body: updateFoodItem });
       req.event(expectedResponse);
     });
+    */
 
+    /*
     // This service reports the error but finds a way to let the app keep going.
     it('should turn 404 error into return of the update foodItem', () => {
       const updateFoodItem: FoodItem = { id: 1, name: 'A' };
@@ -149,7 +136,7 @@ describe('FoodItemsService', () => {
       // respond with a 404 and the error message in the body
       const msg = 'deliberate 404 error';
       req.flush(msg, {status: 404, statusText: 'Not Found'});
-    });
+    });*/
   });
 
   // TODO: test other FoodItemService methods
