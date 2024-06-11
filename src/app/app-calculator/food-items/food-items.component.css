@@ -1,7 +1,12 @@
 /* Food-itemComponent's private CSS styles */
 .search input {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
+
+.food-type-filter form {
+  margin: 0.5rem 0;
+}
+
 
 .food-items {
   list-style-type: none;
