@@ -22,6 +22,8 @@ export class FoodItemsComponent implements OnInit {
   foodItemDetails: FoodItem | undefined; // the foodItem currently being edited
   foodItemName = ''; // the food item name being searched
   currentMixComponent: MixComponent = MixComponent.currentMixComponent;
+  currentNameFilter = '';
+  currentFoodTypeFilter = 'all';
 
   constructor(private foodItemsService: FoodItemsService) {}
 
@@ -33,7 +35,7 @@ export class FoodItemsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.search("");
+    this.search();
   }
 
   getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): object {
@@ -71,15 +73,14 @@ export class FoodItemsComponent implements OnInit {
     this.foodItemDetails = undefined;
   }
 
-  search(searchTerm: string) {
+  search() {
     let lang : string|null = sessionStorage.getItem('lang');
     this.foodItemDetails = undefined;
 
     if(lang && lang !== 'en'){
       //TODO error handling?
-      console.log("lang: " + lang)
       this.foodItemsService
-        .searchFoodItemsI18n(searchTerm, lang)
+        .searchFoodItemsI18n(this.currentNameFilter, this.currentFoodTypeFilter, lang)
         .subscribe(
           foodItemsI18n => (this.foodItems = foodItemsI18n.map(
             fiI18n => {
@@ -92,13 +93,24 @@ export class FoodItemsComponent implements OnInit {
         );
     }
     else{
-      console.log("no lang or en lang")
       this.foodItemsService
-        .searchFoodItems(searchTerm)
+        .searchFoodItems(this.currentNameFilter, this.currentFoodTypeFilter)
         .subscribe(foodItems => (this.foodItems = foodItems));
     }
 
   }
+
+  setFoodTypeFilter(foodType: string){
+    this.currentFoodTypeFilter = foodType;
+    this.search();
+  }
+
+  
+  setNameFilter(foodName: string){
+    this.currentNameFilter = foodName;
+    this.search();
+  }
+
 
   update(foodItemName: string) {
     if (foodItemName && this.foodItemDetails && this.foodItemDetails.name !== foodItemName) {

@@ -1,19 +1,34 @@
 <h2>Select food items</h2>
+<div class="food-type-filter">
+  <label for="food-type-filter">Food type: </label>
+  <form action="">
+    <input type="radio" name="food-type" checked (click)="setFoodTypeFilter('all')"> All
+    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Grains')"> Grains
+    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Nuts and seeds')"> Nuts and seeds
+    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Legumes')"> Legumes
+    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Eggs and meat')"> Eggs and meat
+    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Dairy')"> Dairy
+  </form>
+  <br/>
+
+</div>
+
+
 <div class="search">
   <label for="foodItem-name">Food item name: </label>
-  <input type="text" [(ngModel)]="foodItemName" id="foodItem-name"  (keydown.enter)="search(foodItemName)">
+  <input type="text" [(ngModel)]="foodItemName" id="foodItem-name"  (keydown.enter)="setNameFilter(foodItemName)">
 
   <!--
   <button type="button" [disabled]="!foodItemName"
     (click)="add(foodItemName)">Add foodItem</button>
 -->
 
-  <button type="button" (click)="search(foodItemName)">
+  <button type="button" (click)="setNameFilter(foodItemName)">
     Search
   </button>
 
-  <button type="button" (click)="foodItemName = ''; search('')">
-    Clear search
+  <button type="button" (click)="foodItemName = ''; setNameFilter('')">
+    Clear name
   </button>
 </div>
 

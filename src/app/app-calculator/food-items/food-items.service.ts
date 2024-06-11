@@ -32,13 +32,8 @@ export class FoodItemsService {
   }
 
   /* GET foodItems whose name contains search term */
-  searchFoodItems(term: string): Observable<FoodItem[]> {
-    term = term.trim();
-
-    // Add safe, URL encoded search parameter if there is a search term
-    const options = term ?
-     { params: new HttpParams().set('name', term) } : {};
-    
+  searchFoodItems(foodNameFilter: string, foodTypeFilter: string): Observable<FoodItem[]> {
+    const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, "")
     
     const url = `${this.foodItemsUrl}/search/`
     return this.http.get<FoodItem[]>(url, options)
@@ -48,26 +43,12 @@ export class FoodItemsService {
   }
 
     /* GET foodItems whose name contains search term with a translation */
-     searchFoodItemsI18n(term: string, lang: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
-      term = term.trim();
-  
-      // Add safe, URL encoded search parameter if there is a search term
-      const options = term ?
-        { 
-          params: new HttpParams()
-            .set('name', term)
-            .set('lang', lang)
-        } : 
-        { 
-          params: new HttpParams()
-            .set('lang', lang)
-        };
-      
+     searchFoodItemsI18n(foodNameFilter: string, foodTypeFilter: string, lang: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
+      const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, lang)
         
       const url = `${this.foodItemsUrlI18n}/search/`
       /*
       //debug
-      console.log("appel get")
       this.http.get<ResultsI18n<FoodItemI18n>>(url, options)
         .pipe(map(resI18n => resI18n.results))
         .pipe(
@@ -81,6 +62,34 @@ export class FoodItemsService {
           catchError(this.handleError<(FoodItem|FoodItemTranslation)[][]>('searchFoodItemsI18n', []))
         );
         
+    }
+
+    buildHttpParamsOptions(foodNameFilter: string, foodTypeFilter: string, lang: string): object{
+      foodNameFilter = foodNameFilter.trim();
+      // Add safe, URL encoded search parameter if there is a filter
+      let options;
+      if(foodNameFilter || foodTypeFilter || lang){
+        let myParams: HttpParams = new HttpParams()
+        if(foodNameFilter){
+          myParams = myParams.append('name', foodNameFilter);
+        }
+        if(foodTypeFilter && foodTypeFilter != "all"){
+          myParams = myParams.append('food_type', foodTypeFilter);
+        }
+        if(lang){
+          myParams = myParams.append('lang', lang);
+        }
+
+        options = 
+        { 
+          params: myParams 
+        };
+      }
+      else{
+        options = {};
+      }
+
+      return options;
     }
 
 

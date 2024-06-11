@@ -49,11 +49,9 @@ export class MixComponent implements OnInit {
       MixComponent.currentMixComponent = this;
     }
    
-   console.log("mix component ngOnInit");
   }
 
   ngOnDestroy(): void {
-    console.log("mix component ngOnDestroy");
   }
 
 
