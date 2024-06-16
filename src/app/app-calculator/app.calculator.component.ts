@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MixComponent } from './mix/mix.component';
 import { FoodItemsComponent } from './food-items/food-items.component';
 import { LangComponent } from './lang/lang.component';
+import { AdvancedOptionsComponent } from './advanced-options/advanced-options.component';
 
 @Component({
   standalone: true,
@@ -13,7 +14,8 @@ import { LangComponent } from './lang/lang.component';
     CommonModule,
     MixComponent,
     FoodItemsComponent,
-    LangComponent
+    LangComponent,
+    AdvancedOptionsComponent
   ],
   styleUrls: ['./app.calculator.component.css']
 })

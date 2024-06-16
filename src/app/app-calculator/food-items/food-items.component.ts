@@ -75,12 +75,17 @@ export class FoodItemsComponent implements OnInit {
 
   search() {
     let lang : string|null = sessionStorage.getItem('lang');
+    let showHidden : string|null = sessionStorage.getItem('showHidden');
+    let showHiddenStr: string = "false"
+    if(showHidden){
+      showHiddenStr = showHidden
+    }
     this.foodItemDetails = undefined;
 
     if(lang && lang !== 'en'){
       //TODO error handling?
       this.foodItemsService
-        .searchFoodItemsI18n(this.currentNameFilter, this.currentFoodTypeFilter, lang)
+        .searchFoodItemsI18n(this.currentNameFilter, this.currentFoodTypeFilter, lang, showHiddenStr)
         .subscribe(
           foodItemsI18n => (this.foodItems = foodItemsI18n.map(
             fiI18n => {
@@ -94,7 +99,7 @@ export class FoodItemsComponent implements OnInit {
     }
     else{
       this.foodItemsService
-        .searchFoodItems(this.currentNameFilter, this.currentFoodTypeFilter)
+        .searchFoodItems(this.currentNameFilter, this.currentFoodTypeFilter, showHiddenStr)
         .subscribe(foodItems => (this.foodItems = foodItems));
     }
 

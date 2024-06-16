@@ -66,6 +66,17 @@
   align-items: center;
 }
 
+.food-items .score-letter-and-name-hidden {
+  padding: 0.5rem 0.4rem;
+  color: white;
+  background-color:  #bfbfbf;
+  margin-right: 0.4rem;
+  border-radius: 4px 0 0 4px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
 
 .food-items .score-letter {
   background-color: white;
@@ -145,6 +156,8 @@ div.food-item-details-name {
   padding: .25rem;
   margin-bottom: 20px
 }
+
+
 
 
 /* Food item details*/

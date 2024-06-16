@@ -39,7 +39,7 @@ a {
 button {
   background-color: #eee;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   cursor: pointer;
   color: black;
   font-size: 1.2rem;
@@ -56,6 +56,15 @@ button:disabled {
   background-color: #eee;
   color: #aaa;
   cursor: auto;
+}
+
+.button-help {
+  border-radius: 70%;
+  color: black;
+  font-size: 1rem;
+  margin-right: 0.6rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
 }
 
 /* Navigation link styles */

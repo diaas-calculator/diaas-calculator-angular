@@ -1,5 +1,5 @@
 <!-- TODO some hover animation + nicer feedback to user when switching lang + add english flag-->
 <div class="lang">
     <img class="flag" [ngStyle]="lang==='en'? this.getSelectedStyle() : this.getNotSelectedStyle()" src="assets/img/english_flag.svg" alt="English language" title="English language" width="30rem" (click)="this.setLang('en')">
-    <img class="flag" [ngStyle]="lang==='fr'? this.getSelectedStyle() : this.getNotSelectedStyle()" src="assets/img/french_flag.jpg" alt="French translation" title="French translation" width="30rem" (click)="this.setLang('fr')">
-  </div>
+    <img class="flag" [ngStyle]="lang==='fr'? this.getSelectedStyle() : this.getNotSelectedStyle()" src="assets/img/french_flag.jpg" alt="French translation" title="French translation" width="30rem" (click)="this.setLang('fr')"><br/>
+</div>

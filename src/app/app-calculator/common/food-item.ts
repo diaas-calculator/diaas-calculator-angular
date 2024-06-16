@@ -7,21 +7,14 @@ export interface FoodItem extends ScoredObject {
   score_type: String,
   protein_content_cooked_state: String,
   diaas_cooked_state: String,
-  histidine_score: number,
-  isoleucine_score: number,
-  leucine_score: number,
-  lysine_score: number,
-  saa_score: number,
-  aaa_score: number,
-  threonine_score: number,
-  tryptophane_score: number,
-  valine_score: number,
   // for mix computations
   food_weight: number,
   protein_weight: number,
   reference_link: String,
   reference_details: String,
   comment: String,
+  hidden: boolean,
+  greenhouse_gas: number
 }
 
 export interface FoodItemTranslation{

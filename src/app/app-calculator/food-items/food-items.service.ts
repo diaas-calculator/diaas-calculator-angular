@@ -32,8 +32,8 @@ export class FoodItemsService {
   }
 
   /* GET foodItems whose name contains search term */
-  searchFoodItems(foodNameFilter: string, foodTypeFilter: string): Observable<FoodItem[]> {
-    const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, "")
+  searchFoodItems(foodNameFilter: string, foodTypeFilter: string, showHidden: string): Observable<FoodItem[]> {
+    const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, "", showHidden)
     
     const url = `${this.foodItemsUrl}/search/`
     return this.http.get<FoodItem[]>(url, options)
@@ -43,8 +43,8 @@ export class FoodItemsService {
   }
 
     /* GET foodItems whose name contains search term with a translation */
-     searchFoodItemsI18n(foodNameFilter: string, foodTypeFilter: string, lang: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
-      const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, lang)
+     searchFoodItemsI18n(foodNameFilter: string, foodTypeFilter: string, lang: string, showHidden: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
+      const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, lang, showHidden)
         
       const url = `${this.foodItemsUrlI18n}/search/`
       /*
@@ -64,11 +64,11 @@ export class FoodItemsService {
         
     }
 
-    buildHttpParamsOptions(foodNameFilter: string, foodTypeFilter: string, lang: string): object{
+    buildHttpParamsOptions(foodNameFilter: string, foodTypeFilter: string, lang: string, showHidden: string): object{
       foodNameFilter = foodNameFilter.trim();
       // Add safe, URL encoded search parameter if there is a filter
       let options;
-      if(foodNameFilter || foodTypeFilter || lang){
+      if(foodNameFilter || foodTypeFilter || lang || showHidden){
         let myParams: HttpParams = new HttpParams()
         if(foodNameFilter){
           myParams = myParams.append('name', foodNameFilter);
@@ -78,6 +78,9 @@ export class FoodItemsService {
         }
         if(lang){
           myParams = myParams.append('lang', lang);
+        }
+        if(showHidden){
+          myParams = myParams.append('show_hidden', showHidden);
         }
 
         options = 

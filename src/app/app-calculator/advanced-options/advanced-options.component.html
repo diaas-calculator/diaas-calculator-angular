@@ -1,0 +1,11 @@
+<div class="advanced-options">
+    <button id="advanced-options-button" (click)="showAdvancedOptions=!showAdvancedOptions">Show/Hide advanced options</button>
+    <div class="advanced-options-inside" *ngIf="showAdvancedOptions">
+      <label for="show-hidden-filter"><b>Show hidden</b></label>&nbsp;
+      <button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="Show less relevant data (will appear with grey background)" triggers="click:blur">?</button>
+      <form action="">
+        <input type="radio" name="show-hidden" [checked]="this.showHidden === 'false'" (click)="setShowHidden('false')">No<br/>
+        <input type="radio" name="show-hidden" [checked]="this.showHidden === 'true'"  (click)="setShowHidden('true')">Yes
+      </form>
+    </div>
+</div>

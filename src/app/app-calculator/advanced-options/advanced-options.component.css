@@ -1,0 +1,26 @@
+.advanced-options {
+    text-align: right;
+  }
+  
+#advanced-options-button {
+    background-color: #eee;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    color: black;
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+}
+  
+#advanced-options-button:hover {
+    background-color: black;
+    color: white;
+}
+#advanced-options-button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+}

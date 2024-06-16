@@ -34,7 +34,9 @@
 
 <ul class="food-items">
   <li *ngFor="let foodItem of foodItems">
-    <div class="score-letter-and-name"><span class="score-letter" ngbTooltip="{{foodItem.score_type}}">{{this.getScoreLetter(foodItem.score_type)}}</span>&nbsp;<span class="name">{{foodItem.name}}</span></div>
+    <div [ngClass]="foodItem.hidden ? 'score-letter-and-name-hidden' : 'score-letter-and-name'">
+      <span class="score-letter" ngbTooltip="{{foodItem.score_type}}">{{this.getScoreLetter(foodItem.score_type)}}</span>&nbsp;
+      <span class="name">{{foodItem.name}}</span></div>
     <div class="diaas">
       <table>
         <tr>
@@ -84,7 +86,10 @@
 	<div class="modal-body">
     <div class="food-item-details-name">{{foodItemDetails?.name}}</div>
     <div><span class="fid-title">Score type: </span>{{foodItemDetails?.score_type}}</div>
-    <div><span class="fid-title">Protein content: </span>{{foodItemDetails?.protein_content}} <button type="button" class="btn btn-outline-secondary" ngbTooltip="Weight of protein per 100g of food" triggers="click:blur">?</button></div>
+    <div><span class="fid-title">
+      Protein content: </span>{{foodItemDetails?.protein_content}} 
+      <button type="button" class="btn btn-outline-secondary" ngbTooltip="Weight of protein per 100g of food" triggers="click:blur">?</button>
+    </div>
     <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
     <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
     <div><span class="fid-title">Cooked state for DIAAS computation as per the study: </span>{{foodItemDetails?.diaas_cooked_state}}</div>
