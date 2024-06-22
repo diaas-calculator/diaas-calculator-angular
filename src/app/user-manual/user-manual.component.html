@@ -29,7 +29,7 @@
         </ul>
         <p>To have more information, click the &quot;View details&quot; button:</p>
         <ul>
-        <li><p><em>Score type</em>. Built as : <code>&lt;score-standard&gt;-[&lt;animal-model&gt;]-&lt;digestibility-model&gt;</code>. All the categories below are given from most precise to least precise data for human interpolation (see <a href="/diaas-information">DIAAS information</a> page for more details*):</p>
+        <li><p><em>Score type</em>. Built as : <code>&lt;score-standard&gt;-[&lt;animal-model&gt;]-&lt;digestibility-model&gt;</code>. All the categories below are given from most precise to least precise data for human interpolation (see <a href="/diaas-information">DIAAS information</a> page for more details):</p>
         <ul>
         <li><p><code>&lt;score-standard&gt;</code> :</p>
         <ul>
@@ -45,10 +45,11 @@
         <li><em>rats</em></li>
         </ul>
         </li>
-        <li><p><code>&lt;digestibility-model&gt;</code> (invivo):</p>
+        <li><p><code>&lt;digestibility-model&gt;</code> (invivo). The explanation of the different models is out of scope of this documentation and you shouldn&#39;t worry about that. Just remember that using a different model may explain differences in the results when comparing studies and that they are given here from most precise to least precise.</p>
         <ul>
         <li><em>TID</em> : <em>true ileal digestibility</em> (sometimes called <em>real ileal digestibility</em>)</li>
         <li><em>SID</em> : <em>standardized ileal digestibility</em></li>
+        <li><em>STTD</em> : <em>standardized total tract digestibility</em></li>
         <li><em>TFPD</em> : <em>True fecal protein digestibility</em></li>
         <li><em>AFD</em> : <em>Apparent Fecal digestibility</em> </li>
         </ul>
@@ -64,10 +65,11 @@
         </li>
         <li><em>Food type</em></li>
         <li><em>Cooked state for protein content</em> : this is the cooked state related to the protein content figure provided. You should use it when you weight your ingredients. We almost always display the cooked state as crude to facilitate protein content comparison between food items. And it&#39;s more precise because weight may change for cooked grains and legumes depending on how long they were cooked for and how much water they absorbed.</li>
-        <li><em>Cooked state for DIAAS computation as per the study</em> : this is the state of the product for which the DIAAS was evaluated in the study. For precise results, you should eat the product in that state. For example, if you&#39;re looking at the <em>DIAAS</em> of a flour: ideally the &quot;Cooked state for protein content&quot; should be given <em>crude</em> so that you can weight the flour before cooking it, and the <em>Cooked state for DIAAS computation as per the study</em> should be <em>baked</em> if you&#39;re going to bake the flour in an oven. </li>
+        <li><em>Cooked state for DIAAS</em> : this is the state of the product for which the DIAAS was evaluated in the study. For precise results, you should eat the product in that state. For example, if you&#39;re looking at the <em>DIAAS</em> of a flour: ideally the &quot;Cooked state for protein content&quot; should be given <em>crude</em> so that you can weight the flour before cooking it, and the <em>Cooked state for DIAAS</em> should be <em>baked</em> if you&#39;re going to bake the flour in an oven. </li>
         <li><em>Reference</em> : Link to the study that established the <em>DIAAS</em> value</li>
         <li><em>Comment</em> : any precision about the data provided.</li>
         </ul>
+        
         
         
         <h1 id="information-about-the-mix">Information about the mix</h1>
