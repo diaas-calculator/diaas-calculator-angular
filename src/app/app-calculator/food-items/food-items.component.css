@@ -27,6 +27,11 @@
   grid-area: score-letter-and-name;
 }
 
+.food-items li .score-letter-and-name-hidden {
+  grid-area: score-letter-and-name;
+}
+
+
 .food-items li .diaas {
   grid-area: diaas;
 }
