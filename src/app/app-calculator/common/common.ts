@@ -29,3 +29,11 @@ export function getScoreLetter(scoreStandard: String): String{
   return scoreStandard.startsWith("DIAAS")?"D":"P";
 }
 
+export function getScoreLetterStyle(scoreStandard: String): object{
+  if(getScoreLetter(scoreStandard) === 'P'){
+    return { 'border': '0.15rem solid orange'}
+  }
+  else{
+    return { 'border': '0.15rem solid green'}
+  }
+}

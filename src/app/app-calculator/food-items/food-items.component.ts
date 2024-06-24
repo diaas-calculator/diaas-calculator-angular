@@ -5,7 +5,7 @@ import { FoodItem, FoodItemTranslation} from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { FoodItemsService } from './food-items.service';
 import { MixComponent } from '../mix/mix.component';
-import { getDiaasStyle, roundOneDecimal, getScoreLetter} from '../common/common';
+import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle} from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -46,6 +46,10 @@ export class FoodItemsComponent implements OnInit {
     return getScoreLetter(scoreStandard);
   }
 
+  getScoreLetterStyle(scoreStandard: String): object{
+    return getScoreLetterStyle(scoreStandard);
+  }
+  
 
   add(name: string): void {
     this.foodItemDetails = undefined;

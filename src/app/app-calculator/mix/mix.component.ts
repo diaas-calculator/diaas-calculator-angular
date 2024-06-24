@@ -5,7 +5,7 @@ import { FoodItem } from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { Mix } from './mix';
 import { MixService } from './mix.service';
-import { getDiaasStyle, roundOneDecimal, getScoreLetter } from '../common/common';
+import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle } from '../common/common';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -81,6 +81,11 @@ export class MixComponent implements OnInit {
   getScoreLetter(scoreStandard: String): String{
     return getScoreLetter(scoreStandard);
   }
+
+  getScoreLetterStyle(scoreStandard: String): object{
+    return getScoreLetterStyle(scoreStandard);
+  }
+  
 
   getMix(): FoodItem[] {
     return this.foodItems;
