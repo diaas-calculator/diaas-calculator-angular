@@ -7,12 +7,17 @@ import { FoodItemsService } from './food-items.service';
 import { MixComponent } from '../mix/mix.component';
 import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle} from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   standalone: true,
   selector: 'app-food-items',
   templateUrl: './food-items.component.html',
-  imports: [ CommonModule, FormsModule, NgbTooltipModule ],
+  imports: [ 
+    CommonModule,
+    FormsModule, 
+    NgbTooltipModule, 
+    DropdownModule],
   providers: [FoodItemsService],
   styleUrls: ['./food-items.component.css']
 })
@@ -24,6 +29,9 @@ export class FoodItemsComponent implements OnInit {
   currentMixComponent: MixComponent = MixComponent.currentMixComponent;
   currentNameFilter = '';
   currentFoodTypeFilter = 'all';
+  currentAaProfileFilter = 'all';
+
+  aaProfileFilters = [ "all", "high-quality", "leu+", "lys+", "saa+", "his+", "ile+", "aaa+", "thr+", "trp+", "val+"  ]
 
   constructor(private foodItemsService: FoodItemsService) {}
 
@@ -89,7 +97,7 @@ export class FoodItemsComponent implements OnInit {
     if(lang && lang !== 'en'){
       //TODO error handling?
       this.foodItemsService
-        .searchFoodItemsI18n(this.currentNameFilter, this.currentFoodTypeFilter, lang, showHiddenStr)
+        .searchFoodItemsI18n(this.currentNameFilter, this.currentFoodTypeFilter, this.currentAaProfileFilter, lang, showHiddenStr)
         .subscribe(
           foodItemsI18n => (this.foodItems = foodItemsI18n.map(
             fiI18n => {
@@ -103,7 +111,7 @@ export class FoodItemsComponent implements OnInit {
     }
     else{
       this.foodItemsService
-        .searchFoodItems(this.currentNameFilter, this.currentFoodTypeFilter, showHiddenStr)
+        .searchFoodItems(this.currentNameFilter, this.currentFoodTypeFilter, this.currentAaProfileFilter, showHiddenStr)
         .subscribe(foodItems => (this.foodItems = foodItems));
     }
 
@@ -111,7 +119,6 @@ export class FoodItemsComponent implements OnInit {
 
   setFoodTypeFilter(foodType: string){
     this.currentFoodTypeFilter = foodType;
-    this.search();
   }
 
   

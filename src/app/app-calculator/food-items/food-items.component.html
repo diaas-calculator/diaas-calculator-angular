@@ -10,9 +10,14 @@
     <input type="radio" name="food-type" (click)="setFoodTypeFilter('Dairy')"> Dairy
   </form>
   <br/>
-
 </div>
-
+<div class="aa-profile-filter">
+  <label for="aa-profile-filter"><b>Amino acid profile:</b></label><br/>
+    <p-dropdown 
+    [options]="aaProfileFilters" 
+    [(ngModel)]="currentAaProfileFilter" 
+    placeholder="Select a profile" />
+</div>
 
 <div class="search">
   <label for="foodItem-name"><b>Food item name:</b></label>

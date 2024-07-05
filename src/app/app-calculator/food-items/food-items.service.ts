@@ -32,8 +32,8 @@ export class FoodItemsService {
   }
 
   /* GET foodItems whose name contains search term */
-  searchFoodItems(foodNameFilter: string, foodTypeFilter: string, showHidden: string): Observable<FoodItem[]> {
-    const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, "", showHidden)
+  searchFoodItems(foodNameFilter: string, foodTypeFilter: string, aaProfileFilter: string, showHidden: string): Observable<FoodItem[]> {
+    const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, aaProfileFilter, "", showHidden)
     
     const url = `${this.foodItemsUrl}/search/`
     return this.http.get<FoodItem[]>(url, options)
@@ -42,9 +42,9 @@ export class FoodItemsService {
       );
   }
 
-    /* GET foodItems whose name contains search term with a translation */
-     searchFoodItemsI18n(foodNameFilter: string, foodTypeFilter: string, lang: string, showHidden: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
-      const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, lang, showHidden)
+  /* GET foodItems whose name contains search term with a translation */
+  searchFoodItemsI18n(foodNameFilter: string, foodTypeFilter: string, aaProfileFilter: string, lang: string, showHidden: string): Observable<(FoodItem|FoodItemTranslation)[][]> {
+      const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, aaProfileFilter, lang, showHidden)
         
       const url = `${this.foodItemsUrlI18n}/search/`
       /*
@@ -64,7 +64,7 @@ export class FoodItemsService {
         
     }
 
-    buildHttpParamsOptions(foodNameFilter: string, foodTypeFilter: string, lang: string, showHidden: string): object{
+    buildHttpParamsOptions(foodNameFilter: string, foodTypeFilter: string, aaProfileFilter: string, lang: string, showHidden: string): object{
       foodNameFilter = foodNameFilter.trim();
       // Add safe, URL encoded search parameter if there is a filter
       let options;
@@ -75,6 +75,9 @@ export class FoodItemsService {
         }
         if(foodTypeFilter && foodTypeFilter != "all"){
           myParams = myParams.append('food_type', foodTypeFilter);
+        }
+        if(aaProfileFilter && aaProfileFilter != "all"){
+          myParams = myParams.append('aa_profile', aaProfileFilter);
         }
         if(lang){
           myParams = myParams.append('lang', lang);

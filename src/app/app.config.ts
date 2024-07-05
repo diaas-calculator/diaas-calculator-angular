@@ -19,6 +19,8 @@ import { AppRoutes } from './app.routes';
 
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { provideMarkdown } from 'ngx-markdown';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,7 +39,7 @@ export const appConfig: ApplicationConfig = {
         headerName: 'My-Xsrf-Header',
       })
     ),
-
+    importProvidersFrom([BrowserModule, BrowserAnimationsModule]),
     AuthService,
     HttpErrorHandler,
     MessageService,
@@ -57,5 +59,5 @@ export const appConfig: ApplicationConfig = {
       )*/
     ),
     provideProtractorTestingSupport(), // essential for e2e testing
-  ]
+  ],
 };
