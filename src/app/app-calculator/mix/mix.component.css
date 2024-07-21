@@ -1,4 +1,18 @@
 /* MixComponent's private CSS styles*/
+
+/* buttons */
+button:hover, button:focus {
+  color: #eee;
+  background-color: #000;
+}
+
+button {
+  margin: 0.3rem;
+  padding: 0.3rem 0.2rem;
+  justify-self: center;
+}
+
+/* per zone css*/
 .diaas-mix table tr td {
   width: 11.1%;
   text-align: center;
@@ -13,8 +27,8 @@
 .diaas-mix {
   display: grid;
   grid-template-rows: 5rem max-content;
-  grid-template-columns: 25% 35% repeat(2, 5%) 30%;
-  grid-template-areas: "total-label diaas protein-content-and-weight quantity dummy";
+  grid-template-columns: 25% 35% repeat(2, 5%) 10% 20%;
+  grid-template-areas: "total-label diaas protein-content-and-weight quantity clear-mix dummy";
   margin: 1rem 0;
   align-items: center;
   background-color: #eee;
@@ -47,6 +61,9 @@
   text-align: center;
 }
 
+.diaas-mix .clear-mix {
+  grid-area: clear-mix;
+}
 
 .diaas-mix .dummy {
   grid-area: dummy;
@@ -109,11 +126,6 @@
   text-align: center;
 }
 
-.food-items li button {
-  margin: 0.3rem;
-  padding: 0.3rem 0.2rem;
-  justify-self: center;
-}
 
 .food-items li button.editProteinContent {
   grid-area: editProteinContent;
@@ -125,11 +137,6 @@
 
 .food-items li button.remove {
   grid-area: remove;
-}
-
-.food-items li button:hover, .food-items li button:focus {
-  color: #eee;
-  background-color: #000;
 }
 
 .food-items .score-letter-and-name {
@@ -175,7 +182,7 @@
 /* average screen: leave more % to diaas */
 @media (max-width: 1200px) {
   .diaas-mix {
-    grid-template-columns: 15% 45% repeat(2, 5%) 30%;
+    grid-template-columns: 15% 45% repeat(2, 5%) 10% 20%;
   }
 
   .food-items li {
@@ -187,11 +194,11 @@
   .diaas-mix {
     grid-template-rows: 4rem max-content;
     grid-template-columns: 
-      repeat(4, 25%)
-      repeat(4, 25%);
+      repeat(5, 20%)
+      repeat(5, 20%);
     grid-template-areas: 
-      "total-label diaas diaas diaas"
-      "total-label protein-content-and-weight quantity dummy";
+      "total-label diaas diaas diaas diaas"
+      "total-label protein-content-and-weight quantity clear-mix dummy";
   }
 
   .food-items li {

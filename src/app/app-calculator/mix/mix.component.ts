@@ -192,4 +192,9 @@ export class MixComponent implements OnInit {
   roundWeightForDisplay(myNumber: number): number {
     return roundOneDecimal(myNumber);
   }
+
+  clearMix(): void {
+    this.foodItems.length = 0;
+  }
+
 }

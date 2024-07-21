@@ -1,4 +1,7 @@
 export interface ScoredObject {
+    // diaas if only diaas foodItems are present in the mix
+    // else pdcaas
+    score_type: String,
     histidine_score: number,
     isoleucine_score: number,
     leucine_score: number,
@@ -8,5 +11,7 @@ export interface ScoredObject {
     threonine_score: number,
     tryptophane_score: number,
     valine_score: number,
+    protein_content: number,
+    protein_weight: number
   }
   
