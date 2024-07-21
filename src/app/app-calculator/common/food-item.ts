@@ -5,8 +5,6 @@ export interface FoodItem extends ScoredObject {
   food_type: String,
   protein_content_cooked_state: String,
   diaas_cooked_state: String,
-  // for mix computations
-  food_weight: number,
   reference_link: String,
   reference_details: String,
   comment: String,

@@ -12,6 +12,7 @@ export interface ScoredObject {
     tryptophane_score: number,
     valine_score: number,
     protein_content: number,
-    protein_weight: number
+    protein_weight: number,
+    food_weight: number,
   }
   
