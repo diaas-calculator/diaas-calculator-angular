@@ -1,6 +1,23 @@
+import { FoodItem } from '../common/food-item'
 import { ScoredObject } from '../common/scored-object'
 
-// A mix of foodItems
-export interface Mix extends ScoredObject {
-  }
-  
+// Holds the mix DIAAS and protein/food weights values (most of wich are computed front-side)
+export interface MixDIAASAndWeights extends ScoredObject {
+}
+
+
+// The food with weight as retrieved from the backend when sql joining Mix to Food through mix_food table
+// (the value of the food_weight is outside of the Food struct at this point)
+export interface MixFoodJoin{
+  // the mix id
+  id: number,
+  food_weight: number,
+  food: FoodItem
+}
+
+// The mix details from the database
+export interface MixDetails{
+  id: number,
+  name: String,
+  description: String
+}

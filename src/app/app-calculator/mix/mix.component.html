@@ -1,4 +1,26 @@
-<h2>Diaas calculation for the mix of selected food items</h2>
+<h2>Diaas calculation for the current mix</h2>
+<div class="mix-controls">
+  <div class="select-example-mix">
+    <div class="select-example-mix-label"><b>Choose an example mix or compose your own</b></div>
+      <p-dropdown 
+        [options]="exampleMixes" 
+        [(ngModel)]="exampleMixDetails" 
+        optionLabel="name" 
+        placeholder="Select example mix"/>
+  </div>
+
+  <button type="button" class="load-example-mix" title="Load example mix"
+    (click)="this.loadExampleMix()">
+    Load example mix
+  </button>
+
+  <button type="button" class="clear-mix" title="Clear mix"
+    (click)="this.clearMixAll()">
+    Clear mix
+  </button>
+</div>
+
+
 <div class="diaas-mix">
   <span class="total-label">Total</span>
   <table class="diaas">
@@ -14,32 +36,50 @@
       <td><b>val</b></td>
     </tr>
     <tr>
-      <td [ngStyle]=getDiaasStyle(mix.histidine_score,mix)>{{this.roundScoreForDisplay(mix.histidine_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.isoleucine_score,mix)>{{this.roundScoreForDisplay(mix.isoleucine_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.leucine_score,mix)>{{this.roundScoreForDisplay(mix.leucine_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.lysine_score,mix)>{{this.roundScoreForDisplay(mix.lysine_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.saa_score,mix)>{{this.roundScoreForDisplay(mix.saa_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.aaa_score,mix)>{{this.roundScoreForDisplay(mix.aaa_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.threonine_score,mix)>{{this.roundScoreForDisplay(mix.threonine_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.tryptophane_score,mix)>{{this.roundScoreForDisplay(mix.tryptophane_score)}}</td>
-      <td [ngStyle]=getDiaasStyle(mix.valine_score,mix)>{{this.roundScoreForDisplay(mix.valine_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.histidine_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.histidine_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.isoleucine_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.isoleucine_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.leucine_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.leucine_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.lysine_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.lysine_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.saa_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.saa_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.aaa_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.aaa_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.threonine_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.threonine_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.tryptophane_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.tryptophane_score)}}</td>
+      <td [ngStyle]=getDiaasStyle(mixDIAASAndWeights.valine_score,mixDIAASAndWeights)>{{this.roundScoreForDisplay(mixDIAASAndWeights.valine_score)}}</td>
     </tr>
   </table>
 
   <div class="protein-content-and-weight">
-    <span class="protein-content" title="Average protein content per 100g">{{this.roundWeightForDisplay(mix.protein_content)}}g </span>
+    <span class="protein-content" title="Average protein content per 100g">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}g </span>
     <br/>
-    <span class="protein-weight" title="Total protein weight">{{this.roundWeightForDisplay(mix.protein_weight)}}g</span>  
+    <span class="protein-weight" title="Total protein weight">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
   </div>
-  <span class="quantity" title="Total food weight">{{this.roundWeightForDisplay(mix.food_weight)}}g </span>
-  
-  <button type="button" class="clear-mix" title="Clear mix"
-    (click)="this.clearMix()">
-    Clear mix
-  </button>
+  <span class="quantity" title="Total food weight">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
+
+  <button type="button" title="View mix details"
+  (click)="openMixDetails(content)">
+  View mix details
+</button>
+
   <div class="dummy">
   </div>
 </div>
+
+
+<!-- mix details modal -->
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="mixmodal-basic-title">Mix details</h4>
+    <!-- for some reason the cross gains last focus status and therefore is black upon opening the modal -->
+		<!--<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>-->
+	</div>
+	<div class="modal-body">
+    <div class="mix-details-name">{{exampleMixDetails.name}}</div>
+    <div><span class="fid-title">Description: </span>{{exampleMixDetails.description}}</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+	</div>
+</ng-template>
 
 
 

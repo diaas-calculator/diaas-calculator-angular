@@ -13,6 +13,18 @@ button {
 }
 
 /* per zone css*/
+.mix-controls .select-example-mix {
+  margin: 0.5rem 0;
+}
+
+.mix-controls .select-example-mix .select-example-mix-label {
+  margin: 0.5rem 0;
+}
+
+.mix-controls .load-example-mix {
+  margin: 0.5rem 0;
+}
+
 .diaas-mix table tr td {
   width: 11.1%;
   text-align: center;
@@ -26,9 +38,9 @@ button {
 
 .diaas-mix {
   display: grid;
-  grid-template-rows: 5rem max-content;
+  grid-template-rows: 6rem max-content;
   grid-template-columns: 25% 35% repeat(2, 5%) 10% 20%;
-  grid-template-areas: "total-label diaas protein-content-and-weight quantity clear-mix dummy";
+  grid-template-areas: "total-label diaas protein-content-and-weight quantity view-details dummy";
   margin: 1rem 0;
   align-items: center;
   background-color: #eee;
@@ -61,9 +73,11 @@ button {
   text-align: center;
 }
 
-.diaas-mix .clear-mix {
-  grid-area: clear-mix;
+.diaas-mix .view-details {
+  grid-area: view-details;
 }
+
+
 
 .diaas-mix .dummy {
   grid-area: dummy;
@@ -198,7 +212,7 @@ button {
       repeat(5, 20%);
     grid-template-areas: 
       "total-label diaas diaas diaas diaas"
-      "total-label protein-content-and-weight quantity clear-mix dummy";
+      "total-label protein-content-and-weight quantity view-details dummy";
   }
 
   .food-items li {
@@ -210,4 +224,13 @@ button {
       "score-letter-and-name diaas diaas diaas diaas diaas"
       "score-letter-and-name protein-content-and-weight quantity editProteinContent editQuantity remove";
   }
+}
+
+div.mix-details-name {
+  background-color: #435B60;
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  padding: .25rem;
+  margin-bottom: 20px
 }

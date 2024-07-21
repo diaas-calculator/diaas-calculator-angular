@@ -1,18 +1,19 @@
-<h2>Select food items</h2>
+<h2>Food items</h2>
+<div class="select-food-items"><b>Select food items to include in the mix</b></div>
 <div class="food-type-filter">
-  <label for="food-type-filter"><b>Food type:</b></label>
+  <b>Food type:</b>
   <form action="">
-    <input type="radio" name="food-type" checked (click)="setFoodTypeFilter('all')"> All<br/>
-    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Grains')"> Grains
-    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Nuts and seeds')"> Nuts and seeds
-    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Legumes')"> Legumes<br/>
-    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Eggs and meat')"> Eggs and meat
-    <input type="radio" name="food-type" (click)="setFoodTypeFilter('Dairy')"> Dairy
+    <input type="radio" name="Food type: all" checked (click)="setFoodTypeFilter('all')"> All<br/>
+    <input type="radio" name="Food type: Grains" (click)="setFoodTypeFilter('Grains')"> Grains
+    <input type="radio" name="Food type: Nuts and seeds" (click)="setFoodTypeFilter('Nuts and seeds')"> Nuts and seeds
+    <input type="radio" name="Food type: Legumes" (click)="setFoodTypeFilter('Legumes')"> Legumes<br/>
+    <input type="radio" name="Food type: Eggs and meat" (click)="setFoodTypeFilter('Eggs and meat')"> Eggs and meat
+    <input type="radio" name="Food type: Dairy" (click)="setFoodTypeFilter('Dairy')"> Dairy
   </form>
   <br/>
 </div>
 <div class="aa-profile-filter">
-  <label for="aa-profile-filter"><b>Amino acid profile:</b></label><br/>
+  <b>Amino acid profile:</b><br/>
     <p-dropdown 
     [options]="aaProfileFilters" 
     [(ngModel)]="currentAaProfileFilter" 

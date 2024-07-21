@@ -1,4 +1,8 @@
 /* Food-itemComponent's private CSS styles */
+.select-food-items {
+  margin: 0.5rem 0;
+}
+
 .food-type-filter form {
   margin: 0.5rem 0;
 }
@@ -167,9 +171,6 @@ div.food-item-details-name {
 }
 
 
-
-
-/* Food item details*/
 div.footer {
   font-style: italic;
 }
