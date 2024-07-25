@@ -23,6 +23,7 @@ export class MixComponent implements OnInit {
   editFoodItemQuantity: FoodItem | undefined; // the foodItem which quantity is currently being edited
   editFoodItemProteinContent: FoodItem | undefined; // the foodItem which protein content is currently being edited
   foodItemName: string = ''; // the food item name being searched
+  foodItemDetails: FoodItem | undefined; // the foodItem currently being edited
   static currentMixComponent: MixComponent;
   mixDIAASAndWeights: MixDIAASAndWeights = this.getInitialMixDIAASAndWeights();
 
@@ -101,6 +102,11 @@ export class MixComponent implements OnInit {
 	openMixDetails(content: TemplateRef<any>) {
 		this.modalService.open(content, { ariaLabelledBy: 'mixmodal-basic-title' });
 	}
+
+	openFoodItemDetail(content: TemplateRef<any>) {
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+	}
+
 
   getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): object {
     return getDiaasStyle(diaasScore, scoredObject);

@@ -3,12 +3,12 @@
 <div class="food-type-filter">
   <b>Food type:</b>
   <form action="">
-    <input type="radio" name="Food type: all" checked (click)="setFoodTypeFilter('all')"> All<br/>
-    <input type="radio" name="Food type: Grains" (click)="setFoodTypeFilter('Grains')"> Grains
-    <input type="radio" name="Food type: Nuts and seeds" (click)="setFoodTypeFilter('Nuts and seeds')"> Nuts and seeds
-    <input type="radio" name="Food type: Legumes" (click)="setFoodTypeFilter('Legumes')"> Legumes<br/>
-    <input type="radio" name="Food type: Eggs and meat" (click)="setFoodTypeFilter('Eggs and meat')"> Eggs and meat
-    <input type="radio" name="Food type: Dairy" (click)="setFoodTypeFilter('Dairy')"> Dairy
+    <input type="radio" name="Food type" checked (click)="setFoodTypeFilter('all')"> All<br/>
+    <input type="radio" name="Food type" (click)="setFoodTypeFilter('Grains')"> Grains
+    <input type="radio" name="Food type" (click)="setFoodTypeFilter('Nuts and seeds')"> Nuts and seeds
+    <input type="radio" name="Food type" (click)="setFoodTypeFilter('Legumes')"> Legumes<br/>
+    <input type="radio" name="Food type" (click)="setFoodTypeFilter('Eggs and meat')"> Eggs and meat
+    <input type="radio" name="Food type" (click)="setFoodTypeFilter('Dairy')"> Dairy
   </form>
   <br/>
 </div>
@@ -72,7 +72,7 @@
 
     <span class="protein-weight" title="Protein content per 100g of food">{{this.roundWeightForDisplay(foodItem.protein_content)}}g</span>
     <button type="button" class="details" title="view details"
-      (click)="foodItemDetails = foodItem; openFoodItemDetail(content)">
+      (click)="foodItemDetails = foodItem; openFoodItemDetail(fooditemmodal)">
       View details
     </button>
 
@@ -84,7 +84,7 @@
 </ul>
 
 <!-- food item details modal -->
-<ng-template #content let-modal>
+<ng-template #fooditemmodal let-modal>
 	<div class="modal-header">
 		<h4 class="modal-title" id="modal-basic-title">Food item details</h4>
 		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>

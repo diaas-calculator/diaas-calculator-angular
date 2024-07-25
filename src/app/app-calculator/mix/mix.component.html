@@ -21,7 +21,7 @@
 </div>
 
 
-<div class="diaas-mix">
+<div id="diaasmix" class="diaas-mix">
   <span class="total-label">Total</span>
   <table class="diaas">
     <tr>
@@ -55,8 +55,8 @@
   </div>
   <span class="quantity" title="Total food weight">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
 
-  <button type="button" title="View mix details"
-  (click)="openMixDetails(content)">
+  <button type="button" title="View mix details" class="view-details"
+  (click)="openMixDetails(mixdetailsmodal)">
   View mix details
 </button>
 
@@ -66,7 +66,7 @@
 
 
 <!-- mix details modal -->
-<ng-template #content let-modal>
+<ng-template #mixdetailsmodal let-modal>
 	<div class="modal-header">
 		<h4 class="modal-title" id="mixmodal-basic-title">Mix details</h4>
     <!-- for some reason the cross gains last focus status and therefore is black upon opening the modal -->
@@ -83,16 +83,40 @@
 
 
 
+<!-- food item details modal TODO put the code in common-->
+<ng-template #fooditemmodal let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Food item details</h4>
+		<!--<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>-->
+	</div>
+	<div class="modal-body">
+    <div class="food-item-details-name">{{foodItemDetails?.name}}</div>
+    <div><span class="fid-title">Score type: </span>{{foodItemDetails?.score_type}}</div>
+    <div><span class="fid-title">
+      Protein content: </span>{{foodItemDetails?.protein_content}} 
+      <button type="button" class="btn btn-outline-secondary" ngbTooltip="Weight of protein per 100g of food" triggers="click:blur">?</button>
+    </div>
+    <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
+    <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
+    <div><span class="fid-title">Cooked state for DIAAS: </span>{{foodItemDetails?.diaas_cooked_state}}</div>
+    <div><span class="fid-title">Reference: </span><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</div>
+    <div><span class="fid-title">Comment: </span>{{foodItemDetails?.comment}}</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+	</div>
+</ng-template>
+
 <ul class="food-items">
   <li *ngFor="let foodItem of foodItems">
     <div class="score-letter-and-name"><span class="score-letter" ngbTooltip="{{foodItem.score_type}}" [ngStyle]=getScoreLetterStyle(foodItem.score_type)>{{this.getScoreLetter(foodItem.score_type)}}</span>&nbsp;<span class="name">{{foodItem.name}}</span></div>
 
     <ng-template #editProteinContentInput>
-      <input #foodItemEditProteinContentInput type="string" class="protein-content" [value]="editFoodItemProteinContent!.protein_content" (blur)="editProteinContent(foodItemEditProteinContentInput.value)" (keydown.enter)="editProteinContent(foodItemEditProteinContentInput.value)"/>
+      <input #foodItemEditProteinContentInput type="string" class="fi-protein-content-span" [value]="editFoodItemProteinContent!.protein_content" (blur)="editProteinContent(foodItemEditProteinContentInput.value)" (keydown.enter)="editProteinContent(foodItemEditProteinContentInput.value)"/>
     </ng-template>
 
     <ng-template #editQuantityInput>
-      <input #foodItemEditQuantityInput type="string" class="quantity" [value]="editFoodItemQuantity!.food_weight" (blur)="editQuantity(foodItemEditQuantityInput.value)" (keydown.enter)="editQuantity(foodItemEditQuantityInput.value)"/>
+      <input #foodItemEditQuantityInput type="string" class="fi-quantity-span" [value]="editFoodItemQuantity!.food_weight" (blur)="editQuantity(foodItemEditQuantityInput.value)" (keydown.enter)="editQuantity(foodItemEditQuantityInput.value)"/>
     </ng-template>
     <div class="diaas">
       <table>
@@ -122,19 +146,23 @@
     </div>
 
     <div class="protein-content-and-weight">
-      <span *ngIf="foodItem!==editFoodItemProteinContent; else editProteinContentInput" class="protein-content" title="Protein content per 100g">{{this.roundWeightForDisplay(foodItem.protein_content)}}g </span>
+      <div class="fi-protein-content">
+        <span *ngIf="foodItem!==editFoodItemProteinContent; else editProteinContentInput" class="fi-protein-content-span" title="Protein content per 100g">{{this.roundWeightForDisplay(foodItem.protein_content)}}g </span>
+        <img class="protein-content-edit-btn" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
+          (click)="editFoodItemProteinContent = foodItem"/>
+      </div>
       <br/>
       <span class="protein-weight" title="Protein weight in mix">{{this.roundWeightForDisplay(foodItem.protein_weight)}}g</span>  
     </div>
-    <span *ngIf="foodItem!==editFoodItemQuantity; else editQuantityInput" class="quantity" title="Food weight in mix">{{this.roundWeightForDisplay(foodItem.food_weight)}}g </span>
-    
-    <button *ngIf="foodItem!==editFoodItemProteinContent" type="button" class="editProteinContent" title="edit foodItem protein content"
-      (click)="editFoodItemProteinContent = foodItem">
-      Edit protein content
-    </button>
-    <button *ngIf="foodItem!==editFoodItemQuantity" type="button" class="editQuantity" title="edit foodItem quantity"
-      (click)="editFoodItemQuantity = foodItem">
-      Edit quantity
+    <div class="fi-quantity">
+      <span *ngIf="foodItem!==editFoodItemQuantity; else editQuantityInput" class="fi-quantity-span" title="Food weight in mix">{{this.roundWeightForDisplay(foodItem.food_weight)}}g </span>
+      <img class="fi-quantity-img" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
+        (click)="editFoodItemQuantity = foodItem"/>
+    </div>
+
+    <button type="button" class="fi-view-details" title="view details"
+      (click)="foodItemDetails = foodItem; openFoodItemDetail(fooditemmodal)">
+      View details
     </button>
     <button type="button" class="remove" title="remove foodItem"
       (click)="remove(foodItem)">

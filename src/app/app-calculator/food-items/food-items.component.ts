@@ -8,6 +8,7 @@ import { MixComponent } from '../mix/mix.component';
 import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle} from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownModule } from 'primeng/dropdown';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -33,7 +34,10 @@ export class FoodItemsComponent implements OnInit {
 
   aaProfileFilters = [ "all", "high-quality", "leu+", "lys+", "saa+", "his+", "ile+", "aaa+", "thr+", "trp+", "val+"  ]
 
-  constructor(private foodItemsService: FoodItemsService) {}
+  constructor(
+    private foodItemsService: FoodItemsService, 
+    private router: Router) 
+    {}
 
   @ViewChild('foodItemEditInput')
   set foodItemEditInput(element: ElementRef<HTMLInputElement>) {
@@ -147,6 +151,7 @@ export class FoodItemsComponent implements OnInit {
   addToMix(foodItem: FoodItem): void {
     if(MixComponent.currentMixComponent){
       MixComponent.currentMixComponent.addToMix(foodItem)
+      this.router.navigate(['/protein-diaas-calculator'], {fragment: 'diaasmix'});
     }
     else{
       console.error("internal error: MixComponent.currentMixComponent not initialized");
@@ -165,4 +170,5 @@ export class FoodItemsComponent implements OnInit {
   roundWeightForDisplay(myNumber: number): number {
     return roundOneDecimal(myNumber);
   }
+
 }
