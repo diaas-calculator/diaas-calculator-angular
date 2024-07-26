@@ -12,6 +12,12 @@ button {
   justify-self: center;
 }
 
+/* edit buttons */
+.fi-protein-content-edit-btn, .fi-quantity-edit-button {
+  cursor: pointer;
+}
+
+
 /* per zone css*/
 .mix-controls .select-example-mix {
   margin: 0.5rem 0;

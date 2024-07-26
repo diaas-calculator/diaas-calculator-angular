@@ -70,7 +70,7 @@
       </table>
     </div>
 
-    <span class="protein-weight" title="Protein content per 100g of food">{{this.roundWeightForDisplay(foodItem.protein_content)}}g</span>
+    <span class="protein-weight" title="Protein content per 100g of food" ngbTooltip="Protein content per 100g of food" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}g</span>
     <button type="button" class="details" title="view details"
       (click)="foodItemDetails = foodItem; openFoodItemDetail(fooditemmodal)">
       View details
@@ -93,8 +93,7 @@
     <div class="food-item-details-name">{{foodItemDetails?.name}}</div>
     <div><span class="fid-title">Score type: </span>{{foodItemDetails?.score_type}}</div>
     <div><span class="fid-title">
-      Protein content: </span>{{foodItemDetails?.protein_content}} 
-      <button type="button" class="btn btn-outline-secondary" ngbTooltip="Weight of protein per 100g of food" triggers="click:blur">?</button>
+      Protein content: </span><span ngbTooltip="Weight of protein per 100g of food" triggers="click:blur">{{foodItemDetails?.protein_content}}</span>
     </div>
     <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
     <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>

@@ -49,11 +49,11 @@
   </table>
 
   <div class="protein-content-and-weight">
-    <span class="protein-content" title="Average protein content per 100g">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}g </span>
+    <span class="protein-content" title="Average protein content per 100g" ngbTooltip="Average protein content per 100g" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}g </span>
     <br/>
-    <span class="protein-weight" title="Total protein weight">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
+    <span class="protein-weight" title="Total protein weight" ngbTooltip="Total protein weight" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
   </div>
-  <span class="quantity" title="Total food weight">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
+  <span class="quantity" title="Total food weight" ngbTooltip="Total food weight" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
 
   <button type="button" title="View mix details" class="view-details"
   (click)="openMixDetails(mixdetailsmodal)">
@@ -147,16 +147,16 @@
 
     <div class="protein-content-and-weight">
       <div class="fi-protein-content">
-        <span *ngIf="foodItem!==editFoodItemProteinContent; else editProteinContentInput" class="fi-protein-content-span" title="Protein content per 100g">{{this.roundWeightForDisplay(foodItem.protein_content)}}g </span>
-        <img class="protein-content-edit-btn" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
+        <span *ngIf="foodItem!==editFoodItemProteinContent; else editProteinContentInput" class="fi-protein-content-span" title="Protein content per 100g" ngbTooltip="Protein content per 100g" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}g </span>
+        <img class="fi-protein-content-edit-btn" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
           (click)="editFoodItemProteinContent = foodItem"/>
       </div>
       <br/>
-      <span class="protein-weight" title="Protein weight in mix">{{this.roundWeightForDisplay(foodItem.protein_weight)}}g</span>  
+      <span class="protein-weight" title="Protein weight in mix" ngbTooltip="Protein weight in mix" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_weight)}}g</span>  
     </div>
     <div class="fi-quantity">
-      <span *ngIf="foodItem!==editFoodItemQuantity; else editQuantityInput" class="fi-quantity-span" title="Food weight in mix">{{this.roundWeightForDisplay(foodItem.food_weight)}}g </span>
-      <img class="fi-quantity-img" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
+      <span *ngIf="foodItem!==editFoodItemQuantity; else editQuantityInput" class="fi-quantity-span" title="Food weight in mix" ngbTooltip="Food weight in mix" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.food_weight)}}g </span>
+      <img class="fi-quantity-edit-button" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
         (click)="editFoodItemQuantity = foodItem"/>
     </div>
 
