@@ -242,23 +242,46 @@ export class MixComponent implements OnInit {
 
   loadExampleMix(): void {
     this.clearMixFoodItems();
-    this.mixService
-      .getExampleMixFoodJoin(this.exampleMixDetails.id)
-      .subscribe({
-        next: 
-          (foodWithWeightArray) => foodWithWeightArray.map(
-            (foodWithWeight) => {
-            let fi: FoodItem = foodWithWeight.food;
-            fi.food_weight = foodWithWeight.food_weight;
-            fi.protein_weight = fi.protein_content/100*fi.food_weight;
-            //console.log(fi);
-            this.foodItems.push(fi);
-            }
-          ),
-        complete: 
-          () => this.computeMixDiaasAndTotals()
-        }
-      );
+    let lang : string|null = sessionStorage.getItem('lang');
+    if(lang && lang !== 'en'){
+      this.mixService
+        .getExampleMixFoodJoinI18n(this.exampleMixDetails.id, lang)
+        .subscribe({
+          next: 
+            (foodWithWeightArray) => foodWithWeightArray.map(
+              (foodWithWeight) => {
+              let fi: FoodItem = foodWithWeight.food;
+              fi.food_weight = foodWithWeight.food_weight;
+              fi.name = foodWithWeight.name_translation;
+              fi.protein_weight = fi.protein_content/100*fi.food_weight;
+              //console.log(fi);
+              this.foodItems.push(fi);
+              }
+            ),
+          complete: 
+            () => this.computeMixDiaasAndTotals()
+          }
+        );
+    }
+    else{
+      this.mixService
+        .getExampleMixFoodJoin(this.exampleMixDetails.id)
+        .subscribe({
+          next: 
+            (foodWithWeightArray) => foodWithWeightArray.map(
+              (foodWithWeight) => {
+              let fi: FoodItem = foodWithWeight.food;
+              fi.food_weight = foodWithWeight.food_weight;
+              fi.protein_weight = fi.protein_content/100*fi.food_weight;
+              //console.log(fi);
+              this.foodItems.push(fi);
+              }
+            ),
+          complete: 
+            () => this.computeMixDiaasAndTotals()
+          }
+        );
+      }
   }
 
 

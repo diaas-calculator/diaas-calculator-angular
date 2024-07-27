@@ -15,6 +15,14 @@ export interface MixFoodJoin{
   food: FoodItem
 }
 
+export interface MixFoodJoinI18n{
+  // the mix id
+  id: number,
+  food_weight: number,
+  name_translation: string,
+  food: FoodItem
+}
+
 // The mix details from the database
 export interface MixDetails{
   id: number,
