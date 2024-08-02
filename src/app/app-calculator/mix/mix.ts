@@ -28,4 +28,5 @@ export interface MixDetails{
   id: number,
   name: String,
   description: String
+  recipe_link: String
 }

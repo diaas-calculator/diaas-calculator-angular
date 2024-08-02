@@ -96,6 +96,7 @@ export class MixComponent implements OnInit {
       id: 0,
       name: '',
       description: '',
+      recipe_link: '',
     }
   }
 

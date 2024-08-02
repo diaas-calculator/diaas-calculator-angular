@@ -9,6 +9,12 @@
         placeholder="Select example mix"/>
   </div>
 
+
+  <div class="mix-description">
+    <p>{{exampleMixDetails.description}}</p>
+  </div>
+  
+
   <button type="button" class="load-example-mix" title="Load example mix"
     (click)="this.loadExampleMix()">
     Load example mix
@@ -19,7 +25,6 @@
     Clear mix
   </button>
 </div>
-
 
 <div id="diaasmix" class="diaas-mix">
   <span class="total-label">Total</span>
@@ -49,11 +54,11 @@
   </table>
 
   <div class="protein-content-and-weight">
-    <span class="protein-content" title="Average protein content per 100g" ngbTooltip="Average protein content per 100g" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}g </span>
+    <span class="protein-content" title="Average protein content per 100g (counting only listed raw ingredients)" ngbTooltip="Average protein content per 100g (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}g </span>
     <br/>
-    <span class="protein-weight" title="Total protein weight" ngbTooltip="Total protein weight" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
+    <span class="protein-weight" title="Total protein weight (counting only listed raw ingredients)" ngbTooltip="Total protein weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
   </div>
-  <span class="quantity" title="Total food weight" ngbTooltip="Total food weight" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
+  <span class="quantity" title="Total food weight (counting only listed raw ingredients)" ngbTooltip="Total food weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
 
   <button type="button" title="View mix details" class="view-details"
   (click)="openMixDetails(mixdetailsmodal)">
@@ -74,7 +79,7 @@
 	</div>
 	<div class="modal-body">
     <div class="mix-details-name">{{exampleMixDetails.name}}</div>
-    <div><span class="fid-title">Description: </span>{{exampleMixDetails.description}}</div>
+    <div><span class="fid-title">Recipe link: </span><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</div>
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
