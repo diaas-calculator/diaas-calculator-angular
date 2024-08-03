@@ -6,7 +6,8 @@
         [options]="exampleMixes" 
         [(ngModel)]="exampleMixDetails" 
         optionLabel="name" 
-        placeholder="Select example mix"/>
+        placeholder="Select example mix"
+        (onChange)="clearMixFoodItems()"/>
   </div>
 
 
@@ -78,8 +79,8 @@
 		<!--<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>-->
 	</div>
 	<div class="modal-body">
-    <div class="mix-details-name">{{exampleMixDetails.name}}</div>
-    <div><span class="fid-title">Recipe link: </span><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</div>
+    <div *ngIf="exampleMixDetails.name" class="mix-details-name" >{{exampleMixDetails.name}}</div>
+    <div *ngIf="exampleMixDetails.recipe_link"><span class="fid-title">Recipe link: </span><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</div>
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>

@@ -127,7 +127,6 @@ export class MixComponent implements OnInit {
   }
 
 
-
   remove(foodItem: FoodItem): void {
     this.foodItems = this.foodItems.filter(h => h !== foodItem);
     this.computeMixDiaasAndTotals();
@@ -242,7 +241,6 @@ export class MixComponent implements OnInit {
   }
 
   loadExampleMix(): void {
-    this.clearMixFoodItems();
     let lang : string|null = sessionStorage.getItem('lang');
     if(lang && lang !== 'en'){
       this.mixService
