@@ -13,6 +13,11 @@ export const MenuRoutes: Routes = [
       import('../diaas-info/diaas-info.component').then((x) => x.DiaasInfoComponent),
   },
   {
+    path: 'protein-information',
+    loadComponent: () =>
+      import('../protein-info/protein-info.component').then((x) => x.ProteinInfoComponent),
+  },
+  {
     path: 'user-manual',
     loadComponent: () =>
       import('../user-manual/user-manual.component').then((x) => x.UserManualComponent),
