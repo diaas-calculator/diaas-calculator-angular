@@ -1,0 +1,10 @@
+/* Food item details*/
+div.food-item-details-name {
+    background-color: #435B60;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    padding: .25rem;
+    margin-bottom: 20px
+  }
+  

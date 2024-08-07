@@ -8,12 +8,18 @@ import { MixService } from './mix.service';
 import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle } from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownModule } from 'primeng/dropdown';
+import { FoodItemDetailsComponent } from '../food-item-details/food-item-details';
 
 @Component({
   standalone: true,
   selector: 'app-mix',
   templateUrl: './mix.component.html',
-  imports: [ CommonModule, FormsModule, NgbTooltipModule, DropdownModule],
+  imports: [ 
+    CommonModule, 
+    FormsModule, 
+    NgbTooltipModule, 
+    DropdownModule,
+    FoodItemDetailsComponent],
   providers: [MixService],
   styleUrls: ['./mix.component.css']
 })
@@ -47,6 +53,10 @@ export class MixComponent implements OnInit {
     }
   }
 
+  static getCurrentMix(){
+    return MixComponent.currentMixComponent;
+  }
+
   @ViewChild('foodItemEditProteinContentInput')
   set foodItemEditProteinContentInput(element: ElementRef<HTMLInputElement>) {
     if (element) {
@@ -64,8 +74,7 @@ export class MixComponent implements OnInit {
   ngOnInit() {
     if (!MixComponent.currentMixComponent) {
       MixComponent.currentMixComponent = this;
-    }
-   
+    }   
   }
 
   ngOnDestroy(): void {
@@ -103,9 +112,9 @@ export class MixComponent implements OnInit {
 	openMixDetails(content: TemplateRef<any>) {
 		this.modalService.open(content, { ariaLabelledBy: 'mixmodal-basic-title' });
 	}
-
-	openFoodItemDetail(content: TemplateRef<any>) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  
+	openFoodItemDetails(foodItemDetails: FoodItem) {
+		FoodItemDetailsComponent.getFoodItemDetailsComponent().openFoodItemDetails(foodItemDetails);
 	}
 
 

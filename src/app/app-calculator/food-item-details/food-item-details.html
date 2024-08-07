@@ -1,0 +1,21 @@
+<ng-template #fooditemdetailsmodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Food item details</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+    <div class="food-item-details-name">{{foodItemDetails?.name}}</div>
+    <div><span class="fid-title">Score type: </span>{{foodItemDetails?.score_type}}</div>
+    <div><span class="fid-title">
+    Protein content: </span>{{foodItemDetails?.protein_content}}
+    </div>
+    <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
+    <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
+    <div><span class="fid-title">Cooked state for DIAAS: </span>{{foodItemDetails?.diaas_cooked_state}}</div>
+    <div><span class="fid-title">Reference: </span><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</div>
+    <div><span class="fid-title">Comment: </span>{{foodItemDetails?.comment}}</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+</ng-template>

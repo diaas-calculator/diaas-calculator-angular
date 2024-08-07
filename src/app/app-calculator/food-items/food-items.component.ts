@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, inject, TemplateRef } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FoodItem, FoodItemTranslation} from '../common/food-item';
@@ -6,9 +6,10 @@ import { ScoredObject } from '../common/scored-object';
 import { FoodItemsService } from './food-items.service';
 import { MixComponent } from '../mix/mix.component';
 import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle} from '../common/common';
-import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownModule } from 'primeng/dropdown';
 import { Router } from '@angular/router';
+import { FoodItemDetailsComponent } from '../food-item-details/food-item-details';
 
 @Component({
   standalone: true,
@@ -18,16 +19,16 @@ import { Router } from '@angular/router';
     CommonModule,
     FormsModule, 
     NgbTooltipModule, 
-    DropdownModule],
+    DropdownModule,
+    FoodItemDetailsComponent],
   providers: [FoodItemsService],
   styleUrls: ['./food-items.component.css']
 })
 export class FoodItemsComponent implements OnInit {
-  private modalService = inject(NgbModal);
   foodItems: FoodItem[] = [];
   foodItemDetails: FoodItem | undefined; // the foodItem currently being edited
   foodItemName = ''; // the food item name being searched
-  currentMixComponent: MixComponent = MixComponent.currentMixComponent;
+  currentMixComponent: MixComponent = MixComponent.getCurrentMix();
   currentNameFilter = '';
   currentFoodTypeFilter = 'all';
   currentAaProfileFilter = 'all';
@@ -149,8 +150,8 @@ export class FoodItemsComponent implements OnInit {
 
 
   addToMix(foodItem: FoodItem): void {
-    if(MixComponent.currentMixComponent){
-      MixComponent.currentMixComponent.addToMix(foodItem)
+    if(MixComponent.getCurrentMix()){
+      MixComponent.getCurrentMix().addToMix(foodItem)
       this.router.navigate(['/protein-diaas-calculator'], {fragment: 'diaasmix'});
     }
     else{
@@ -158,8 +159,8 @@ export class FoodItemsComponent implements OnInit {
     }
   }
 
-	openFoodItemDetail(content: TemplateRef<any>) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+	openFoodItemDetails(foodItemDetails: FoodItem) {
+		FoodItemDetailsComponent.getFoodItemDetailsComponent().openFoodItemDetails(foodItemDetails);
 	}
 
 

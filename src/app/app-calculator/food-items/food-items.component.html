@@ -72,7 +72,7 @@
 
     <span class="protein-weight" title="Protein content per 100g of food" ngbTooltip="Protein content per 100g of food" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}g</span>
     <button type="button" class="details" title="view details"
-      (click)="foodItemDetails = foodItem; openFoodItemDetail(fooditemmodal)">
+      (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
       View details
     </button>
 
@@ -83,33 +83,15 @@
   </li>
 </ul>
 
-<!-- food item details modal -->
-<ng-template #fooditemmodal let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title" id="modal-basic-title">Food item details</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-	</div>
-	<div class="modal-body">
-    <div class="food-item-details-name">{{foodItemDetails?.name}}</div>
-    <div><span class="fid-title">Score type: </span>{{foodItemDetails?.score_type}}</div>
-    <div><span class="fid-title">
-      Protein content: </span><span ngbTooltip="Weight of protein per 100g of food" triggers="click:blur">{{foodItemDetails?.protein_content}}</span>
-    </div>
-    <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
-    <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
-    <div><span class="fid-title">Cooked state for DIAAS: </span>{{foodItemDetails?.diaas_cooked_state}}</div>
-    <div><span class="fid-title">Reference: </span><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</div>
-    <div><span class="fid-title">Comment: </span>{{foodItemDetails?.comment}}</div>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-	</div>
-</ng-template>
-
+<!-- food items details modal -->
+<food-item-details></food-item-details>
 
 <div class="footer">
   All DIAAS scores are displayed for the reference pattern of <b>older children, adolescents and adults (> 3 years old)</b>.<br>
   All PDCAAS scores are displayed converted to the reference pattern of <b>older children, adolescents and adults (> 3 years old)</b><br>
   Scores are displayed assuming a <b>protein nitrogen content of <i>N*6.25</i></b> (unless stated otherwise). 
 </div>
+
+
+
 
