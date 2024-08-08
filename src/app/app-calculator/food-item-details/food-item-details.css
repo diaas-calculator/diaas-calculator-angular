@@ -1,5 +1,5 @@
 /* Food item details*/
-div.food-item-details-name {
+div.fid-name {
     background-color: #435B60;
     color: white;
     text-align: center;
@@ -7,4 +7,36 @@ div.food-item-details-name {
     padding: .25rem;
     margin-bottom: 20px
   }
+
+div.fid-section {
+    text-align: center;
+    padding: .25rem;
+    font-weight: bold;
+}
+
+.fid-content {
+  display: grid;
+  grid-template-areas: "fid-key fid-value";
+  grid-template-columns: 40% 60%;
+  align-items: center;
+}
+
+.fid-content .fid-key {
+  grid-area: fid-key;
+  font-style: italic;
+}
+
+.fid-content .fid-value {
+  grid-area: fid-value;
+}
+
+button.help-btn-details {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-top: 0.2rem;
+  font-size: 0.8rem;
+}
   

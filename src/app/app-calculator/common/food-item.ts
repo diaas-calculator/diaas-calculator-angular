@@ -9,7 +9,12 @@ export interface FoodItem extends ScoredObject {
   reference_details: String,
   comment: String,
   hidden: boolean,
-  greenhouse_gas: number
+  // the greenhouse_gas in kg of eqCo2 per kg of food
+  greenhouse_gas: number,
+  // the food item used in the greenhouse gas database
+  greenhouse_gas_ref: String,
+  greenhouse_gas_link: String,
+  greenhouse_gas_comment: String,
 }
 
 export interface FoodItemTranslation{

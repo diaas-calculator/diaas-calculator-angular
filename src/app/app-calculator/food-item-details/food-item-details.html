@@ -4,16 +4,23 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-    <div class="food-item-details-name">{{foodItemDetails?.name}}</div>
-    <div><span class="fid-title">Score type: </span>{{foodItemDetails?.score_type}}</div>
-    <div><span class="fid-title">
-    Protein content: </span>{{foodItemDetails?.protein_content}}
+        <div class="fid-name">{{foodItemDetails?.name}}</div>
+        <div class="fid-section">Food</div>
+        <div class="fid-content"><span class="fid-key">Protein content:</span><span class="fid-value">{{foodItemDetails?.protein_content}}</span></div>
+        <div class="fid-content"><span class="fid-key">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
     </div>
-    <div><span class="fid-title">Food type: </span>{{foodItemDetails?.food_type}}</div>
-    <div><span class="fid-title">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
-    <div><span class="fid-title">Cooked state for DIAAS: </span>{{foodItemDetails?.diaas_cooked_state}}</div>
-    <div><span class="fid-title">Reference: </span><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</div>
-    <div><span class="fid-title">Comment: </span>{{foodItemDetails?.comment}}</div>
+    <div class="modal-body">
+        <div class="fid-section">DIAAS</div>
+        <div class="fid-content"><span class="fid-key">Score type:</span><span class="fid-value">{{foodItemDetails?.score_type}}</span></div>
+        <div class="fid-content"><span class="fid-key">Cooked state for DIAAS:</span><span class="fid-value">{{foodItemDetails?.diaas_cooked_state}}</span></div>
+        <div class="fid-content"><span class="fid-key">Reference:</span><span class="fid-value"><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</span></div>
+        <div class="fid-content"><span class="fid-key">Comment:</span><span class="fid-value">{{foodItemDetails?.comment}}</span></div>
+    </div>
+    <div class="modal-body">
+        <div class="fid-section">Carbon footprint</div>
+        <div class="fid-content"><span class="fid-key">Greenhouse gas :<button type="button" class="btn btn-outline-secondary help-btn-details" ngbTooltip="carbon footprint in kg eqCO2 per kg of food" triggers="click:blur">?</button></span><span class="fid-value">{{this.roundGreenhouseGasForDisplay(foodItemDetails?.greenhouse_gas)}}</span></div>
+        <div class="fid-content"><span class="fid-key">Greenhouse ref :<button type="button" class="btn btn-outline-secondary help-btn-details" ngbTooltip="the food item used in the greenhouse gas database" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_ref}}</span></div>
+        <div class="fid-content"><span class="fid-key">Greenhouse comment:</span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_comment}}</span></div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>

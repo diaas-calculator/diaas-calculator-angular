@@ -25,6 +25,10 @@ export function roundOneDecimal(myNumber: number){
   return  Math.round(myNumber * 10) / 10;
 }
 
+export function roundGreenhouseGasForDisplay(myNumber: number|undefined){
+  return myNumber? Math.round(myNumber * 1000) / 1000 : 0;
+}
+
 export function getScoreLetter(scoreStandard: String): String{
   return scoreStandard.startsWith("DIAAS")?"D":"P";
 }
