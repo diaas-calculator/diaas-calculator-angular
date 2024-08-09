@@ -170,6 +170,10 @@ button:hover, button:focus {
 
 .food-items li .fi-greenhouse-gas {
   grid-area: fi-greenhouse-gas;
+}
+
+
+.food-items li .fi-greenhouse-gas {
   text-align: center;
   border:  0.2rem solid;
   border-radius: 1rem;

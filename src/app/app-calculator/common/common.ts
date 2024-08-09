@@ -29,8 +29,13 @@ export function roundGreenhouseGasForDetailedDisplay(myNumber: number|undefined)
   return myNumber? Math.round(myNumber * 100) / 100 : 0;
 }
 
-export function roundGreenhouseGasForMainDisplay(myNumber: number|undefined){
+export function roundGreenhouseGasRatioForMainDisplay(myNumber: number|undefined){
   return myNumber? Math.round(myNumber*10) / 10 : 0;
+}
+
+
+export function roundGreenhouseGasTotalForMainDisplay(myNumber: number|undefined){
+  return myNumber? Math.round(myNumber) : 0;
 }
 
 export function getScoreLetter(scoreStandard: String): String{

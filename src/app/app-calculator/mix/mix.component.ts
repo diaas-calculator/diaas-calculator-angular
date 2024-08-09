@@ -5,7 +5,7 @@ import { FoodItem } from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { MixDIAASAndWeights, MixDetails } from './mix';
 import { MixService } from './mix.service';
-import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle, roundGreenhouseGasForMainDisplay, roundGreenhouseGasForDetailedDisplay } from '../common/common';
+import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle, roundGreenhouseGasRatioForMainDisplay, roundGreenhouseGasForDetailedDisplay, roundGreenhouseGasTotalForMainDisplay } from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownModule } from 'primeng/dropdown';
 import { FoodItemDetailsComponent } from '../food-item-details/food-item-details';
@@ -252,8 +252,13 @@ export class MixComponent implements OnInit {
   }
 
 
-  roundGreenhouseGasForMainDisplay(myNumber: number|undefined){
-    return roundGreenhouseGasForMainDisplay(myNumber);
+  roundGreenhouseGasRatioForMainDisplay(myNumber: number|undefined){
+    return roundGreenhouseGasRatioForMainDisplay(myNumber);
+  }
+
+
+  roundGreenhouseGasTotalForMainDisplay(myNumber: number|undefined){
+    return roundGreenhouseGasTotalForMainDisplay(myNumber);
   }
 
   roundGreenhouseGasForDetailedDisplay(myNumber: number|undefined){

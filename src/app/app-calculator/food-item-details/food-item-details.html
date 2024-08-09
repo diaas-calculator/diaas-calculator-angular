@@ -6,7 +6,7 @@
     <div class="modal-body">
         <div class="fid-name">{{foodItemDetails?.name}}</div>
         <div class="fid-section">Food</div>
-        <div class="fid-content"><span class="fid-key">Protein content:</span><span class="fid-value">{{foodItemDetails?.protein_content}}</span></div>
+        <div class="fid-content"><span class="fid-key">Protein content:<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="g of protein per 100g of food" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.protein_content}}</span></div>
         <div class="fid-content"><span class="fid-key">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
     </div>
     <div class="modal-body">

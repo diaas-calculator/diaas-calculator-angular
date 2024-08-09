@@ -60,7 +60,13 @@
     <span class="protein-weight" title="Total protein weight (counting only listed raw ingredients)" ngbTooltip="Total protein weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
   </div>
   <span class="quantity" title="Total food weight (counting only listed raw ingredients)" ngbTooltip="Total food weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
-  <span class="greenhouse-gas" title="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" ngbTooltip="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas_per_kg_protein)}}</span>
+  
+  <div class="greenhouse-gas">
+    <div class="greenhouse-gas-ratio" title="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" ngbTooltip="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas_per_kg_protein)}}</div>
+    <div class="greenhouse-gas-total" title="Total carbon footprint in g of eq CO2 for the listed food and weights" ngbTooltip="Total carbon footprint in g of eq CO2 for the listed food and weights" triggers="click:blur">{{this.roundGreenhouseGasTotalForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas*this.mixDIAASAndWeights.food_weight)}}g</div>
+  </div>
+  
+  
   <button type="button" title="View mix details" class="view-details"
   (click)="openMixDetails(mixdetailsmodal)">
   View mix details
@@ -149,7 +155,10 @@
         (click)="editFoodItemQuantity = foodItem"/>
     </div>
 
-    <div class="fi-greenhouse-gas" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
+    <div class="fi-greenhouse-gas">
+      <div class="fi-greenhouse-gas-ratio" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
+      <div class="fi-greenhouse-gas-total" title="Carbon footprint in g of eq CO2 for the current food weight" ngbTooltip="Carbon footprint in g of eq CO2 for the current food weight" triggers="click:blur">{{this.roundGreenhouseGasTotalForMainDisplay(foodItem.greenhouse_gas*foodItem.food_weight)}}g</div>
+    </div>
 
     <button type="button" class="fi-view-details" title="view details"
       (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
