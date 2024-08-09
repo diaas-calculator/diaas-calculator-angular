@@ -23,8 +23,8 @@
 
 .food-items li {
   display: grid;
-  grid-template-areas: "score-letter-and-name diaas protein-weight details addtomix";
-  grid-template-columns: 40% 35% 5% repeat(2, 10%);
+  grid-template-areas: "score-letter-and-name diaas protein-weight greenhouse-gas details addtomix";
+  grid-template-columns: 35% 35% 5% 5% repeat(2, 10%);
   margin: 1rem 0;
   align-items: center;
   background-color: #eee;
@@ -48,6 +48,16 @@
   grid-area: protein-weight;
   text-align: center;
 }
+
+
+.food-items li .greenhouse-gas {
+  grid-area: greenhouse-gas;
+  text-align: center;
+  border:  0.2rem solid;
+  border-radius: 1rem;
+  border-color: lightblue;
+}
+
 
 .food-items li button {
   margin: 0.2rem;
@@ -119,27 +129,23 @@
   padding: .25rem;
 }
 
-.fid-title {
-  font-weight: bold;
-}
-
 /* average screen: leave more % to diaas */
 @media (max-width: 1200px) {
   .food-items li {
-    grid-template-columns: 25% 50% 5% repeat(2, 10%);
+    grid-template-columns: 25% 45% 5% 5% repeat(2, 10%);
   }
 }
 
 /* small screens: use 2 lines*/
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .food-items li {
     grid-template-rows: 4rem max-content;
     grid-template-areas:
-      "score-letter-and-name diaas diaas diaas"
-      "score-letter-and-name protein-weight details addtomix";
+      "score-letter-and-name diaas diaas diaas diaas"
+      "score-letter-and-name protein-weight greenhouse-gas details addtomix";
     grid-template-columns: 
-      repeat(4, 25%)
-      repeat(4, 25%);
+      repeat(5, 20%)
+      repeat(5, 20%);
   }
 
   .food-items li .score-letter-and-name {

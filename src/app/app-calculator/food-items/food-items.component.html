@@ -70,7 +70,8 @@
       </table>
     </div>
 
-    <span class="protein-weight" title="Protein content per 100g of food" ngbTooltip="Protein content per 100g of food" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}g</span>
+    <span class="protein-weight" title="Protein content per 100g of food" ngbTooltip="Protein content per 100g of food" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}</span>
+    <div class="greenhouse-gas" title="Carbon footprint in g of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
     <button type="button" class="details" title="view details"
       (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
       View details

@@ -1,7 +1,7 @@
 import { Component, Injectable, OnInit, TemplateRef, ViewChild } from '@angular/core'
 import { NgbModal, NgbModalRef, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
 import { FoodItem } from '../common/food-item';
-import { roundGreenhouseGasForDisplay } from '../common/common';
+import { roundGreenhouseGasForDetailedDisplay } from '../common/common';
 
 @Component({
     standalone: true,
@@ -39,8 +39,8 @@ export class FoodItemDetailsComponent implements OnInit {
         this.modalService.open(this.modalContent, { ariaLabelledBy: 'modal-basic-title' });
     }
 
-    roundGreenhouseGasForDisplay(myNumber: number|undefined){
-        return roundGreenhouseGasForDisplay(myNumber);
+    roundGreenhouseGasForDetailedDisplay(myNumber: number|undefined){
+        return roundGreenhouseGasForDetailedDisplay(myNumber);
       }
 
 }

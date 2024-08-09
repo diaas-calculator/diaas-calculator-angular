@@ -5,7 +5,7 @@ import { FoodItem, FoodItemTranslation} from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { FoodItemsService } from './food-items.service';
 import { MixComponent } from '../mix/mix.component';
-import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle} from '../common/common';
+import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle, roundGreenhouseGasForMainDisplay} from '../common/common';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownModule } from 'primeng/dropdown';
 import { Router } from '@angular/router';
@@ -170,6 +170,10 @@ export class FoodItemsComponent implements OnInit {
 
   roundWeightForDisplay(myNumber: number): number {
     return roundOneDecimal(myNumber);
+  }
+
+  roundGreenhouseGasForMainDisplay(myNumber: number|undefined){
+    return roundGreenhouseGasForMainDisplay(myNumber);
   }
 
 }

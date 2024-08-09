@@ -55,12 +55,12 @@
   </table>
 
   <div class="protein-content-and-weight">
-    <span class="protein-content" title="Average protein content per 100g (counting only listed raw ingredients)" ngbTooltip="Average protein content per 100g (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}g </span>
+    <span class="protein-content" title="Average protein content per 100g (counting only listed raw ingredients)" ngbTooltip="Average protein content per 100g (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}</span>
     <br/>
     <span class="protein-weight" title="Total protein weight (counting only listed raw ingredients)" ngbTooltip="Total protein weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
   </div>
   <span class="quantity" title="Total food weight (counting only listed raw ingredients)" ngbTooltip="Total food weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
-
+  <span class="greenhouse-gas" title="Total carbon footprint in g of eq CO2 per kg of protein (counting only listed raw ingredients)" ngbTooltip="Total carbon footprint in g of eq CO2 per kg of protein (counting only listed raw ingredients)" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas_per_kg_protein)}}</span>
   <button type="button" title="View mix details" class="view-details"
   (click)="openMixDetails(mixdetailsmodal)">
   View mix details
@@ -80,8 +80,14 @@
 	</div>
 	<div class="modal-body">
     <div *ngIf="exampleMixDetails.name" class="mix-details-name" >{{exampleMixDetails.name}}</div>
-    <div *ngIf="exampleMixDetails.recipe_link"><span class="fid-title">Recipe link: </span><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</div>
+    <div *ngIf="exampleMixDetails.name" class="mix-details-section">Example mix data</div>
+    <div *ngIf="exampleMixDetails.recipe_link" class="mix-details-content"><span class="mix-details-key">Recipe link: </span><span class="mix-details-value"><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</span></div>
 	</div>
+  <div class="modal-body">
+    <div class="mix-details-section">Carbon footprint</div>
+    <div class="mix-details-content"><span class="mix-details-key">Greenhouse gas :<button type="button" class="btn btn-outline-secondary help-btn-details" ngbTooltip="Average carbon footprint in kg eqCO2 per kg of food" triggers="click:blur">?</button></span><span class="mix-details-value">{{this.roundGreenhouseGasForDetailedDisplay(mixDIAASAndWeights.greenhouse_gas)}}</span></div>
+</div>
+
 	<div class="modal-footer">
 		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
 	</div>
@@ -130,7 +136,7 @@
 
     <div class="protein-content-and-weight">
       <div class="fi-protein-content">
-        <span *ngIf="foodItem!==editFoodItemProteinContent; else editProteinContentInput" class="fi-protein-content-span" title="Protein content per 100g" ngbTooltip="Protein content per 100g" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}g </span>
+        <span *ngIf="foodItem!==editFoodItemProteinContent; else editProteinContentInput" class="fi-protein-content-span" title="Protein content per 100g" ngbTooltip="Protein content per 100g" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}</span>
         <img class="fi-protein-content-edit-btn" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
           (click)="editFoodItemProteinContent = foodItem"/>
       </div>
@@ -142,6 +148,8 @@
       <img class="fi-quantity-edit-button" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
         (click)="editFoodItemQuantity = foodItem"/>
     </div>
+
+    <div class="fi-greenhouse-gas" title="Carbon footprint in g of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
 
     <button type="button" class="fi-view-details" title="view details"
       (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">

@@ -14,5 +14,9 @@ export interface ScoredObject {
     protein_content: number,
     protein_weight: number,
     food_weight: number,
+    // the greenhouse_gas in kg of eqCo2 per kg of food
+    greenhouse_gas: number,
+    // the greenhouse_gas in kg of eqCo2 per kg of protein
+    greenhouse_gas_per_kg_protein: number,
   }
   

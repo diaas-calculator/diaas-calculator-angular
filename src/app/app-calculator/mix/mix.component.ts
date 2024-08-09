@@ -5,7 +5,7 @@ import { FoodItem } from '../common/food-item';
 import { ScoredObject } from '../common/scored-object';
 import { MixDIAASAndWeights, MixDetails } from './mix';
 import { MixService } from './mix.service';
-import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle } from '../common/common';
+import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle, roundGreenhouseGasForMainDisplay, roundGreenhouseGasForDetailedDisplay } from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DropdownModule } from 'primeng/dropdown';
 import { FoodItemDetailsComponent } from '../food-item-details/food-item-details';
@@ -95,7 +95,9 @@ export class MixComponent implements OnInit {
       valine_score: 0,
       protein_content: 0,
       food_weight: 0,
-      protein_weight: 0
+      protein_weight: 0,
+      greenhouse_gas: 0,
+      greenhouse_gas_per_kg_protein: 0
     }
   }
 
@@ -191,42 +193,55 @@ export class MixComponent implements OnInit {
   // Ref: https://onlinelibrary.wiley.com/doi/full/10.1002/fsn3.1809 "2.3 DIAAS of protein mixtures"
   computeMixDiaasAndTotals(): void {
     let mixUpdated: MixDIAASAndWeights = this.getInitialMixDIAASAndWeights();
-    let mixTotalProteinWeight = this.foodItems.reduce((prevVal, elem) => prevVal + elem.protein_weight, 0);
-    let mixTotalFoodWeight = this.foodItems.reduce((prevVal, elem) => prevVal + elem.food_weight, 0);
-
-    // Update totals
-    mixUpdated.protein_weight = mixTotalProteinWeight;
-    mixUpdated.food_weight = mixTotalFoodWeight;
-    mixUpdated.protein_content = mixUpdated.food_weight !=0 ? roundOneDecimal(mixTotalProteinWeight/mixTotalFoodWeight*100) : 0;
-
-    // Compute DIAAS
-    for (let i: number = 0; i<this.foodItems.length; i++){
-      //TODO handle all combinations
-      if(this.foodItems[i].score_type == 'pdcaas'){
-        mixUpdated.score_type = 'pdcaas';
+    if(this.foodItems.length != 0){
+      let mixTotalProteinWeight = this.foodItems.reduce((prevVal, elem) => prevVal + elem.protein_weight, 0);
+      let mixTotalFoodWeight = this.foodItems.reduce((prevVal, elem) => prevVal + elem.food_weight, 0);
+  
+      // Update totals
+      mixUpdated.protein_weight = mixTotalProteinWeight;
+      mixUpdated.food_weight = mixTotalFoodWeight;
+      mixUpdated.protein_content = mixUpdated.food_weight !=0 ? roundOneDecimal(mixTotalProteinWeight/mixTotalFoodWeight*100) : 0;
+  
+      // Compute DIAAS and greenhouse gas
+      for (let i: number = 0; i<this.foodItems.length; i++){
+        //TODO handle all combinations
+        if(this.foodItems[i].score_type == 'pdcaas'){
+          mixUpdated.score_type = 'pdcaas';
+        }
+        // compute all the weighted average but will divide by total protein weight at the end
+        mixUpdated.histidine_score += this.foodItems[i].histidine_score*this.foodItems[i].protein_weight;
+        mixUpdated.isoleucine_score += this.foodItems[i].isoleucine_score*this.foodItems[i].protein_weight;
+        mixUpdated.leucine_score += this.foodItems[i].leucine_score*this.foodItems[i].protein_weight;
+        mixUpdated.lysine_score += this.foodItems[i].lysine_score*this.foodItems[i].protein_weight;
+        mixUpdated.saa_score += this.foodItems[i].saa_score*this.foodItems[i].protein_weight;
+        mixUpdated.aaa_score += this.foodItems[i].aaa_score*this.foodItems[i].protein_weight;
+        mixUpdated.threonine_score += this.foodItems[i].threonine_score*this.foodItems[i].protein_weight;
+        mixUpdated.tryptophane_score += this.foodItems[i].tryptophane_score*this.foodItems[i].protein_weight;
+        mixUpdated.valine_score += this.foodItems[i].valine_score*this.foodItems[i].protein_weight;
+  
+        mixUpdated.greenhouse_gas += this.foodItems[i].greenhouse_gas * this.foodItems[i].food_weight;
+        mixUpdated.greenhouse_gas_per_kg_protein += 100 * this.foodItems[i].greenhouse_gas / this.foodItems[i].protein_content * this.foodItems[i].protein_weight;
+        
       }
-      mixUpdated.histidine_score += this.foodItems[i].histidine_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.isoleucine_score += this.foodItems[i].isoleucine_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.leucine_score += this.foodItems[i].leucine_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.lysine_score += this.foodItems[i].lysine_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.saa_score += this.foodItems[i].saa_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.aaa_score += this.foodItems[i].aaa_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.threonine_score += this.foodItems[i].threonine_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.tryptophane_score += this.foodItems[i].tryptophane_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
-      mixUpdated.valine_score += this.foodItems[i].valine_score*this.foodItems[i].protein_weight/mixTotalProteinWeight;
+  
+      // divide by total protein weight
+      mixUpdated.histidine_score /= mixTotalProteinWeight;
+      mixUpdated.isoleucine_score /= mixTotalProteinWeight;
+      mixUpdated.leucine_score /= mixTotalProteinWeight;
+      mixUpdated.lysine_score /= mixTotalProteinWeight;
+      mixUpdated.saa_score /= mixTotalProteinWeight;
+      mixUpdated.aaa_score /= mixTotalProteinWeight;
+      mixUpdated.threonine_score /= mixTotalProteinWeight;
+      mixUpdated.tryptophane_score /= mixTotalProteinWeight;
+      mixUpdated.valine_score /= mixTotalProteinWeight;
+  
+      mixUpdated.greenhouse_gas /= mixTotalFoodWeight;
+      mixUpdated.greenhouse_gas_per_kg_protein /= mixTotalProteinWeight;
     }
 
-    mixUpdated.histidine_score = roundOneDecimal(mixUpdated.histidine_score);
-    mixUpdated.isoleucine_score = roundOneDecimal(mixUpdated.isoleucine_score);
-    mixUpdated.leucine_score = roundOneDecimal(mixUpdated.leucine_score);
-    mixUpdated.lysine_score = roundOneDecimal(mixUpdated.lysine_score);
-    mixUpdated.saa_score = roundOneDecimal(mixUpdated.saa_score);
-    mixUpdated.aaa_score = roundOneDecimal(mixUpdated.aaa_score);
-    mixUpdated.threonine_score = roundOneDecimal(mixUpdated.threonine_score);
-    mixUpdated.tryptophane_score = roundOneDecimal(mixUpdated.tryptophane_score);
-    mixUpdated.valine_score = roundOneDecimal(mixUpdated.valine_score);
-    this.mixDIAASAndWeights=mixUpdated;
+    this.mixDIAASAndWeights = mixUpdated;
   }
+
 
   roundScoreForDisplay(myNumber: number): number {
     return Math.round(myNumber);
@@ -234,6 +249,15 @@ export class MixComponent implements OnInit {
 
   roundWeightForDisplay(myNumber: number): number {
     return roundOneDecimal(myNumber);
+  }
+
+
+  roundGreenhouseGasForMainDisplay(myNumber: number|undefined){
+    return roundGreenhouseGasForMainDisplay(myNumber);
+  }
+
+  roundGreenhouseGasForDetailedDisplay(myNumber: number|undefined){
+    return roundGreenhouseGasForDetailedDisplay(myNumber);
   }
 
   // clear mix food items and mix details
