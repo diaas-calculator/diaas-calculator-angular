@@ -60,7 +60,7 @@
     <span class="protein-weight" title="Total protein weight (counting only listed raw ingredients)" ngbTooltip="Total protein weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
   </div>
   <span class="quantity" title="Total food weight (counting only listed raw ingredients)" ngbTooltip="Total food weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
-  <span class="greenhouse-gas" title="Total carbon footprint in g of eq CO2 per kg of protein (counting only listed raw ingredients)" ngbTooltip="Total carbon footprint in g of eq CO2 per kg of protein (counting only listed raw ingredients)" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas_per_kg_protein)}}</span>
+  <span class="greenhouse-gas" title="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" ngbTooltip="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas_per_kg_protein)}}</span>
   <button type="button" title="View mix details" class="view-details"
   (click)="openMixDetails(mixdetailsmodal)">
   View mix details
@@ -149,7 +149,7 @@
         (click)="editFoodItemQuantity = foodItem"/>
     </div>
 
-    <div class="fi-greenhouse-gas" title="Carbon footprint in g of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
+    <div class="fi-greenhouse-gas" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
 
     <button type="button" class="fi-view-details" title="view details"
       (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
