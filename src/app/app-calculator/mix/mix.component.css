@@ -6,7 +6,8 @@ button:hover, button:focus {
   background-color: #000;
 }
 
-button {
+/* command buttons */
+.diaas-mix .view-details, .food-items li button.fi-view-details {
   margin: 0.2rem;
   padding: 0.3rem 0.2rem;
   justify-self: center;

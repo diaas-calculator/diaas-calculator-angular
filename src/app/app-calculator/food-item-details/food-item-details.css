@@ -30,13 +30,4 @@ div.fid-section {
   grid-area: fid-value;
 }
 
-button.help-btn-details {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 0.2rem;
-  margin-left: 0.2rem;
-  padding-bottom: 0.2rem;
-  padding-top: 0.2rem;
-  font-size: 0.8rem;
-}
   
