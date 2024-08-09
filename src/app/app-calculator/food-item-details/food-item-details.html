@@ -19,8 +19,9 @@
     <div class="modal-body">
         <div class="fid-section">Carbon footprint</div>
         <div class="fid-content"><span class="fid-key">Greenhouse gas :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="carbon footprint in kg eqCO2 per kg of food" triggers="click:blur">?</button></span><span class="fid-value">{{this.roundGreenhouseGasForDetailedDisplay(foodItemDetails?.greenhouse_gas)}}</span></div>
-        <div class="fid-content"><span class="fid-key">Greenhouse ref :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="the food item used in the greenhouse gas database" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_ref}}</span></div>
-        <div class="fid-content"><span class="fid-key">Greenhouse comment:</span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_comment}}</span></div>
+        <div class="fid-content"><span class="fid-key">Reference :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="the food item used in the greenhouse gas database" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_ref}}</span></div>
+        <div class="fid-content"><span class="fid-key">Source :</span><span class="fid-value"><a target="_blank" href={{this.getGreenhouseGasLink()}}>link</a></span></div>
+        <div class="fid-content"><span class="fid-key">Comment:</span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_comment}}</span></div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>

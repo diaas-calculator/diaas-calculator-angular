@@ -17,7 +17,7 @@ div.fid-section {
 .fid-content {
   display: grid;
   grid-template-areas: "fid-key fid-value";
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 30% 70%;
   align-items: center;
 }
 

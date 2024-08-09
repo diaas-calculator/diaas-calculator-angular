@@ -2,6 +2,7 @@ import { Component, Injectable, OnInit, TemplateRef, ViewChild } from '@angular/
 import { NgbModal, NgbModalRef, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
 import { FoodItem } from '../common/food-item';
 import { roundGreenhouseGasForDetailedDisplay } from '../common/common';
+import { DEFAULT_GREENHOUSE_GAS_LINK } from '../common/constants';
 
 @Component({
     standalone: true,
@@ -36,7 +37,16 @@ export class FoodItemDetailsComponent implements OnInit {
 
     openFoodItemDetails(foodItemDetails: FoodItem) {
         this.foodItemDetails = foodItemDetails;
-        this.modalService.open(this.modalContent, { ariaLabelledBy: 'modal-basic-title' });
+        this.modalService.open(this.modalContent, { ariaLabelledBy: 'modal-basic-title', size: 'lg' });
+    }
+
+    getGreenhouseGasLink() : String{
+        if(this.foodItemDetails){
+            return this.foodItemDetails.greenhouse_gas_link ? this.foodItemDetails.greenhouse_gas_link : DEFAULT_GREENHOUSE_GAS_LINK
+        }
+        else{
+            return "";
+        }
     }
 
     roundGreenhouseGasForDetailedDisplay(myNumber: number|undefined){
