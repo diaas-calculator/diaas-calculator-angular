@@ -31,11 +31,7 @@
   border-radius: 4px;
 }
 
-.food-items li .score-letter-and-name {
-  grid-area: score-letter-and-name;
-}
-
-.food-items li .score-letter-and-name-hidden {
+.food-items li .score-letter-and-name, .food-items li .score-letter-and-name-hidden {
   grid-area: score-letter-and-name;
 }
 
@@ -78,10 +74,9 @@
   background-color: #000;
 }
 
-.food-items .score-letter-and-name {
+.food-items .score-letter-and-name, .food-items .score-letter-and-name-hidden {
   padding: 0.5rem 0.4rem;
   color: white;
-  background-color: #435B60;
   margin-right: 0.4rem;
   border-radius: 4px 0 0 4px;
   align-self: stretch;
@@ -89,15 +84,12 @@
   align-items: center;
 }
 
+.food-items .score-letter-and-name {
+  background-color: #435B60;
+}
+
 .food-items .score-letter-and-name-hidden {
-  padding: 0.5rem 0.4rem;
-  color: white;
   background-color:  #bfbfbf;
-  margin-right: 0.4rem;
-  border-radius: 4px 0 0 4px;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
 }
 
 
@@ -107,6 +99,7 @@
   font-weight: bold;
   border-radius: 2em;
   padding: 0.5em 0.5em 0.5em 0.5em;
+  margin-right: 0.5rem;
   font-size: 0.75em; 
 }
 
@@ -163,6 +156,11 @@
 
   .food-items li button {
     justify-self: center;
+  }
+
+  .food-items .score-letter-and-name, .food-items .score-letter-and-name-hidden {
+    flex-flow: column;
+    text-align: center;
   }
 }
 

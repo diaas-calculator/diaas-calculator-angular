@@ -90,6 +90,10 @@ button:hover, button:focus {
   border-color: lightblue;
 }
 
+.diaas-mix .greenhouse-gas .greenhouse-gas-ratio{
+  font-weight: bold;
+}
+
 .diaas-mix .view-details {
   grid-area: view-details;
 }
