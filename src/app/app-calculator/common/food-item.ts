@@ -13,6 +13,8 @@ export interface FoodItem extends ScoredObject {
   greenhouse_gas_ref: String,
   greenhouse_gas_link: String,
   greenhouse_gas_comment: String,
+  comment_expert: String,
+  greenhouse_gas_comment_expert: String
 }
 
 export interface FoodItemTranslation{

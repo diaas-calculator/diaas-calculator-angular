@@ -15,11 +15,17 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 export class AdvancedOptionsComponent {
     showAdvancedOptions: boolean = false;
     showHidden: string = sessionStorage.getItem('showHidden') ?? 'false' ;
+    showExpertComments: string = sessionStorage.getItem('showExpertComments') ?? 'false' ;
 
     setShowHidden(showHidden: string): void {
       sessionStorage.setItem('showHidden', showHidden);
       this.showHidden = showHidden;
       location.reload()
+    }
+
+    setShowExpertComments(showExpertComments: string): void {
+      sessionStorage.setItem('showExpertComments', showExpertComments);
+      this.showExpertComments = showExpertComments;
     }
 
 }

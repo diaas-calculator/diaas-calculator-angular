@@ -7,5 +7,11 @@
         <input type="radio" name="show-hidden" [checked]="this.showHidden === 'false'" (click)="setShowHidden('false')">No<br/>
         <input type="radio" name="show-hidden" [checked]="this.showHidden === 'true'"  (click)="setShowHidden('true')">Yes
       </form>
+      <label for="show-expert-comments"><b>Show expert comments</b></label>&nbsp;
+      <button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="Show detailed comments about calculations and approximations" triggers="click:blur">?</button>
+      <form action="">
+        <input type="radio" name="show-expert-comments" [checked]="this.showExpertComments === 'false'" (click)="setShowExpertComments('false')">No<br/>
+        <input type="radio" name="show-expert-comments" [checked]="this.showExpertComments === 'true'"  (click)="setShowExpertComments('true')">Yes
+      </form>
     </div>
 </div>
