@@ -1,6 +1,6 @@
 <main>
     <div>
-        <h1 id="what-is-the-diaas">What is the DIAAS?</h1>
+        <h1 id="what-is-the-diaas-">What is the DIAAS?</h1>
         <h2 id="in-a-nutshell">In a nutshell</h2>
         <p><em>DIAAS</em> or <em>Digestible Indispensable Amino Acid Score</em> is a measure, experimentally determined, that provides an estimation for a given food about how much of each indispensable <em>amino acid</em> (or AA) will be assimilated by a human subject if ingested compared to it&#39;s needs.</p>
         <h2 id="indispensable-amino-acids">Indispensable amino acids</h2>
@@ -110,6 +110,41 @@
         </ul>
         </li>
         </ul>
+        <h1 id="score-types-in-the-app">Score types in the app</h1>
+        <p>You&#39;ll find below the naming that we use in the app to describe what kind of score each food item represents depending on the study protocol.</p>
+        <p>The score type is built as : <code>&lt;score-standard&gt;-[&lt;animal-model&gt;]-&lt;digestibility-model&gt;</code>.</p>
+        <p>Example : <em>DIAAS-rat-TFPD</em></p>
+        <p>All the categories below are given from most precise to least precise data for human interpolation</p>
+        <ul>
+        <li><p><code>&lt;score-standard&gt;</code> :</p>
+        <ul>
+        <li><em>DIAAS</em> : Digestible Indispensable Amino Acid Score</li>
+        <li><em>PDCAAS</em>: Protein Digestibility Corrected Amino Acid Score. A few food items use this score when <code>DIAAS</code> data is not available. It is usually higher than the <em>DIAAS</em>.</li>
+        </ul>
+        </li>
+        <li><p><code>&lt;animal-model&gt;</code>. Only present for in-vivo studies.</p>
+        <ul>
+        <li><em>human</em> :  experimentation with human subjects (rarely seen)</li>
+        <li><em>humanpredicted</em> : Predicted from pig true ileal amino acid digestibility data based on the equations of Deglaire and Moughan et al. (2012). Used for example in <a href="https://www.fao.org/ag/humannutrition/36216-04a2f02ec02eafd4f457dd2c9851b4c45.pdf">this FAO document</a></li>
+        <li><em>pig</em></li>
+        <li><em>rats</em></li>
+        </ul>
+        </li>
+        <li><p><code>&lt;digestibility-model&gt;</code> (invivo case). The explanation of the different models is out of scope of this documentation and you shouldn&#39;t worry about that. Just remember that using a different model may explain differences in the results when comparing studies and that they are given here from most precise to least precise.</p>
+        <ul>
+        <li><em>TID</em> : <em>true ileal digestibility</em> (sometimes called <em>real ileal digestibility</em>)</li>
+        <li><em>SID</em> : <em>standardized ileal digestibility</em></li>
+        <li><em>STTD</em> : <em>standardized total tract digestibility</em></li>
+        <li><em>TFPD</em> : <em>True fecal protein digestibility</em></li>
+        <li><em>AFD</em> : <em>Apparent Fecal digestibility</em> </li>
+        </ul>
+        </li>
+        <li><p><code>&lt;digestibility-model&gt;</code> (invitro case):</p>
+        <ul>
+        <li><em>IVPD</em>: <em>In Vitro Protein Digestibility</em> : studies conducted without any human or animal but only invitro.</li>
+        </ul>
+        </li>
+        </ul>
         <h1 id="branched-chain-amino-acids">Branched-chain amino acids</h1>
         <p>Some amino acids are known to trigger an anabolic response, meaning that they induce muscle synthesis after resistance training. This is especially the case of <strong>leucine</strong>. And also to a lesser extent <strong>isoleucine</strong> and <strong>valine</strong></p>
         <p>Those amino acids are called the <em>branched-chain amino acids</em> or <em>BCAA</em> .</p>
@@ -151,10 +186,11 @@
         <li>or study a crude food for a product that we only consume cooked</li>
         </ul>
         
+        
     </div>
     <nav class="section-nav">
         <ol>
-            <li><a href="diaas-information#what-is-the-diaas">What is the DIAAS?</a><ul>
+            <li><a href="diaas-information#what-is-the-diaas-">What is the DIAAS?</a><ul>
             <li><a href="diaas-information#in-a-nutshell">In a nutshell</a></li>
             <li><a href="diaas-information#indispensable-amino-acids">Indispensable amino acids</a></li>
             <li><a href="diaas-information#digestibility">Digestibility</a></li>
@@ -175,6 +211,7 @@
             <li><a href="diaas-information#diaas">DIAAS</a></li>
             </ul>
             </li>
+            <li><a href="diaas-information#score-types-in-the-app">Score types in the app</a></li>
             <li><a href="diaas-information#branched-chain-amino-acids">Branched-chain amino acids</a></li>
             <li><a href="diaas-information#limitations-and-precautions">Limitations and precautions</a></li>
         </ol>

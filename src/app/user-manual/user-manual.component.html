@@ -1,135 +1,113 @@
 <main>
     <div>
+        <h1 id="what-am-i-looking-at-">What am I looking at?</h1>
+        <p>This is a calculator that helps calculate the <em>DIAAS</em> value of a mix of food items. Make sure you&#39;ve read the <a href="/diaas-information">DIAAS information</a> page first as we won&#39;t detail <em>DIAAS</em> basics in this documentation. </p>
+        <p>As a rule of thumb, all the proteins that come from animals contain enough of all of the indispensable amino acids but most of the proteins that come from plants don&#39;t. By choosing the right food items with the right proportions (to be consumed within the same meal), it is possible to balance the 9 indispensable amino acids when looking for protein sources in plants.</p>
+        <p>The calculator may be useful for: </p>
         <ul>
-            <li><a href="#what-am-i-looking-at">What am I looking at?</a></li>
-            <li><a href="#language">Language</a></li>
-            <li><a href="#contextual-help">Contextual help</a></li>
-            <li><a href="#listing-food-items-searching-for-food-items">Listing food items, searching for food items</a></li>
-            <li><a href="#information-about-food-items">Information about food items</a></li>
-            <li><a href="#information-about-the-mix">Information about the mix</a></li>
-            <li><a href="#diaas-display">DIAAS display</a><h1 id="what-am-i-looking-at-">What am I looking at?</h1>
-            </li>
-            </ul>
-            <p>This is a calculator that helps calculate the <em>DIAAS</em> value of a mix of food items. Make sure you&#39;ve read the <a href="/diaas-information">DIAAS information</a> page first as we won&#39;t detail <em>DIAAS</em> basics in this documentation. </p>
-            <p>As a rule of thumb, all the proteins that come from animals contain enough of all of the indispensable amino acids but most of the proteins that come from plants don&#39;t. By choosing the right food items with the right proportions (to be consumed within the same meal), it is possible to balance the 9 indispensable amino acids when looking for protein sources in plants.</p>
-            <p>The calculator may be useful for: </p>
-            <ul>
-            <li>flexitarians who want to reduce the carbon footprint related to their meat and dairy consumption.</li>
-            <li>vegetarians, vegans, athletes or people under caloric restriction who want to optimize their protein intake</li>
-            <li>chefs and industrialists who want to create amino acid balanced recipes</li>
-            <li>scientists looking for a centralized <em>DIAAS</em> database</li>
-            </ul>
-            <h1 id="language">Language</h1>
-            <p>You can switch between French and English at the top-right of the application. </p>
-            <p>For now only food item names are translated. </p>
-            <h1 id="contextual-help">Contextual help</h1>
-            <p>Place the mouse over a number (PC) or click on it (touch screen devices and PC) to get contextual help.</p>
-            <h1 id="mixes">Mixes</h1>
-            <p>The first part of the application titled <strong>Diaas calculation for the current mix</strong> allows you to</p>
-            <ul>
-            <li>load an example mix. Select one of the mix and click <strong>Load example mix</strong></li>
-            <li>see the DIAAS value of the mix you are creating</li>
-            </ul>
-            <p>You can use the pencil icon to edit: </p>
-            <ul>
-            <li>the weight of each food item in the mix (increase or decrease the quantity of that food in the mix). By default food items are added with a weight of 100g of product</li>
-            <li>the protein content or each food item in the mix in case what we have in our database doesn&#39;t match the product you have at home. Currently, this change will not persist for future mixes.</li>
-            </ul>
-            <p>The first line in the mix entitled &quot;Total&quot; includes figures about the mix: </p>
-            <ul>
-            <li>the mix DIAAS</li>
-            <li>the computed protein weight, protein content and food weight (sum/average of the figures for each ingredient listed in the mix)</li>
-            <li>within a blue circle: the computed carbon footprint average in kg of equivalent CO2 per kg of food and the total g of CO2 for the listed food items with the given weights.</li>
-            </ul>
-            <p><strong>Beware of computed values for a mix </strong> :</p>
-            <ul>
-            <li>They may not take into account all the recipe ingredients, nor the water added/lost during the preparation or the cooking. </li>
-            <li>They usually display the value of the crude ingredients (in the food item details, check <em>Cooked state for protein content</em>). After soaking/cooking, the protein content and the food weight may vary</li>
-            </ul>
-            <p>To get complete information about the final recipe including preparation instructions, click &quot;View mix details&quot; and follow the recipe link (doesn&#39;t include carbon footprint information)</p>
-            <h1 id="listing-food-items-searching-for-food-items">Listing food items, searching for food items</h1>
-            <p>In the <strong>Food items</strong> section you can find the food items you&#39;ll add into your mix. You can also modify an example mix after loading it (changes will not persist for now)</p>
-            <p>When loading the page the first time, a search is automatically launched so that all the food items in our database are displayed. </p>
-            <p>You can enter a food item name and click the <em>Search</em> button to filter by name</p>
-            <p>Clicking the <em>Clear name</em> button will re-run the search with no filter on the food item name</p>
-            <p>You can also use one of the other filters: </p>
-            <ul>
-            <li>Food type</li>
-            <li>Amino acid profile<ul>
-            <li><em>all</em> : no filter</li>
-            <li><em>high-quality</em>: display only food items that are ranked &quot;high quality&quot; as per the <em>DIAAS</em> definition (DIAAS value &gt;= 75) </li>
-            <li><em>aa+</em> : display food items that have a score &gt; 100 for the given amino acid. For example you should typically: <ul>
-            <li>filter with <em>lys+</em> when trying to balance a grain (grains usually have lysine as a limiting amino acid)</li>
-            <li>filter with <em>saa+</em> when trying to balance a legume (legumes usually have saa as a limiting amino acid)</li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-            <h1 id="food-items-details">Food items details</h1>
-            <p>To have more information on a food item, click the &quot;View details&quot; button.</p>
-            <p>Click on the <code>?</code> button to have more information.</p>
-            <p>The below elements may require additional information:</p>
-            <ul>
-            <li><p><em>Score type</em>. Built as : <code>&lt;score-standard&gt;-[&lt;animal-model&gt;]-&lt;digestibility-model&gt;</code>. All the categories below are given from most precise to least precise data for human interpolation (see <a href="/diaas-information">DIAAS information</a> page for more details):</p>
-            <ul>
-            <li><p><code>&lt;score-standard&gt;</code> :</p>
-            <ul>
-            <li><em>DIAAS</em> : Digestible Indispensable Amino Acid Score</li>
-            <li><em>PDCAAS</em>: Protein Digestibility Corrected Amino Acid Score. A few food items use this score when <code>DIAAS</code> data is not available. It is usually higher than the <em>DIAAS</em>.</li>
-            </ul>
-            </li>
-            <li><p><code>&lt;animal-model&gt;</code>. Only present for in-vivo studies.</p>
-            <ul>
-            <li><em>human</em> :  experimentation with human subjects (rarely seen)</li>
-            <li><em>humanpredicted</em> : Predicted from pig true ileal amino acid digestibility data based on the equations of Deglaire and Moughan et al. (2012). Used for example in <a href="https://www.fao.org/ag/humannutrition/36216-04a2f02ec02eafd4f457dd2c9851b4c45.pdf">this FAO document</a></li>
-            <li><em>pig</em></li>
-            <li><em>rats</em></li>
-            </ul>
-            </li>
-            <li><p><code>&lt;digestibility-model&gt;</code> (invivo). The explanation of the different models is out of scope of this documentation and you shouldn&#39;t worry about that. Just remember that using a different model may explain differences in the results when comparing studies and that they are given here from most precise to least precise.</p>
-            <ul>
-            <li><em>TID</em> : <em>true ileal digestibility</em> (sometimes called <em>real ileal digestibility</em>)</li>
-            <li><em>SID</em> : <em>standardized ileal digestibility</em></li>
-            <li><em>STTD</em> : <em>standardized total tract digestibility</em></li>
-            <li><em>TFPD</em> : <em>True fecal protein digestibility</em></li>
-            <li><em>AFD</em> : <em>Apparent Fecal digestibility</em> </li>
-            </ul>
-            </li>
-            <li><p><code>&lt;digestibility-model&gt;</code> (invitro):</p>
-            <ul>
-            <li><em>IVPD</em>: <em>In Vitro Protein Digestibility</em> : studies conducted without any human or animal but only invitro.</li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            <li><em>Protein content</em> : g of protein per 100g of food. To have a coherent result with the greenhouse gas data, when the greenhouse gas data comes from the agribalyse database we use the protein content reported by the ciqual database at <a href="https://ciqual.anses.fr/">https://ciqual.anses.fr/</a> (<em>Protéines, N x 6.25</em>).</li>
-            <li><em>Cooked state for protein content</em> : this is the cooked state related to the protein content figure provided. You should use it when you weight your ingredients. We almost always display the cooked state as crude to facilitate protein content comparison between food items. And it&#39;s more precise because weight may change for cooked grains and legumes depending on how long they were cooked for and how much water they absorbed.</li>
-            <li><em>Cooked state for DIAAS</em> : this is the state of the product for which the DIAAS was evaluated in the study. For precise results, you should eat the product in that state. For example, if you&#39;re looking at the <em>DIAAS</em> of a flour: ideally the &quot;Cooked state for protein content&quot; should be given <em>crude</em> so that you can weight the flour before cooking it, and the <em>Cooked state for DIAAS</em> should be <em>baked</em> if you&#39;re going to bake the flour in an oven. </li>
-            </ul>
-            <h1 id="diaas-display">DIAAS display</h1>
-            <p>A color code is adopted to show which amino acids are missing:</p>
-            <ul>
-            <li>DIAAS &lt; 60 : red</li>
-            <li>60 &lt;= DIAAS &lt; 75 : orange</li>
-            <li>75 &lt;= DIAAS &lt;= 100 : yellow-green.</li>
-            <li>DIAAS &gt; 100: green. Typically this is what&#39;s you&#39;ll be looking for in other food items when trying to balance a limiting amino acid.</li>
-            </ul>
-            <p>Inside a thicker border is the value of the limiting amino acid (the lowest value of all 9 amino acids)</p>
-            <p>The BCAA names are displayed in bold. In bold and red is the leucine (the most anabolic BCAA)</p>
-            <p>For now, all DIAAS and PDCAAS scores are given </p>
-            <ul>
-            <li>for the reference pattern of older children, adolescents and adults (&gt; 3 years old) </li>
-            <li>computed with a protein nitrogen content of <em>Nx6.25</em> (unless stated otherwise) </li>
-            </ul>
-            <h1 id="carbon-footprint">Carbon footprint</h1>
-            <p>The carbon footprint of food items and mixes appear within a blue circle and more information is available when clicking &quot;View details&quot; on a food item or a mix. </p>
-            <p>A few notes:</p>
-            <ul>
-            <li>Most of our data comes from <a href="https://agribalyse.ademe.fr/">https://agribalyse.ademe.fr/</a> . The data is available from their search engine and also from <a href="https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-31-synthese/metadata-attachments/AGRIBALYSE3.1.1_produits%20alimentaires.xlsx">this excel sheet</a>. The data source for each food item is available on the food item details window.</li>
-            <li>The data is more accurate for ingredients bought in France as it is a French data source.</li>
-            <li>Regarding the cooking operation, the data that we display is the one that matches the protein content displayed under &quot;Cooked state for protein content&quot;. It is almost always the data for crude ingredients. We may improve the data and display also information about cooked ingredients : the protein content would change (grains and legumes for example have typically a much lower protein content when cooked in water) and the carbon footprint too (there is often a figure for cooked ingredient in the agribalyse database that accounts for the emissions due to the cooking operation).</li>
-            </ul>
+        <li>flexitarians who want to reduce the carbon footprint related to their meat and dairy consumption.</li>
+        <li>vegetarians, vegans, athletes or people under caloric restriction who want to optimize their protein intake</li>
+        <li>chefs and industrialists who want to create amino acid balanced recipes</li>
+        <li>scientists looking for a centralized <em>DIAAS</em> database</li>
+        </ul>
+        <h1 id="language">Language</h1>
+        <p>You can switch between French and English at the top-right of the application. </p>
+        <p>For now only food item names are translated. </p>
+        <h1 id="contextual-help">Contextual help</h1>
+        <p>Place the mouse over a number (PC) or click on it (touch screen devices and PC) to get contextual help.</p>
+        <h1 id="advanced-options">Advanced options</h1>
+        <p>You can unfold the advanced options at the top-right of the application. </p>
+        <ul>
+        <li><strong>Show hidden</strong>: if yes, the app will display food items that are not visible by default. The reason for a food item to be hidden could be for example:<ul>
+        <li>processing not applicable to human consumption (example: crude grain that we only eat cooked)</li>
+        <li>results that seems incoherent with what we expect for that kind of food or that differ from other studies</li>
+        </ul>
+        </li>
+        <li><strong>Show expert comments</strong>: if yes, the <em>food item details</em> window will display two additional lines with advanced information like details about the calculations or approximations that we&#39;ve made:<ul>
+        <li>DIAAS -&gt; Comment (expert)</li>
+        <li>Carbon footprint -&gt; Comment(expert)</li>
+        </ul>
+        </li>
+        </ul>
+        <h1 id="mixes">Mixes</h1>
+        <p>The first part of the application titled <strong>Diaas calculation for the current mix</strong> allows you to</p>
+        <ul>
+        <li>load an example mix. Select one of the mix and click <strong>Load example mix</strong></li>
+        <li>see the DIAAS value of the mix you are creating</li>
+        </ul>
+        <p>You can use the pencil icon to edit: </p>
+        <ul>
+        <li>the weight of each food item in the mix (increase or decrease the quantity of that food in the mix). By default food items are added with a weight of 100g of product</li>
+        <li>the protein content or each food item in the mix in case what we have in our database doesn&#39;t match the product you have at home. Currently, this change will not persist for future mixes.</li>
+        </ul>
+        <p>The first line in the mix entitled &quot;Total&quot; includes figures about the mix: </p>
+        <ul>
+        <li>the mix DIAAS</li>
+        <li>the computed protein weight, protein content and food weight (sum/average of the figures for each ingredient listed in the mix)</li>
+        <li>within a blue circle: the computed carbon footprint average in kg of equivalent CO2 per kg of food and the total g of CO2 for the listed food items with the given weights.</li>
+        </ul>
+        <p><strong>Beware of computed values for a mix </strong> :</p>
+        <ul>
+        <li>They may not take into account all the recipe ingredients, nor the water added/lost during the preparation or the cooking. </li>
+        <li>They usually display the value of the crude ingredients (in the food item details, check <em>Cooked state for protein content</em>). After soaking/cooking, the protein content and the food weight may vary</li>
+        </ul>
+        <p>To get complete information about the final recipe including preparation instructions, click &quot;View mix details&quot; and follow the recipe link (doesn&#39;t include carbon footprint information)</p>
+        <h1 id="listing-food-items-searching-for-food-items">Listing food items, searching for food items</h1>
+        <p>In the <strong>Food items</strong> section you can find the food items you&#39;ll add into your mix. You can also modify an example mix after loading it (changes will not persist for now)</p>
+        <p>When loading the page the first time, a search is automatically launched so that all the food items in our database are displayed. </p>
+        <p>You can enter a food item name and click the <em>Search</em> button to filter by name</p>
+        <p>Clicking the <em>Clear name</em> button will re-run the search with no filter on the food item name</p>
+        <p>You can also use one of the other filters: </p>
+        <ul>
+        <li>Food type</li>
+        <li>Amino acid profile<ul>
+        <li><em>all</em> : no filter</li>
+        <li><em>high-quality</em>: display only food items that are ranked &quot;high quality&quot; as per the <em>DIAAS</em> definition (DIAAS value &gt;= 75) </li>
+        <li><em>aa+</em> : display food items that have a score &gt; 100 for the given amino acid. For example you should typically: <ul>
+        <li>filter with <em>lys+</em> when trying to balance a grain (grains usually have lysine as a limiting amino acid)</li>
+        <li>filter with <em>saa+</em> when trying to balance a legume (legumes usually have saa as a limiting amino acid)</li>
+        </ul>
+        </li>
+        </ul>
+        </li>
+        </ul>
+        <h1 id="food-items-details">Food items details</h1>
+        <p>To have more information on a food item, click the &quot;View details&quot; button.</p>
+        <p>Click on the <code>?</code> button to have more information.</p>
+        <p>The below elements may require additional information:</p>
+        <ul>
+        <li><em>Score type</em>. Built as : <code>&lt;score-standard&gt;-[&lt;animal-model&gt;]-&lt;digestibility-model&gt;</code>.<ul>
+        <li>See <a href="/diaas-information#score-types-in-the-app">DIAAS information</a> for more details but for starters it&#39;s enough to remember that <em>DIAAS</em> (score type displayed in green in the app) is more precise than <em>PDCAAS</em> (score type displayed in orange)</li>
+        </ul>
+        </li>
+        <li><em>Protein content</em>: g of protein per 100g of food. To have a coherent result with the greenhouse gas data, when the greenhouse gas data comes from the agribalyse database, we use the protein content reported by the ciqual database at <a href="https://ciqual.anses.fr/">https://ciqual.anses.fr/</a> (<em>Protéines, N x 6.25</em>).</li>
+        <li><em>Cooked state for protein content</em>: this is the cooked state related to the protein content figure provided. You should use it when you weight your ingredients. We almost always display the cooked state as crude to facilitate protein content comparison between food items. And it&#39;s more precise because weight may change for cooked grains and legumes depending on how long they were cooked for and how much water they absorbed.</li>
+        <li><em>Cooked state for DIAAS : this is the state of the product for which the DIAAS was evaluated in the study. For precise results, you should eat the product in that state. For example, if you&#39;re looking at the </em>DIAAS<em> of a flour: ideally the &quot;Cooked state for protein content&quot; should be given </em>crude<em> so that you can weigh the flour before cooking it, and the </em>Cooked state for DIAAS<em> should be </em>baked* if you&#39;re going to bake the flour in an oven. </li>
+        </ul>
+        <h1 id="diaas-display">DIAAS display</h1>
+        <p>A color code is adopted to show which amino acids are missing:</p>
+        <ul>
+        <li>DIAAS &lt; 60 : red</li>
+        <li>60 &lt;= DIAAS &lt; 75 : orange</li>
+        <li>75 &lt;= DIAAS &lt;= 100 : yellow-green.</li>
+        <li>DIAAS &gt; 100: green. Typically this is what&#39;s you&#39;ll be looking for in other food items when trying to balance a limiting amino acid.</li>
+        </ul>
+        <p>Inside a thicker border is the value of the limiting amino acid (the lowest value of all 9 amino acids)</p>
+        <p>The BCAA names are displayed in bold. In bold and red is the leucine (the most anabolic BCAA)</p>
+        <p>For now, all DIAAS and PDCAAS scores are given </p>
+        <ul>
+        <li>for the reference pattern of older children, adolescents and adults (&gt; 3 years old) </li>
+        <li>computed with a protein nitrogen content of <em>Nx6.25</em> (unless stated otherwise) </li>
+        </ul>
+        <h1 id="carbon-footprint">Carbon footprint</h1>
+        <p>The carbon footprint of food items and mixes appear within a blue circle and more information is available when clicking &quot;View details&quot; on a food item or a mix</p>
+        <p>A few notes:</p>
+        <ul>
+        <li>Most of our data comes from <a href="https://agribalyse.ademe.fr/">https://agribalyse.ademe.fr/</a> . The data is available from their search engine and also from <a href="https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-31-synthese/metadata-attachments/AGRIBALYSE3.1.1_produits%20alimentaires.xlsx">this excel sheet</a>. The data source for each food item is available on the food item details window.</li>
+        <li>The data is more accurate for ingredients bought in France as it is a French data source.</li>
+        <li>Regarding the cooking operation, the data that we display is the one that matches the protein content displayed under &quot;Cooked state for protein content&quot;. It is almost always the data for crude ingredients. We may improve the data and display also information about cooked ingredients : the protein content would change (grains and legumes for example have typically a much lower protein content when cooked in water) and the carbon footprint too (there is often a figure for cooked ingredient in the agribalyse database that accounts for the emissions due to the cooking operation).</li>
+        </ul>
+        
             
         
 
@@ -140,6 +118,7 @@
             <li><a href="user-manual#what-am-i-looking-at-">What am I looking at?</a></li>
             <li><a href="user-manual#language">Language</a></li>
             <li><a href="user-manual#contextual-help">Contextual help</a></li>
+            <li><a href="user-manual#advanced-options">Advanced options</a></li>
             <li><a href="user-manual#mixes">Mixes</a></li>
             <li><a href="user-manual#listing-food-items-searching-for-food-items">Listing food items, searching for food items</a></li>
             <li><a href="user-manual#food-items-details">Food items details</a></li>
