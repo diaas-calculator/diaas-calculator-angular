@@ -33,7 +33,7 @@ export class MixComponent implements OnInit {
   static currentMixComponent: MixComponent;
   mixDIAASAndWeights: MixDIAASAndWeights = this.getInitialMixDIAASAndWeights();
 
-  // example mixes
+  // sample mixes
   exampleMixes: MixDetails[] = [];
   exampleMixDetails: MixDetails = this.getInitialMixDetails();
 

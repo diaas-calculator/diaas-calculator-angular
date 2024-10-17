@@ -1,12 +1,12 @@
 <h2>Diaas calculation for the current mix</h2>
 <div class="mix-controls">
   <div class="select-example-mix">
-    <div class="select-example-mix-label"><b>Choose an example mix or compose your own</b></div>
+    <div class="select-example-mix-label"><b>Choose a sample mix or compose your own</b></div>
       <p-dropdown 
         [options]="exampleMixes" 
         [(ngModel)]="exampleMixDetails" 
         optionLabel="name" 
-        placeholder="Select example mix"
+        placeholder="Select sample mix"
         (onChange)="clearMixFoodItems()"/>
   </div>
 
@@ -16,9 +16,9 @@
   </div>
   
 
-  <button type="button" class="load-example-mix" title="Load example mix"
+  <button type="button" class="load-example-mix" title="Load sample mix"
     (click)="this.loadExampleMix()">
-    Load example mix
+    Load sample mix
   </button>
 
   <button type="button" class="clear-mix" title="Clear mix"
@@ -86,7 +86,7 @@
 	</div>
 	<div class="modal-body">
     <div *ngIf="exampleMixDetails.name" class="mix-details-name" >{{exampleMixDetails.name}}</div>
-    <div *ngIf="exampleMixDetails.name" class="mix-details-section">Example mix data</div>
+    <div *ngIf="exampleMixDetails.name" class="mix-details-section">Sample mix data</div>
     <div *ngIf="exampleMixDetails.recipe_link" class="mix-details-content"><span class="mix-details-key">Recipe link: </span><span class="mix-details-value"><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</span></div>
 	</div>
   <div class="modal-body">
