@@ -152,7 +152,7 @@ export class FoodItemsComponent implements OnInit {
   addToMix(foodItem: FoodItem): void {
     if(MixComponent.getCurrentMix()){
       MixComponent.getCurrentMix().addToMix(foodItem)
-      this.router.navigate(['/protein-diaas-calculator'], {fragment: 'diaasmix'});
+      this.router.navigate(['/protein-diaas-and-carbon-footprint-calculator'], {fragment: 'diaasmix'});
     }
     else{
       console.error("internal error: MixComponent.currentMixComponent not initialized");

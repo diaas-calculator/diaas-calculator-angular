@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-protein-info',
+  selector: 'app-carbon-footprint-info',
   standalone: true,
-  templateUrl: './protein-info.component.html',
-  styleUrl: './protein-info.component.css',
+  templateUrl: './carbon-footprint-info.component.html',
+  styleUrl: './carbon-footprint-info.component.css',
 })
 
 
 
-export class ProteinInfoComponent implements OnInit{
+export class CarbonFootprintInfoComponent implements OnInit{
   ngOnInit() {
     if (document.readyState !== 'loading') {
       this.initCode()
@@ -26,11 +26,11 @@ export class ProteinInfoComponent implements OnInit{
       entries.forEach(entry => {
         const id = entry.target.getAttribute('id');
         if (entry.intersectionRatio > 0) {
-          document.querySelector(`nav li a[href="protein-information#${id}"]`)!
+          document.querySelector(`nav li a[href="protein-carbon-footprint-information#${id}"]`)!
             .parentElement!
               .classList.add('active');
         } else {
-          document.querySelector(`nav li a[href="protein-information#${id}"]`)!.parentElement!.classList.remove('active');
+          document.querySelector(`nav li a[href="protein-carbon-footprint-information#${id}"]`)!.parentElement!.classList.remove('active');
         }
       });
     });
