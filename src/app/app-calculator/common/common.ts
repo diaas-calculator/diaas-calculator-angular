@@ -43,7 +43,7 @@ export function getScoreLetter(scoreStandard: String): String{
 }
 
 export function getScoreLetterStyle(scoreStandard: String): object{
-  if(getScoreLetter(scoreStandard) === 'P'){
+  if(scoreStandard === "DIAAS-proxy" || scoreStandard === "PDCAAS-proxy" || getScoreLetter(scoreStandard) === 'P'){
     return { 'border': '0.15rem solid orange'}
   }
   else{
