@@ -1,12 +1,4 @@
 /* Global Styles */
-@layer bootstrap-reboot, primeng;
-@import "bootstrap/dist/css/bootstrap-reboot.min.css" layer(bootstrap-rebooot);
-
-/* primeng components */
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
-
-
 
 /* mobiles devices : redefines the REM to make everything smaller*/
 @media only screen and (hover: none) and (pointer: coarse) and (max-width: 900px){

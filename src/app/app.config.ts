@@ -19,6 +19,9 @@ import { AppRoutes } from './app.routes';
 
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { provideMarkdown } from 'ngx-markdown';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Lara from '@primeng/themes/lara';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,6 +32,17 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})),
     provideHttpClient(),
     provideMarkdown({ loader: HttpClient }),
+    provideAnimationsAsync(),
+    providePrimeNG({
+        theme: {
+            preset: Lara,
+            options: {
+                prefix: 'p',
+                darkModeSelector: 'system',
+                cssLayer: false
+            }
+        }
+    }),
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(HttpClientJsonpModule),
     noopInterceptorProvider,
