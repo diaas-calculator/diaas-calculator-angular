@@ -72,6 +72,7 @@ export class FoodItemsComponent implements OnInit {
 
   search() {
     let lang : string|null = sessionStorage.getItem('lang');
+    // if user never went go to the advanced settings, showHidden is null (in which case showHiddenStr defaults to false)
     let showHidden : string|null = sessionStorage.getItem('showHidden');
     let showHiddenStr: string = "false"
     if(showHidden){
