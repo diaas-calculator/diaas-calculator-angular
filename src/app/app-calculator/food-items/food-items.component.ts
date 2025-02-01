@@ -48,7 +48,13 @@ export class FoodItemsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.search();
+    // Quick hack to wait for the data to be available from the mock
+    let thisthis = this;
+    var intervalId = window.setInterval(function(){
+      thisthis.search()
+      clearInterval(intervalId) 
+    }, 500);
+    
   }
 
   getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): object {
@@ -63,32 +69,6 @@ export class FoodItemsComponent implements OnInit {
     return getScoreLetterStyle(scoreStandard);
   }
   
-
-  add(name: string): void {
-    this.foodItemDetails = undefined;
-    name = name.trim();
-    if (!name) {
-      return;
-    }
-
-    // The server will generate the id for this new foodItem
-    const newFoodItem: FoodItem = { name } as FoodItem;
-    this.foodItemsService
-      .addFoodItem(newFoodItem)
-      .subscribe(foodItem => this.foodItems.push(foodItem));
-  }
-
-  delete(foodItem: FoodItem): void {
-    this.foodItems = this.foodItems.filter(h => h !== foodItem);
-    this.foodItemsService
-      .deleteFoodItem(foodItem.id)
-      .subscribe();
-  }
-
-  edit(foodItemName: string) {
-    this.update(foodItemName);
-    this.foodItemDetails = undefined;
-  }
 
   search() {
     let lang : string|null = sessionStorage.getItem('lang');
@@ -115,9 +95,8 @@ export class FoodItemsComponent implements OnInit {
         );
     }
     else{
-      this.foodItemsService
-        .searchFoodItems(this.currentNameFilter, this.currentFoodTypeFilter, this.currentAaProfileFilter, showHiddenStr)
-        .subscribe(foodItems => (this.foodItems = foodItems));
+      this.foodItems = this.foodItemsService
+        .searchFoodItems(this.currentNameFilter, this.currentFoodTypeFilter, this.currentAaProfileFilter, showHiddenStr);
     }
 
   }
@@ -132,21 +111,6 @@ export class FoodItemsComponent implements OnInit {
     this.search();
   }
 
-
-  update(foodItemName: string) {
-    if (foodItemName && this.foodItemDetails && this.foodItemDetails.name !== foodItemName) {
-      this.foodItemsService
-        .updateFoodItem({...this.foodItemDetails, name: foodItemName})
-        .subscribe(foodItem => {
-        // replace the foodItem in the foodItems list with update from server
-        const ix = foodItem ? this.foodItems.findIndex(h => h.id === foodItem.id) : -1;
-        if (ix > -1) {
-          this.foodItems[ix] = foodItem;
-        }
-      });
-      this.foodItemDetails = undefined;
-    }
-  }
 
 
   addToMix(foodItem: FoodItem): void {

@@ -10,6 +10,7 @@ import { FoodItem, FoodItemTranslation } from '../common/food-item';
 import { HttpErrorHandler, HandleError } from '../../http-error-handler.service';
 
 import { environment } from '../../../environments/environment';
+import { MockComponent } from '../../mock/mock.component';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,19 +28,15 @@ export class FoodItemsService {
 
   constructor(
     private http: HttpClient,
-    httpErrorHandler: HttpErrorHandler) {
-    this.handleError = httpErrorHandler.createHandleError('FoodItemsService');
+    httpErrorHandler: HttpErrorHandler,
+    private mockComponent: MockComponent
+    ) {
+      this.handleError = httpErrorHandler.createHandleError('FoodItemsService')
   }
 
   /* GET foodItems whose name contains search term */
-  searchFoodItems(foodNameFilter: string, foodTypeFilter: string, aaProfileFilter: string, showHidden: string): Observable<FoodItem[]> {
-    const options = this.buildHttpParamsOptions(foodNameFilter, foodTypeFilter, aaProfileFilter, "", showHidden)
-    
-    const url = `${this.foodItemsUrl}/search/`
-    return this.http.get<FoodItem[]>(url, options)
-      .pipe(
-        catchError(this.handleError<FoodItem[]>('searchFoodItems', []))
-      );
+  searchFoodItems(foodNameFilter: string, foodTypeFilter: string, aaProfileFilter: string, showHidden: string): FoodItem[] {
+    return this.mockComponent.searchFoodItems(foodNameFilter, foodTypeFilter, aaProfileFilter, showHidden);
   }
 
   /* GET foodItems whose name contains search term with a translation */
@@ -98,36 +95,5 @@ export class FoodItemsService {
       return options;
     }
 
-
-  //////// Save methods //////////
-
-  /** POST: add a new foodItem to the database */
-  addFoodItem(foodItem: FoodItem): Observable<FoodItem> {
-    return this.http.post<FoodItem>(this.foodItemsUrl, foodItem, httpOptions)
-      .pipe(
-        catchError(this.handleError('addFoodItem', foodItem))
-      );
-  }
-
-  /** DELETE: delete the foodItem from the server */
-  deleteFoodItem(id: number): Observable<unknown> {
-    const url = `${this.foodItemsUrl}/${id}`; // DELETE api/food/42
-    return this.http.delete(url, httpOptions)
-      .pipe(
-        catchError(this.handleError('deleteFoodItem'))
-      );
-  }
-
-  /** PUT: update the foodItem on the server. Returns the updated foodItem upon success. */
-  updateFoodItem(foodItem: FoodItem): Observable<FoodItem> {
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'my-new-auth-token');
-    
-    const url = `${this.foodItemsUrl}/${foodItem.id}`; // PUT api/food/42
-    return this.http.put<FoodItem>(url, foodItem, httpOptions)
-      .pipe(
-        catchError(this.handleError('updateFoodItem', foodItem))
-      );
-  }
 
 }
