@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FoodItem, FoodItemTranslation } from '../app-calculator/common/food-item';
-import { MixDetails } from '../app-calculator/mix/mix';
+import { MixDetails, MixFood, MixFoodJoin } from '../app-calculator/mix/mix';
 
 @Component({
   selector: 'app-mock',
@@ -13,6 +13,7 @@ import { MixDetails } from '../app-calculator/mix/mix';
   providedIn: 'root',
 })
 export class MockComponent {
+  // FoodItem mock
   foodItemsJsonFile: string = "../../assets/data/food.json";
   foodItems: FoodItem[] = [];
   
@@ -21,14 +22,28 @@ export class MockComponent {
   // map concat(food_id,language) -> translation for indexing the translations by food_id / language pairs
   foodItemTranslationsMap: Map<string, FoodItemTranslation> = new Map<string, FoodItemTranslation>();
 
+  // Mix mock
   mixJsonFile: string = "../../assets/data/mix.json";
   mixes: MixDetails[] = [];
+  mixFoodJsonFile: string = "../../assets/data/mix_food.json";
+  mixFoods: MixFood[] = [];
+  
+  // map mix_id -> Mix to get a mix quickly
+  mixesMap: Map<number, MixDetails> = new Map<number, MixDetails>();
+
+  // map food_id -> food for indexing food items (join to build MixFoodJoin)
+  foodItemMap: Map<number, FoodItem> = new Map<number, FoodItem>();
   
   constructor(
     private http: HttpClient
   ) {
       this.http.get<FoodItem[]>(this.foodItemsJsonFile).subscribe(res => {
         this.foodItems = res;
+        this.foodItems.forEach(
+          (foodItem) => this.foodItemMap.set(
+            foodItem.id, foodItem
+          )
+        )
       });
       this.http.get<FoodItemTranslation[]>(this.foodItemTranslationsFile).subscribe(res => {
         this.foodItemTranslations = res;
@@ -40,10 +55,21 @@ export class MockComponent {
             foodItemTranslation
           )
         )
-      });
 
-      this.http.get<MixDetails[]>(this.mixJsonFile).subscribe(res => {
-        this.mixes = res;
+        this.http.get<MixDetails[]>(this.mixJsonFile).subscribe(res => {
+          this.mixes = res;
+          this.mixes.forEach(
+            (mix) => this.mixesMap.set(
+              mix.id,
+              mix
+            )
+          )
+        });
+
+        this.http.get<MixFood[]>(this.mixFoodJsonFile).subscribe(res => {
+          this.mixFoods = res;
+        });
+
       });
   }
 
@@ -175,4 +201,29 @@ export class MockComponent {
     return this.mixes
   }
 
+  getExampleMixFoodJoin(mixId: number): MixFoodJoin[]{
+    let mixFoodJoin: MixFoodJoin[] = []
+    this.mixFoods
+      .filter(
+        (mixFood) => mixFood.mix_id == mixId
+      )
+      .forEach(
+        (mixFood) => mixFoodJoin.push(
+          {
+            "id": mixId, 
+            "food_weight": mixFood.food_weight,
+            "food": this.getFoodAlwaysDefined(mixFood.food_id)
+          }
+        )
+      )
+    return mixFoodJoin
+  }
+
+  getFoodAlwaysDefined(foodId: number): FoodItem{
+    let foodItem: (FoodItem | undefined) = this.foodItemMap.get(foodId)
+    if(!foodItem){
+      throw new Error("Internal error: cannot find food of id " + foodId);
+    }
+    return foodItem
+  }
 }

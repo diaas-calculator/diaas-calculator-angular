@@ -301,21 +301,16 @@ export class MixComponent implements OnInit {
     else{
       this.mixService
         .getExampleMixFoodJoin(this.exampleMixDetails.id)
-        .subscribe({
-          next: 
-            (foodWithWeightArray) => foodWithWeightArray.map(
-              (foodWithWeight) => {
-              let fi: FoodItem = foodWithWeight.food;
-              fi.food_weight = foodWithWeight.food_weight;
-              fi.protein_weight = fi.protein_content/100*fi.food_weight;
-              //console.log(fi);
-              this.foodItems.push(fi);
-              }
-            ),
-          complete: 
-            () => this.computeMixDiaasAndTotals()
+        .forEach(
+          (mixFoodJoin) => {
+          let fi: FoodItem = mixFoodJoin.food;
+          fi.food_weight = mixFoodJoin.food_weight;
+          fi.protein_weight = fi.protein_content/100*fi.food_weight;
+          //console.log(fi);
+          this.foodItems.push(fi);
           }
-        );
+        )
+        this.computeMixDiaasAndTotals()
       }
   }
 
