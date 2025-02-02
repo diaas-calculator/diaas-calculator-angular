@@ -81,19 +81,17 @@ export class FoodItemsComponent implements OnInit {
     this.foodItemDetails = undefined;
 
     if(lang && lang !== 'en'){
-      //TODO error handling?
-      this.foodItemsService
+      this.foodItems = this.foodItemsService
         .searchFoodItemsI18n(this.currentNameFilter, this.currentFoodTypeFilter, this.currentAaProfileFilter, lang, showHiddenStr)
-        .subscribe(
-          foodItemsI18n => (this.foodItems = foodItemsI18n.map(
-            fiI18n => {
-              let fi: FoodItem = fiI18n[0] as FoodItem
-              let fit: FoodItemTranslation = fiI18n[1] as FoodItemTranslation
-              fi.name = fit.name_translation
-              return fi
-            }
-          ))
-        );
+        .map(
+          foodItemFoodItemsTranslationArray => {
+            // picking up the food name from the FoodItemTranslation object and copying to the FoodItem ; returning this
+            let fi: FoodItem = foodItemFoodItemsTranslationArray[0] as FoodItem
+            let fit: FoodItemTranslation = foodItemFoodItemsTranslationArray[1] as FoodItemTranslation
+            fi.name = fit.name_translation
+            return fi
+          }
+        )
     }
     else{
       this.foodItems = this.foodItemsService
