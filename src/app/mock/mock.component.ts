@@ -1,6 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FoodItem, FoodItemTranslation } from '../app-calculator/common/food-item';
+import { MixDetails } from '../app-calculator/mix/mix';
 
 @Component({
   selector: 'app-mock',
@@ -19,6 +20,9 @@ export class MockComponent {
   foodItemTranslations: FoodItemTranslation[] = [];
   // map concat(food_id,language) -> translation for indexing the translations by food_id / language pairs
   foodItemTranslationsMap: Map<string, FoodItemTranslation> = new Map<string, FoodItemTranslation>();
+
+  mixJsonFile: string = "../../assets/data/mix.json";
+  mixes: MixDetails[] = [];
   
   constructor(
     private http: HttpClient
@@ -36,6 +40,10 @@ export class MockComponent {
             foodItemTranslation
           )
         )
+      });
+
+      this.http.get<MixDetails[]>(this.mixJsonFile).subscribe(res => {
+        this.mixes = res;
       });
   }
 
@@ -161,6 +169,10 @@ export class MockComponent {
     )
     return foodItemTranslation ? foodItemTranslation : 
       {"lang": lang, "food_id": food_id, "name_translation": name}
+  }
+
+  getExampleMixesDetails(){
+    return this.mixes
   }
 
 }

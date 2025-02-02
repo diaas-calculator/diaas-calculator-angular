@@ -9,6 +9,7 @@ import { HttpErrorHandler, HandleError } from '../../http-error-handler.service'
 import { FoodItem } from '../common/food-item';
 import { environment } from '../../../environments/environment';
 import { MixFoodJoin, MixFoodJoinI18n, MixDetails } from './mix';
+import { MockComponent } from '../../mock/mock.component';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -29,19 +30,14 @@ export class MixService {
 
   constructor(
     private http: HttpClient,
-    httpErrorHandler: HttpErrorHandler) {
+    httpErrorHandler: HttpErrorHandler,
+    private mockComponent: MockComponent) {
     this.handleError = httpErrorHandler.createHandleError('MixService');
   }
 
   
-  getExampleMixesDetails(): Observable<MixDetails[]> {
-    const options = {}
-    
-    const url = `${this.mixDetailsUrl}/list/`
-    return this.http.get<MixDetails[]>(url, options)
-      .pipe(
-        catchError(this.handleError<MixDetails[]>('getExampleMixesDetails'))
-      );
+  getExampleMixesDetails(): MixDetails[] {
+    return this.mockComponent.getExampleMixesDetails()
   }
 
   getExampleMixFoodJoin(mixId: number): Observable<MixFoodJoin[]> {
