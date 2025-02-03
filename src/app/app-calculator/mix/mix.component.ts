@@ -281,22 +281,17 @@ export class MixComponent implements OnInit {
     if(lang && lang !== 'en'){
       this.mixService
         .getExampleMixFoodJoinI18n(this.exampleMixDetails.id, lang)
-        .subscribe({
-          next: 
-            (foodWithWeightArray) => foodWithWeightArray.map(
-              (foodWithWeight) => {
-              let fi: FoodItem = foodWithWeight.food;
-              fi.food_weight = foodWithWeight.food_weight;
-              fi.name = foodWithWeight.name_translation;
-              fi.protein_weight = fi.protein_content/100*fi.food_weight;
-              //console.log(fi);
-              this.foodItems.push(fi);
-              }
-            ),
-          complete: 
-            () => this.computeMixDiaasAndTotals()
+        .forEach(
+          (foodWithWeight) => {
+            let fi: FoodItem = foodWithWeight.food;
+            fi.food_weight = foodWithWeight.food_weight;
+            fi.name = foodWithWeight.name_translation;
+            fi.protein_weight = fi.protein_content/100*fi.food_weight;
+            //console.log(fi);
+            this.foodItems.push(fi);
           }
-        );
+        )
+      this.computeMixDiaasAndTotals()
     }
     else{
       this.mixService

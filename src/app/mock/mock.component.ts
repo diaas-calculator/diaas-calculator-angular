@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FoodItem, FoodItemTranslation } from '../app-calculator/common/food-item';
-import { MixDetails, MixFood, MixFoodJoin } from '../app-calculator/mix/mix';
+import { MixDetails, MixFood, MixFoodJoin, MixFoodJoinI18n } from '../app-calculator/mix/mix';
 
 @Component({
   selector: 'app-mock',
@@ -13,19 +13,21 @@ import { MixDetails, MixFood, MixFoodJoin } from '../app-calculator/mix/mix';
   providedIn: 'root',
 })
 export class MockComponent {
-  // FoodItem mock
-  foodItemsJsonFile: string = "../../assets/data/food.json";
+  // prevents cache from serving the wrong file
+  revFood: string = "_v1.0"
+  revMix: string = "_v1.0"
+  foodItemsJsonFile: string = "../../assets/data/food" + this.revFood + ".json";
   foodItems: FoodItem[] = [];
   
-  foodItemTranslationsFile: string = "../../assets/data/food_i18n.json";
+  foodItemTranslationsFile: string = "../../assets/data/food_i18n" + this.revFood + ".json";
   foodItemTranslations: FoodItemTranslation[] = [];
   // map concat(food_id,language) -> translation for indexing the translations by food_id / language pairs
   foodItemTranslationsMap: Map<string, FoodItemTranslation> = new Map<string, FoodItemTranslation>();
 
   // Mix mock
-  mixJsonFile: string = "../../assets/data/mix.json";
+  mixJsonFile: string = "../../assets/data/mix" + this.revMix + ".json";
   mixes: MixDetails[] = [];
-  mixFoodJsonFile: string = "../../assets/data/mix_food.json";
+  mixFoodJsonFile: string = "../../assets/data/mix_food" + this.revMix + ".json";
   mixFoods: MixFood[] = [];
   
   // map mix_id -> Mix to get a mix quickly
@@ -38,7 +40,11 @@ export class MockComponent {
     private http: HttpClient
   ) {
       this.http.get<FoodItem[]>(this.foodItemsJsonFile).subscribe(res => {
-        this.foodItems = res;
+        this.foodItems = res.sort(
+          (foodItem1, foodItem2) => {
+            return (foodItem1.name.toLowerCase() < foodItem2.name.toLowerCase()) ? -1 : 1
+          }
+        )
         this.foodItems.forEach(
           (foodItem) => this.foodItemMap.set(
             foodItem.id, foodItem
@@ -165,7 +171,6 @@ export class MockComponent {
           [
             foodItem, 
             this.getFoodItemTranslationAlwaysDefined(
-              this.foodItemTranslationsMap,
               foodItem.id,
               lang,
               foodItem.name
@@ -173,6 +178,19 @@ export class MockComponent {
           ])
         }
       )
+      foodItemFoodItemsTranslationArray.sort(
+        (fiFit1, fiFit2) => {
+          // using custom type guards to determine the type
+          let fit1: FoodItem | FoodItemTranslation = fiFit1[1]
+          let fit2: FoodItem | FoodItemTranslation = fiFit2[1]
+          if ('name_translation' in fit1  && 'name_translation' in fit2){
+            return (fit1.name_translation.toLowerCase() < fit2.name_translation.toLowerCase()) ? -1 : 1
+          }
+          else{
+            return -1
+          }
+        }
+      )  
     return foodItemFoodItemsTranslationArray
   }
 
@@ -188,9 +206,9 @@ export class MockComponent {
    * @param name english food name. This is what we'll be using if the translation is not found
    * @returns 
    */
-  private getFoodItemTranslationAlwaysDefined(foodItemTranslationsMap: Map<string, FoodItemTranslation>, food_id: number, lang: string, name: string){
+  private getFoodItemTranslationAlwaysDefined(food_id: number, lang: string, name: string){
     let foodItemTranslation: (FoodItemTranslation | undefined) = 
-      foodItemTranslationsMap.get(
+      this.foodItemTranslationsMap.get(
         this.getFoodItemTranslationMapKey(food_id, lang)
     )
     return foodItemTranslation ? foodItemTranslation : 
@@ -225,5 +243,31 @@ export class MockComponent {
       throw new Error("Internal error: cannot find food of id " + foodId);
     }
     return foodItem
+  }
+
+  getExampleMixFoodJoinI18n(mixId: number, lang: string){
+    let mixFoodJoin: MixFoodJoinI18n[] = []
+    this.mixFoods
+      .filter(
+        (mixFood) => mixFood.mix_id == mixId
+      )
+      .forEach(
+        (mixFood) => {
+          let foodItem: FoodItem = this.getFoodAlwaysDefined(mixFood.food_id)
+          mixFoodJoin.push(
+            {
+              "id": mixId, 
+              "food_weight": mixFood.food_weight,
+              "name_translation" : this.getFoodItemTranslationAlwaysDefined(
+                mixFood.food_id,
+                lang,
+                foodItem.name
+              ).name_translation,
+              "food": foodItem
+            }
+          )
+        }
+      )
+    return mixFoodJoin
   }
 }

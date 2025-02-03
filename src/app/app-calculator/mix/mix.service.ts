@@ -44,19 +44,8 @@ export class MixService {
     return this.mockComponent.getExampleMixFoodJoin(mixId)
   }
 
-  getExampleMixFoodJoinI18n(mixId: number, lang: string): Observable<MixFoodJoinI18n[]> {
-    let myParams: HttpParams = new HttpParams();
-    myParams = myParams.append('lang', lang);
-    const options = 
-    { 
-      params: myParams 
-    };
-    
-    const url = `${this.mixWithFoodI18nUrl}/${mixId}`
-    return this.http.get<MixFoodJoinI18n[]>(url, options)
-      .pipe(
-        catchError(this.handleError<MixFoodJoinI18n[]>('getExampleMixFoodJoinI18n', []))
-      );
+  getExampleMixFoodJoinI18n(mixId: number, lang: string): MixFoodJoinI18n[] {
+    return this.mockComponent.getExampleMixFoodJoinI18n(mixId, lang)
   }
 
 
