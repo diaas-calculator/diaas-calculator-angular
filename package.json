@@ -1,7 +1,7 @@
 {
   "name": "diaas-calculator-angular",
-  "version": "1.0.0",
-  "description": "Front-end for proteins diaas-calculator",
+  "version": "2.0.0",
+  "description": "Proteins diaas-calculator 1-tier architecture",
   "license": "LGPL 2.1",
   "scripts": {
     "ng": "ng",
