@@ -1,0 +1,10 @@
+{
+    "name": "utils",
+    "version": "1.0.0",
+    "description": "csv to json converter",
+    "license": "LGPL 2.1",
+    "private": true,
+    "dependencies": {
+        "convert-csv-to-json": "^2.50.0"
+    }
+}

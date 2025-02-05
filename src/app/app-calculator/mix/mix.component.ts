@@ -37,19 +37,10 @@ export class MixComponent implements OnInit {
   exampleMixes: MixDetails[] = [];
   exampleMixDetails: MixDetails = this.getInitialMixDetails();
 
-
+  // Singleton stored in static currentMixComponent to be accessible globally
   constructor(private mixService: MixService) {
     if (MixComponent.currentMixComponent) {
       return MixComponent.currentMixComponent;
-    }
-    else{
-      this.mixService
-        .getExampleMixesDetails()
-        .subscribe({
-          next: 
-            (mixesDetails) => this.exampleMixes = mixesDetails
-          }
-        );
     }
   }
 
@@ -74,7 +65,13 @@ export class MixComponent implements OnInit {
   ngOnInit() {
     if (!MixComponent.currentMixComponent) {
       MixComponent.currentMixComponent = this;
-    }   
+    }
+        // Quick hack to wait for the data to be available from the mock. TODO could be done more nicely
+        let thisthis = this;
+        var intervalId = window.setInterval(function(){
+          thisthis.exampleMixes = thisthis.mixService.getExampleMixesDetails()
+          clearInterval(intervalId) 
+        }, 1000);
   }
 
   ngOnDestroy(): void {
@@ -284,41 +281,31 @@ export class MixComponent implements OnInit {
     if(lang && lang !== 'en'){
       this.mixService
         .getExampleMixFoodJoinI18n(this.exampleMixDetails.id, lang)
-        .subscribe({
-          next: 
-            (foodWithWeightArray) => foodWithWeightArray.map(
-              (foodWithWeight) => {
-              let fi: FoodItem = foodWithWeight.food;
-              fi.food_weight = foodWithWeight.food_weight;
-              fi.name = foodWithWeight.name_translation;
-              fi.protein_weight = fi.protein_content/100*fi.food_weight;
-              //console.log(fi);
-              this.foodItems.push(fi);
-              }
-            ),
-          complete: 
-            () => this.computeMixDiaasAndTotals()
+        .forEach(
+          (foodWithWeight) => {
+            let fi: FoodItem = foodWithWeight.food;
+            fi.food_weight = foodWithWeight.food_weight;
+            fi.name = foodWithWeight.name_translation;
+            fi.protein_weight = fi.protein_content/100*fi.food_weight;
+            //console.log(fi);
+            this.foodItems.push(fi);
           }
-        );
+        )
+      this.computeMixDiaasAndTotals()
     }
     else{
       this.mixService
         .getExampleMixFoodJoin(this.exampleMixDetails.id)
-        .subscribe({
-          next: 
-            (foodWithWeightArray) => foodWithWeightArray.map(
-              (foodWithWeight) => {
-              let fi: FoodItem = foodWithWeight.food;
-              fi.food_weight = foodWithWeight.food_weight;
-              fi.protein_weight = fi.protein_content/100*fi.food_weight;
-              //console.log(fi);
-              this.foodItems.push(fi);
-              }
-            ),
-          complete: 
-            () => this.computeMixDiaasAndTotals()
+        .forEach(
+          (mixFoodJoin) => {
+          let fi: FoodItem = mixFoodJoin.food;
+          fi.food_weight = mixFoodJoin.food_weight;
+          fi.protein_weight = fi.protein_content/100*fi.food_weight;
+          //console.log(fi);
+          this.foodItems.push(fi);
           }
-        );
+        )
+        this.computeMixDiaasAndTotals()
       }
   }
 

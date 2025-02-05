@@ -6,6 +6,12 @@ export interface MixDIAASAndWeights extends ScoredObject {
 }
 
 
+export interface MixFood{
+  mix_id: number,
+  food_id: number,
+  food_weight: number
+}
+
 // The food with weight as retrieved from the backend when sql joining Mix to Food through mix_food table
 // (the value of the food_weight is outside of the Food struct at this point)
 export interface MixFoodJoin{

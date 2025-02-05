@@ -1,0 +1,38 @@
+[
+ {
+  "id": 1,
+  "name": "Overnight porridge and hummus (vegetarian breakfast)",
+  "description": "See full recipe in the mix details",
+  "recipe_link": "https://www.nutritionvalue.org/public_recipe_198680.html"
+ },
+ {
+  "id": 2,
+  "name": "Lentils dahl",
+  "description": "Classic lentils dahl with oats bran added at the end of the cooking + a mix of oilseeds. See full recipe in the mix details",
+  "recipe_link": "https://www.nutritionvalue.org/public_recipe_198549.html"
+ },
+ {
+  "id": 3,
+  "name": "Pasta salad with navy beans",
+  "description": "",
+  "recipe_link": ""
+ },
+ {
+  "id": 4,
+  "name": "Rice salad with red beans and brazil nuts",
+  "description": "",
+  "recipe_link": ""
+ },
+ {
+  "id": 5,
+  "name": "Vegan gainer",
+  "description": "This is an isolated protein mix with a high level of leucine to stimulate muscle protein synthesis and growth (this is for 2 servings). See full recipe in the mix details",
+  "recipe_link": "https://www.nutritionvalue.org/public_recipe_210064.html"
+ },
+ {
+  "id": 6,
+  "name": "Flexitarian whey",
+  "description": "This is an isolated protein mix with mimimal greenhouse gaz and a high level of leucine to stimulate muscle protein synthesis and growth (this is for 2 servings). See full recipe in the mix details",
+  "recipe_link": "https://www.nutritionvalue.org/public_recipe_212344.html"
+ }
+]
