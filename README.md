@@ -1,8 +1,12 @@
 # What is this project
 
-This is the angular frontend for the [Protein DIAAS calculator](https://www.diaas-calculator.com/)
+This is the code for the [Protein DIAAS calculator](https://www.diaas-calculator.com/)
 
-See also the backend project [DIAAS calculator rust](https://github.com/diaas-calculator/diaas-calculator-rust).
+# Architecture
+
+This is now a 1-tier application: everything is handled by this project. 
+
+Another version of this application exists with a 3-tier architecture. More info : see 
 
 # Running locally
 

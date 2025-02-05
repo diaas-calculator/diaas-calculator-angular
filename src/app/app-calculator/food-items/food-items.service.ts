@@ -21,9 +21,6 @@ const httpOptions = {
 
 @Injectable()
 export class FoodItemsService {
-  // URL to web api
-  foodItemsUrl = environment.apiUrl + '/food'; 
-  foodItemsUrlI18n = environment.apiUrl + '/food_i18n';
   private handleError: HandleError;
 
   constructor(

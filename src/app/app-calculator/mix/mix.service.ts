@@ -20,12 +20,6 @@ const httpOptions = {
 
 @Injectable()
 export class MixService {
-  // URL to web api for mix with all food items
-  mixWithFoodUrl = environment.apiUrl + '/mix-with-food'; 
-  // URL to web api for mix with all food items with internationalization
-  mixWithFoodI18nUrl = environment.apiUrl + '/mix-with-food-i18n'; 
-  // URL to web api for mix details (without food items)
-  mixDetailsUrl = environment.apiUrl + '/mix'; 
   private handleError: HandleError;
 
   constructor(
