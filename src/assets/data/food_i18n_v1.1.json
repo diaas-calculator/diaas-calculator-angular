@@ -1,0 +1,572 @@
+[
+ {
+  "lang": "fr",
+  "food_id": 1,
+  "name_translation": "Avoine porridge (flocons d'avoine, bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 2,
+  "name_translation": "Avoine, flocons (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 3,
+  "name_translation": "Avoine porridge (son d'avoine, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 4,
+  "name_translation": "Avoine, son (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 5,
+  "name_translation": "Blé (moyenne, cru?)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 6,
+  "name_translation": "Blé (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 7,
+  "name_translation": "Blé complet (cuit au four)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 8,
+  "name_translation": "Pâtes (bouillies, semoule de blé durum)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 9,
+  "name_translation": "Blé, pétales (céréales petit déjeuner, moyenne)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 10,
+  "name_translation": "Blé, son (céréales petit déjeuner, type Kelloggs all bran fibre plus)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 11,
+  "name_translation": "Blé, soufflé (céréales petit déjeuner, type smacks)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 12,
+  "name_translation": "Maïs (moyenne, cru?)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 13,
+  "name_translation": "Maïs (extrudé, cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 14,
+  "name_translation": "Maïs (céréales petit déjeuner type miel pops)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 15,
+  "name_translation": "Cornflakes (flocons de maïs toastés, Kellogg’s)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 16,
+  "name_translation": "Seigle (cru, moulu)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 17,
+  "name_translation": "Riz (moyenne, cru?)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 18,
+  "name_translation": "Riz (bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 19,
+  "name_translation": "Riz blanc (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 20,
+  "name_translation": "Riz complet (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 21,
+  "name_translation": "Riz, isolat de protéine"
+ },
+ {
+  "lang": "fr",
+  "food_id": 22,
+  "name_translation": "Isolat de drêches de brasserie (orge/riz, cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 23,
+  "name_translation": "Canola, graines (colza de printemps, moyenne, cru?)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 24,
+  "name_translation": "Colza, graines (moyenne, cru?)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 25,
+  "name_translation": "Orge, sans coque (cru, moulu)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 26,
+  "name_translation": "Orge (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 27,
+  "name_translation": "Orge, noodles"
+ },
+ {
+  "lang": "fr",
+  "food_id": 28,
+  "name_translation": "Sarrasin (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 29,
+  "name_translation": "Sarrasin (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 30,
+  "name_translation": "Sarrasin, noodles"
+ },
+ {
+  "lang": "fr",
+  "food_id": 31,
+  "name_translation": "Millet commun (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 32,
+  "name_translation": "Millet (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 33,
+  "name_translation": "Millet, buns cuits à la vapeur"
+ },
+ {
+  "lang": "fr",
+  "food_id": 34,
+  "name_translation": "Quinoa (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 35,
+  "name_translation": "Pain (blé)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 36,
+  "name_translation": "Levure de bière"
+ },
+ {
+  "lang": "fr",
+  "food_id": 37,
+  "name_translation": "Pistaches (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 38,
+  "name_translation": "Pistaches (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 39,
+  "name_translation": "Pistaches (grillées)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 40,
+  "name_translation": "Noix (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 41,
+  "name_translation": "Cacahuètes (grillées)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 42,
+  "name_translation": "Arachides / cacahuètes, farine"
+ },
+ {
+  "lang": "fr",
+  "food_id": 43,
+  "name_translation": "Graines de courge, concentré de protéine (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 44,
+  "name_translation": "Graines de courge, isolat de protéine (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 45,
+  "name_translation": "Amandes (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 46,
+  "name_translation": "Graines de tournesol (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 47,
+  "name_translation": "Noix de cajou (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 48,
+  "name_translation": "Noix du brésil (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 49,
+  "name_translation": "Noix de pécan (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 50,
+  "name_translation": "Pignons de pin (crus)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 51,
+  "name_translation": "Noisettes (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 52,
+  "name_translation": "Sésame, purée, tahini (non grillé)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 53,
+  "name_translation": "Fèves (farine, cuite au four)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 54,
+  "name_translation": "Fèves concentrat de protéines (cuit au four)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 55,
+  "name_translation": "Fèves isolat de protéines (crues)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 56,
+  "name_translation": "Haricots rouges (bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 57,
+  "name_translation": "Adzuki - haricots rouges (trempés, bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 58,
+  "name_translation": "Haricots blancs (bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 59,
+  "name_translation": "Pois, isolat de protéine (poudre, crue)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 60,
+  "name_translation": "Pois, concentrat de protéine (poudre, crue)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 61,
+  "name_translation": "Petits pois (trempés, cuits)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 62,
+  "name_translation": "Pois chiches (bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 63,
+  "name_translation": "Pois cassés verts, farine (cuite au four)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 64,
+  "name_translation": "Pois cassés jaunes, farine (cuite au four)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 65,
+  "name_translation": "Pois cassés verts (bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 66,
+  "name_translation": "Pois cassés jaunes (bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 67,
+  "name_translation": "Lentilles vertes (bouillies)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 68,
+  "name_translation": "Lentilles corail (bouillies)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 69,
+  "name_translation": "Pois chiches (trempés, bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 70,
+  "name_translation": "Soja (trempé, bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 71,
+  "name_translation": "Soja, lait"
+ },
+ {
+  "lang": "fr",
+  "food_id": 72,
+  "name_translation": "Tofu (soja)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 73,
+  "name_translation": "Soja, isolat de protéine (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 74,
+  "name_translation": "Oeufs (bouillis)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 75,
+  "name_translation": "Poulet (cuit)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 76,
+  "name_translation": "Bacon, porc (fumé et cuit)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 77,
+  "name_translation": "Jambon de porc (fumé)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 78,
+  "name_translation": "Bœuf, steak haché (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 79,
+  "name_translation": "Bœuf, steak haché (cuit)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 80,
+  "name_translation": "Mouche soldat noir, larve, mat. grasse >20%, lyophil."
+ },
+ {
+  "lang": "fr",
+  "food_id": 81,
+  "name_translation": "Ver de farine, larve, lyophil."
+ },
+ {
+  "lang": "fr",
+  "food_id": 82,
+  "name_translation": "Whey (crue, average)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 83,
+  "name_translation": "Whey isolat de protéine de lait (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 84,
+  "name_translation": "Whey concentrat de protéine de lait (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 85,
+  "name_translation": "Lait en poudre"
+ },
+ {
+  "lang": "fr",
+  "food_id": 86,
+  "name_translation": "Lait"
+ },
+ {
+  "lang": "fr",
+  "food_id": 87,
+  "name_translation": "Yaourt"
+ },
+ {
+  "lang": "fr",
+  "food_id": 88,
+  "name_translation": "Fromage blanc"
+ },
+ {
+  "lang": "fr",
+  "food_id": 89,
+  "name_translation": "BCAA L-Leucine, L-isoleucine, L-valine par fermentation"
+ },
+ {
+  "lang": "fr",
+  "food_id": 90,
+  "name_translation": "Moules (cuites)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 91,
+  "name_translation": "Saumon, élevage, cru"
+ },
+ {
+  "lang": "fr",
+  "food_id": 92,
+  "name_translation": "Thon, cru"
+ },
+ {
+  "lang": "fr",
+  "food_id": 93,
+  "name_translation": "Cabillaud, cru"
+ },
+ {
+  "lang": "fr",
+  "food_id": 94,
+  "name_translation": "Sardine, crue"
+ },
+ {
+  "lang": "fr",
+  "food_id": 95,
+  "name_translation": "Lieu jaune, cru"
+ },
+ {
+  "lang": "fr",
+  "food_id": 96,
+  "name_translation": "Bar, cru"
+ },
+ {
+  "lang": "fr",
+  "food_id": 97,
+  "name_translation": "Agneau, gigot, roti"
+ },
+ {
+  "lang": "fr",
+  "food_id": 98,
+  "name_translation": "Fromage"
+ },
+ {
+  "lang": "fr",
+  "food_id": 99,
+  "name_translation": "Quinoa (cuit)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 100,
+  "name_translation": "Chou rouge (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 101,
+  "name_translation": "Chou rouge (bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 102,
+  "name_translation": "Broccolis (bouilli)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 103,
+  "name_translation": "Lentilles d'eau, W. arrhiza. (crues, déshydratées)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 104,
+  "name_translation": "Banane (crue)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 105,
+  "name_translation": "Tempeh gembus - soja (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 106,
+  "name_translation": "Tempeh gembus - soja (cuit à la vapeur)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 107,
+  "name_translation": "Tempeh gembus - soja (frit)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 108,
+  "name_translation": "Tempeh gembus - soja (bromure ajoutée)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 109,
+  "name_translation": "Tempeh (depuis soja noir, Indonesie)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 110,
+  "name_translation": "Tempeh (depuis soja Anjasmoro, Indonésie)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 111,
+  "name_translation": "Tempeh (depuis soja américain)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 112,
+  "name_translation": "Tempeh - soja (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 113,
+  "name_translation": "Seigle (cru)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 114,
+  "name_translation": "Seigle (pain)"
+ }
+]

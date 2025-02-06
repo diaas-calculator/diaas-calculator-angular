@@ -14,8 +14,8 @@ import { MixDetails, MixFood, MixFoodJoin, MixFoodJoinI18n } from '../app-calcul
 })
 export class MockComponent {
   // prevents cache from serving the wrong file
-  revFood: string = "_v1.0"
-  revMix: string = "_v1.0"
+  revFood: string = "_v1.1"
+  revMix: string = "_v1.1"
   foodItemsJsonFile: string = "../../assets/data/food" + this.revFood + ".json";
   foodItems: FoodItem[] = [];
   

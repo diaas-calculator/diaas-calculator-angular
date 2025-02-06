@@ -44,3 +44,5 @@ Thumbs.db
 
 # Specifics
 .clever.json
+utils/food_full.xlsx
+utils/food_full.csv
