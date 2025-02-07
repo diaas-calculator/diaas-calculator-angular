@@ -29,9 +29,6 @@ export class MockComponent {
   mixes: MixDetails[] = [];
   mixFoodJsonFile: string = "../../assets/data/mix_food" + this.revMix + ".json";
   mixFoods: MixFood[] = [];
-  
-  // map mix_id -> Mix to get a mix quickly
-  mixesMap: Map<number, MixDetails> = new Map<number, MixDetails>();
 
   // map food_id -> food for indexing food items (join to build MixFoodJoin)
   foodItemMap: Map<number, FoodItem> = new Map<number, FoodItem>();
@@ -64,12 +61,6 @@ export class MockComponent {
 
         this.http.get<MixDetails[]>(this.mixJsonFile).subscribe(res => {
           this.mixes = res;
-          this.mixes.forEach(
-            (mix) => this.mixesMap.set(
-              mix.id,
-              mix
-            )
-          )
         });
 
         this.http.get<MixFood[]>(this.mixFoodJsonFile).subscribe(res => {
