@@ -48,13 +48,7 @@ export class FoodItemsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Quick hack to wait for the data to be available from the mock
-    let thisthis = this;
-    var intervalId = window.setInterval(function(){
-      thisthis.search()
-      clearInterval(intervalId) 
-    }, 500);
-    
+    this.search()    
   }
 
   getDiaasStyle(diaasScore: number, scoredObject: ScoredObject): object {

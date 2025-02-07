@@ -66,12 +66,7 @@ export class MixComponent implements OnInit {
     if (!MixComponent.currentMixComponent) {
       MixComponent.currentMixComponent = this;
     }
-        // Quick hack to wait for the data to be available from the mock. TODO could be done more nicely
-        let thisthis = this;
-        var intervalId = window.setInterval(function(){
-          thisthis.exampleMixes = thisthis.mixService.getExampleMixesDetails()
-          clearInterval(intervalId) 
-        }, 1000);
+    this.exampleMixes = this.mixService.getExampleMixesDetails()
   }
 
   ngOnDestroy(): void {

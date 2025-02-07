@@ -3,6 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { FoodItem, FoodItemTranslation } from '../app-calculator/common/food-item';
 import { MixDetails, MixFood, MixFoodJoin, MixFoodJoinI18n } from '../app-calculator/mix/mix';
 
+// mock data
+import foodItemsJson from "../../assets/data/food.json";
+import foodItemTranslationsJson from "../../assets/data/food_i18n.json";
+import mixJson from "../../assets/data/mix.json";
+import mixFoodJson from "../../assets/data/mix_food.json";
+
+
 @Component({
   selector: 'app-mock',
   templateUrl: './mock.component.html',
@@ -14,20 +21,14 @@ import { MixDetails, MixFood, MixFoodJoin, MixFoodJoinI18n } from '../app-calcul
 })
 export class MockComponent {
   // prevents cache from serving the wrong file
-  revFood: string = "_v1.1"
-  revMix: string = "_v1.1"
-  foodItemsJsonFile: string = "../../assets/data/food" + this.revFood + ".json";
   foodItems: FoodItem[] = [];
   
-  foodItemTranslationsFile: string = "../../assets/data/food_i18n" + this.revFood + ".json";
   foodItemTranslations: FoodItemTranslation[] = [];
   // map concat(food_id,language) -> translation for indexing the translations by food_id / language pairs
   foodItemTranslationsMap: Map<string, FoodItemTranslation> = new Map<string, FoodItemTranslation>();
 
   // Mix mock
-  mixJsonFile: string = "../../assets/data/mix" + this.revMix + ".json";
   mixes: MixDetails[] = [];
-  mixFoodJsonFile: string = "../../assets/data/mix_food" + this.revMix + ".json";
   mixFoods: MixFood[] = [];
 
   // map food_id -> food for indexing food items (join to build MixFoodJoin)
@@ -36,38 +37,31 @@ export class MockComponent {
   constructor(
     private http: HttpClient
   ) {
-      this.http.get<FoodItem[]>(this.foodItemsJsonFile).subscribe(res => {
-        this.foodItems = res.sort(
+      this.foodItems = (<FoodItem[]>foodItemsJson)
+        .sort(
           (foodItem1, foodItem2) => {
             return (foodItem1.name.toLowerCase() < foodItem2.name.toLowerCase()) ? -1 : 1
           }
         )
-        this.foodItems.forEach(
-          (foodItem) => this.foodItemMap.set(
-            foodItem.id, foodItem
-          )
+      this.foodItems.forEach(
+        (foodItem) => this.foodItemMap.set(
+          foodItem.id, foodItem
         )
-      });
-      this.http.get<FoodItemTranslation[]>(this.foodItemTranslationsFile).subscribe(res => {
-        this.foodItemTranslations = res;
-        this.foodItemTranslations.forEach(
-          (foodItemTranslation) => this.foodItemTranslationsMap.set(
-            // key
-            this.getFoodItemTranslationMapKey(foodItemTranslation.food_id, foodItemTranslation.lang),
-            // value
-            foodItemTranslation
-          )
+      )
+
+      this.foodItemTranslations = (<FoodItemTranslation[]>foodItemTranslationsJson)
+      this.foodItemTranslations.forEach(
+        (foodItemTranslation) => this.foodItemTranslationsMap.set(
+          // key
+          this.getFoodItemTranslationMapKey(foodItemTranslation.food_id, foodItemTranslation.lang),
+          // value
+          foodItemTranslation
         )
+      )
 
-        this.http.get<MixDetails[]>(this.mixJsonFile).subscribe(res => {
-          this.mixes = res;
-        });
+      this.mixes = (<MixDetails[]> mixJson)
+      this.mixFoods = (<MixFood[]> mixFoodJson)
 
-        this.http.get<MixFood[]>(this.mixFoodJsonFile).subscribe(res => {
-          this.mixFoods = res;
-        });
-
-      });
   }
 
 
