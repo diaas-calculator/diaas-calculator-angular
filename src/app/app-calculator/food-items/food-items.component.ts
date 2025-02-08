@@ -7,7 +7,7 @@ import { FoodItemsService } from './food-items.service';
 import { MixComponent } from '../mix/mix.component';
 import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle, roundGreenhouseGasRatioForMainDisplay} from '../common/common';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { Router } from '@angular/router';
 import { FoodItemDetailsComponent } from '../food-item-details/food-item-details';
 
@@ -19,7 +19,7 @@ import { FoodItemDetailsComponent } from '../food-item-details/food-item-details
     CommonModule,
     FormsModule, 
     NgbTooltipModule, 
-    DropdownModule,
+    SelectModule,
     FoodItemDetailsComponent],
   providers: [FoodItemsService],
   styleUrls: ['./food-items.component.css']

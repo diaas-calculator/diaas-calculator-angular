@@ -7,7 +7,7 @@ import { MixDIAASAndWeights, MixDetails } from './mix';
 import { MixService } from './mix.service';
 import { getDiaasStyle, roundOneDecimal, getScoreLetter, getScoreLetterStyle, roundGreenhouseGasRatioForMainDisplay, roundGreenhouseGasForDetailedDisplay, roundGreenhouseGasTotalForMainDisplay } from '../common/common';
 import { NgbTooltipModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { FoodItemDetailsComponent } from '../food-item-details/food-item-details';
 
 @Component({
@@ -18,7 +18,7 @@ import { FoodItemDetailsComponent } from '../food-item-details/food-item-details
     CommonModule, 
     FormsModule, 
     NgbTooltipModule, 
-    DropdownModule,
+    SelectModule,
     FoodItemDetailsComponent],
   providers: [MixService],
   styleUrls: ['./mix.component.css']
