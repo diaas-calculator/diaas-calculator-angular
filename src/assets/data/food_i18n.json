@@ -262,7 +262,7 @@
  {
   "lang": "fr",
   "food_id": 53,
-  "name_translation": "Fèves (farine, cuite au four)"
+  "name_translation": "Fèves (farine, extrudée, cuite au four)"
  },
  {
   "lang": "fr",
@@ -568,5 +568,35 @@
   "lang": "fr",
   "food_id": 114,
   "name_translation": "Seigle (pain)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 115,
+  "name_translation": "Gélatine (moyenne)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 116,
+  "name_translation": "Fèves (farine, bouillie)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 117,
+  "name_translation": "Haricots pinto (farine, bouillie)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 118,
+  "name_translation": "Haricots pinto (farine, extrudée, cuite au four)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 119,
+  "name_translation": "Haricots noirs (farine, bouillie)"
+ },
+ {
+  "lang": "fr",
+  "food_id": 120,
+  "name_translation": "Haricots noirs  (farine, extrudée, cuite au four)"
  }
 ]
