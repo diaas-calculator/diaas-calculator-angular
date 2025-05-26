@@ -99,7 +99,7 @@ Feel free to reach us should you find any error
 
 # Contact us
 
-Feel free to [contact us on slack](https://join.slack.com/t/nouvelespaced-u4p4016/shared_invite/zt-2jknsft6u-4RSF2n09gGkJtXqBvvpQZg) if you have any questions or want to discuss anything about this project.
+Feel free to [contact us on slack](https://join.slack.com/t/diaascalculator/shared_invite/zt-36621afxv-gmKslovnBh3lH0OWS9yjSg) if you have any questions or want to discuss anything about this project.
 
 
 
