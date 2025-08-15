@@ -45,7 +45,7 @@ ng build --configuration=production
 
 This is an opensource project. All the contributions are welcome!
 
-In case something inspires you, here's the top of my todo list (please contact me on slack before starting anything significant): 
+In case something inspires you, here's the top of my todo list (please contact me on discord before starting anything significant): 
 
 - add food as doses by default instead of 100g (1 egg, 1 portion of xxx = x grams)
 - pagination (don't display all food items, just 10 or 20 and paginate the next results)
@@ -91,7 +91,7 @@ Sometimes it is required to gather data from different sources and compute the D
 
 To do this, the excel sheet in this meta-study is really helping: https://data.mendeley.com/datasets/gz3cx7d5f4/1
 
-Feel free to ask my latest version on slack. I have also initiated one for PDCAAS scores.
+Feel free to ask my latest version on discord. I have also initiated one for PDCAAS scores.
 
 ## Content reviewing
 
@@ -99,7 +99,7 @@ Feel free to reach us should you find any error
 
 # Contact us
 
-Feel free to [contact us on slack](https://join.slack.com/t/diaascalculator/shared_invite/zt-36621afxv-gmKslovnBh3lH0OWS9yjSg) if you have any questions or want to discuss anything about this project.
+Feel free to [contact us on discord](https://discord.gg/6hzVNKz2) if you have any questions or want to discuss anything about this project.
 
 
 
