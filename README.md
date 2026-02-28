@@ -99,7 +99,7 @@ Feel free to reach us should you find any error
 
 # Contact us
 
-Feel free to [contact us on discord](https://discord.gg/6hzVNKz2) if you have any questions or want to discuss anything about this project.
+Feel free to [contact us on discord](https://discord.gg/3YenheMMWn) if you have any questions or want to discuss anything about this project.
 
 
 
