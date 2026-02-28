@@ -2,19 +2,19 @@
 <div class="mix-controls">
   <div class="select-example-mix">
     <div class="select-example-mix-label"><b>Choose a sample mix or compose your own</b></div>
-      <p-select 
-        [options]="exampleMixes" 
-        [(ngModel)]="exampleMixDetails" 
-        optionLabel="name" 
-        placeholder="Select sample mix"
-        (onChange)="clearMixFoodItems()"/>
+    <p-select
+      [options]="exampleMixes"
+      [(ngModel)]="exampleMixDetails"
+      optionLabel="name"
+      placeholder="Select sample mix"
+      (onChange)="clearMixFoodItems()"/>
   </div>
 
 
   <div class="mix-description">
     <p>{{exampleMixDetails.description}}</p>
   </div>
-  
+
 
   <button type="button" class="load-example-mix" title="Load sample mix"
     (click)="this.loadExampleMix()">
@@ -57,20 +57,20 @@
   <div class="protein-content-and-weight">
     <span class="protein-content" title="Average protein content per 100g (counting only listed raw ingredients)" ngbTooltip="Average protein content per 100g (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_content)}}</span>
     <br/>
-    <span class="protein-weight" title="Total protein weight (counting only listed raw ingredients)" ngbTooltip="Total protein weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>  
+    <span class="protein-weight" title="Total protein weight (counting only listed raw ingredients)" ngbTooltip="Total protein weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.protein_weight)}}g</span>
   </div>
   <span class="quantity" title="Total food weight (counting only listed raw ingredients)" ngbTooltip="Total food weight (counting only listed raw ingredients)" triggers="click:blur">{{this.roundWeightForDisplay(mixDIAASAndWeights.food_weight)}}g </span>
-  
+
   <div class="greenhouse-gas">
     <div class="greenhouse-gas-ratio" title="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" ngbTooltip="Total carbon footprint in kg of eq CO2 per kg of protein (counting only listed raw ingredients)" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas_per_kg_protein)}}</div>
     <div class="greenhouse-gas-total" title="Total carbon footprint in g of eq CO2 for the listed food items and weights" ngbTooltip="Total carbon footprint in g of eq CO2 for the listed food and weights" triggers="click:blur">{{this.roundGreenhouseGasTotalForMainDisplay(this.mixDIAASAndWeights.greenhouse_gas*this.mixDIAASAndWeights.food_weight)}}g</div>
   </div>
-  
-  
+
+
   <button type="button" title="View mix details" class="view-details"
-  (click)="openMixDetails(mixdetailsmodal)">
-  View mix details
-</button>
+    (click)="openMixDetails(mixdetailsmodal)">
+    View mix details
+  </button>
 
   <div class="dummy">
   </div>
@@ -79,94 +79,99 @@
 
 <!-- mix details modal -->
 <ng-template #mixdetailsmodal let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title" id="mixmodal-basic-title">Mix details</h4>
+  <div class="modal-header">
+    <h4 class="modal-title" id="mixmodal-basic-title">Mix details</h4>
     <!-- for some reason the cross gains last focus status and therefore is black upon opening the modal -->
-		<!--<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>-->
-	</div>
-	<div class="modal-body">
-    <div *ngIf="exampleMixDetails.name" class="mix-details-name" >{{exampleMixDetails.name}}</div>
-    <div *ngIf="exampleMixDetails.name" class="mix-details-section">Sample mix data</div>
-    <div *ngIf="exampleMixDetails.recipe_link" class="mix-details-content"><span class="mix-details-key">Recipe link: </span><span class="mix-details-value"><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</span></div>
-	</div>
+    <!--<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>-->
+  </div>
+  <div class="modal-body">
+    @if (exampleMixDetails.name) {
+      <div class="mix-details-name" >{{exampleMixDetails.name}}</div>
+    }
+    @if (exampleMixDetails.name) {
+      <div class="mix-details-section">Sample mix data</div>
+    }
+    @if (exampleMixDetails.recipe_link) {
+      <div class="mix-details-content"><span class="mix-details-key">Recipe link: </span><span class="mix-details-value"><a target="_blank" href={{exampleMixDetails.recipe_link}}>Click here</a> (this will bring you to an external website)</span></div>
+    }
+  </div>
   <div class="modal-body">
     <div class="mix-details-section">Carbon footprint</div>
     <div class="mix-details-content"><span class="mix-details-key">Greenhouse gas :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="Average carbon footprint in kg eqCO2 per kg of food (counting only listed raw ingredients)" triggers="click:blur">?</button></span><span class="mix-details-value">{{this.roundGreenhouseGasForDetailedDisplay(mixDIAASAndWeights.greenhouse_gas)}}</span></div>
-</div>
+  </div>
 
-	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-	</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
 </ng-template>
 
 <!-- food items details modal -->
 <food-item-details></food-item-details>
 
 <ul class="food-items">
-  <li *ngFor="let foodItem of foodItems">
-    <div class="score-letter-and-name"><span class="score-letter" ngbTooltip="{{foodItem.score_type}}" [ngStyle]=getScoreLetterStyle(foodItem.score_type)>{{this.getScoreLetter(foodItem.score_type)}}</span>&nbsp;<span class="name">{{foodItem.name}}</span></div>
-
-    <ng-template #editProteinContentInput>
-      <input #foodItemEditProteinContentInput type="string" class="fi-protein-content-span" [value]="editFoodItemProteinContent!.protein_content" (blur)="editProteinContent(foodItemEditProteinContentInput.value)" (keydown.enter)="editProteinContent(foodItemEditProteinContentInput.value)"/>
-    </ng-template>
-
-    <ng-template #editQuantityInput>
-      <input #foodItemEditQuantityInput type="string" class="fi-quantity-span" [value]="editFoodItemQuantity!.food_weight" (blur)="editQuantity(foodItemEditQuantityInput.value)" (keydown.enter)="editQuantity(foodItemEditQuantityInput.value)"/>
-    </ng-template>
-    <div class="diaas">
-      <table>
-        <tr>
-          <td>his</td>
-          <td><b>ile</b></td>
-          <td class="anabolic"><b>leu</b></td>
-          <td>lys</td>
-          <td>saa</td>
-          <td>aaa</td>
-          <td>thr</td>
-          <td>trp</td>
-          <td><b>val</b></td>
-        </tr>
-        <tr>
-          <td [ngStyle]=getDiaasStyle(foodItem.histidine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.histidine_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.isoleucine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.isoleucine_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.leucine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.leucine_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.lysine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.lysine_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.saa_score,foodItem)>{{this.roundScoreForDisplay(foodItem.saa_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.aaa_score,foodItem)>{{this.roundScoreForDisplay(foodItem.aaa_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.threonine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.threonine_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.tryptophane_score,foodItem)>{{this.roundScoreForDisplay(foodItem.tryptophane_score)}}</td>
-          <td [ngStyle]=getDiaasStyle(foodItem.valine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.valine_score)}}</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="protein-content-and-weight">
-      <div class="fi-protein-content">
-        <span *ngIf="foodItem!==editFoodItemProteinContent; else editProteinContentInput" class="fi-protein-content-span" title="Protein content per 100g" ngbTooltip="Protein content per 100g" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}</span>
-        <img class="fi-protein-content-edit-btn" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
-          (click)="editFoodItemProteinContent = foodItem"/>
+  @for (foodItem of foodItems; track foodItem) {
+    <li>
+      <div class="score-letter-and-name"><span class="score-letter" ngbTooltip="{{foodItem.score_type}}" [ngStyle]=getScoreLetterStyle(foodItem.score_type)>{{this.getScoreLetter(foodItem.score_type)}}</span>&nbsp;<span class="name">{{foodItem.name}}</span></div>
+      <div class="diaas">
+        <table>
+          <tr>
+            <td>his</td>
+            <td><b>ile</b></td>
+            <td class="anabolic"><b>leu</b></td>
+            <td>lys</td>
+            <td>saa</td>
+            <td>aaa</td>
+            <td>thr</td>
+            <td>trp</td>
+            <td><b>val</b></td>
+          </tr>
+          <tr>
+            <td [ngStyle]=getDiaasStyle(foodItem.histidine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.histidine_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.isoleucine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.isoleucine_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.leucine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.leucine_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.lysine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.lysine_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.saa_score,foodItem)>{{this.roundScoreForDisplay(foodItem.saa_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.aaa_score,foodItem)>{{this.roundScoreForDisplay(foodItem.aaa_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.threonine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.threonine_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.tryptophane_score,foodItem)>{{this.roundScoreForDisplay(foodItem.tryptophane_score)}}</td>
+            <td [ngStyle]=getDiaasStyle(foodItem.valine_score,foodItem)>{{this.roundScoreForDisplay(foodItem.valine_score)}}</td>
+          </tr>
+        </table>
       </div>
-      <br/>
-      <span class="protein-weight" title="Protein weight in mix" ngbTooltip="Protein weight in mix" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_weight)}}g</span>  
-    </div>
-    <div class="fi-quantity">
-      <span *ngIf="foodItem!==editFoodItemQuantity; else editQuantityInput" class="fi-quantity-span" title="Food weight in mix" ngbTooltip="Food weight in mix" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.food_weight)}}g </span>
-      <img class="fi-quantity-edit-button" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
-        (click)="editFoodItemQuantity = foodItem"/>
-    </div>
-
-    <div class="fi-greenhouse-gas">
-      <div class="fi-greenhouse-gas-ratio" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
-      <div class="fi-greenhouse-gas-total" title="Carbon footprint in g of eq CO2 for the current food weight" ngbTooltip="Carbon footprint in g of eq CO2 for the current food weight" triggers="click:blur">{{this.roundGreenhouseGasTotalForMainDisplay(foodItem.greenhouse_gas*foodItem.food_weight)}}g</div>
-    </div>
-
-    <button type="button" class="fi-view-details" title="view details"
-      (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
-      View details
-    </button>
-    <button type="button" class="remove" title="remove foodItem"
-      (click)="remove(foodItem)">
-      Remove
-    </button>
-  </li>
+      <div class="protein-content-and-weight">
+        <div class="fi-protein-content">
+          @if (foodItem!==editFoodItemProteinContent) {
+            <span class="fi-protein-content-span" title="Protein content per 100g" ngbTooltip="Protein content per 100g" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}</span>
+          } @else {
+            <input #foodItemEditProteinContentInput type="string" class="fi-protein-content-span" [value]="editFoodItemProteinContent!.protein_content" (blur)="editProteinContent(foodItemEditProteinContentInput.value)" (keydown.enter)="editProteinContent(foodItemEditProteinContentInput.value)"/>
+          }
+          <img class="fi-protein-content-edit-btn" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
+            (click)="editFoodItemProteinContent = foodItem"/>
+        </div>
+        <br/>
+        <span class="protein-weight" title="Protein weight in mix" ngbTooltip="Protein weight in mix" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_weight)}}g</span>
+      </div>
+      <div class="fi-quantity">
+        @if (foodItem!==editFoodItemQuantity) {
+          <span class="fi-quantity-span" title="Food weight in mix" ngbTooltip="Food weight in mix" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.food_weight)}}g </span>
+        } @else {
+          <input #foodItemEditQuantityInput type="string" class="fi-quantity-span" [value]="editFoodItemQuantity!.food_weight" (blur)="editQuantity(foodItemEditQuantityInput.value)" (keydown.enter)="editQuantity(foodItemEditQuantityInput.value)"/>
+        }
+        <img class="fi-quantity-edit-button" src="assets/img/Pencil_-_Noun_project_8825.svg" width=15rem
+          (click)="editFoodItemQuantity = foodItem"/>
+      </div>
+      <div class="fi-greenhouse-gas">
+        <div class="fi-greenhouse-gas-ratio" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
+        <div class="fi-greenhouse-gas-total" title="Carbon footprint in g of eq CO2 for the current food weight" ngbTooltip="Carbon footprint in g of eq CO2 for the current food weight" triggers="click:blur">{{this.roundGreenhouseGasTotalForMainDisplay(foodItem.greenhouse_gas*foodItem.food_weight)}}g</div>
+      </div>
+      <button type="button" class="fi-view-details" title="view details"
+        (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
+        View details
+      </button>
+      <button type="button" class="remove" title="remove foodItem"
+        (click)="remove(foodItem)">
+        Remove
+      </button>
+    </li>
+  }
 </ul>

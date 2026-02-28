@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,9 +7,8 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-advanced-options',
   templateUrl: './advanced-options.component.html',
   imports: [
-    CommonModule,
     NgbTooltipModule
-  ],
+],
   styleUrls: ['./advanced-options.component.css']
 })
 export class AdvancedOptionsComponent {

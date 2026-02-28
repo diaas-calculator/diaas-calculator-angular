@@ -1,6 +1,7 @@
 <div class="advanced-options">
-    <button id="advanced-options-button" (click)="showAdvancedOptions=!showAdvancedOptions">Show/Hide advanced options</button>
-    <div class="advanced-options-inside" *ngIf="showAdvancedOptions">
+  <button id="advanced-options-button" (click)="showAdvancedOptions=!showAdvancedOptions">Show/Hide advanced options</button>
+  @if (showAdvancedOptions) {
+    <div class="advanced-options-inside">
       <label for="show-hidden-filter"><b>Show hidden</b></label>&nbsp;
       <button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="Show less relevant data (will appear with grey background)" triggers="click:blur">?</button>
       <form action="">
@@ -14,4 +15,5 @@
         <input type="radio" name="show-expert-comments" [checked]="this.showExpertComments === 'true'"  (click)="setShowExpertComments('true')">Yes
       </form>
     </div>
+  }
 </div>

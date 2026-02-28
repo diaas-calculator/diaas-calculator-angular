@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit, TemplateRef, ViewChild } from '@angular/core'
-import { CommonModule } from '@angular/common';
+
 import { NgbModal, NgbModalRef, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
 import { FoodItem } from '../common/food-item';
 import { roundGreenhouseGasForDetailedDisplay } from '../common/common';
@@ -9,10 +9,9 @@ import { DEFAULT_GREENHOUSE_GAS_LINK } from '../common/constants';
     standalone: true,
     selector: 'food-item-details',
     templateUrl: './food-item-details.html',
-    imports: [ 
-        NgbTooltipModule,
-        CommonModule
-    ],
+    imports: [
+    NgbTooltipModule
+],
     styleUrls: ['./food-item-details.css']
 })
 @Injectable()
