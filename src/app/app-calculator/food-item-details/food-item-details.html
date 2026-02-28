@@ -1,31 +1,35 @@
 <ng-template #fooditemdetailsmodal let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Food item details</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-        <div class="fid-name">{{foodItemDetails?.name}}</div>
-        <div class="fid-section">Food</div>
-        <div class="fid-content"><span class="fid-key">Protein content:<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="g of protein per 100g of food" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.protein_content}}</span></div>
-        <div class="fid-content"><span class="fid-key">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
-    </div>
-    <div class="modal-body">
-        <div class="fid-section">DIAAS</div>
-        <div class="fid-content"><span class="fid-key">Score type:</span><span class="fid-value">{{foodItemDetails?.score_type}}</span></div>
-        <div class="fid-content"><span class="fid-key">Cooked state for DIAAS:</span><span class="fid-value">{{foodItemDetails?.diaas_cooked_state}}</span></div>
-        <div class="fid-content"><span class="fid-key">Reference:</span><span class="fid-value"><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</span></div>
-        <div class="fid-content"><span class="fid-key">Comment:</span><span class="fid-value">{{foodItemDetails?.comment}}</span></div>
-        <div *ngIf="this.showExpertComments" class="fid-content"><span class="fid-key">Comment (expert):</span><span class="fid-value">{{foodItemDetails?.comment_expert}}</span></div>
-    </div>
-    <div class="modal-body">
-        <div class="fid-section">Carbon footprint</div>
-        <div class="fid-content"><span class="fid-key">Greenhouse gas :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="carbon footprint in kg eqCO2 per kg of food" triggers="click:blur">?</button></span><span class="fid-value">{{this.roundGreenhouseGasForDetailedDisplay(foodItemDetails?.greenhouse_gas)}}</span></div>
-        <div class="fid-content"><span class="fid-key">Reference :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="the food item used in the greenhouse gas database" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_ref}}</span></div>
-        <div class="fid-content"><span class="fid-key">Source :</span><span class="fid-value"><a target="_blank" href={{this.getGreenhouseGasLink()}}>link</a></span></div>
-        <div class="fid-content"><span class="fid-key">Comment:</span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_comment}}</span></div>
-        <div *ngIf="this.showExpertComments" class="fid-content"><span class="fid-key">Comment (expert):</span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_comment_expert}}</span></div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-    </div>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Food item details</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="fid-name">{{foodItemDetails?.name}}</div>
+    <div class="fid-section">Food</div>
+    <div class="fid-content"><span class="fid-key">Protein content:<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="g of protein per 100g of food" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.protein_content}}</span></div>
+    <div class="fid-content"><span class="fid-key">Cooked state for protein content: </span>{{foodItemDetails?.protein_content_cooked_state}}</div>
+  </div>
+  <div class="modal-body">
+    <div class="fid-section">DIAAS</div>
+    <div class="fid-content"><span class="fid-key">Score type:</span><span class="fid-value">{{foodItemDetails?.score_type}}</span></div>
+    <div class="fid-content"><span class="fid-key">Cooked state for DIAAS:</span><span class="fid-value">{{foodItemDetails?.diaas_cooked_state}}</span></div>
+    <div class="fid-content"><span class="fid-key">Reference:</span><span class="fid-value"><a target="_blank" href={{foodItemDetails?.reference_link}}>link</a> {{foodItemDetails?.reference_details}}</span></div>
+    <div class="fid-content"><span class="fid-key">Comment:</span><span class="fid-value">{{foodItemDetails?.comment}}</span></div>
+    @if (this.showExpertComments) {
+      <div class="fid-content"><span class="fid-key">Comment (expert):</span><span class="fid-value">{{foodItemDetails?.comment_expert}}</span></div>
+    }
+  </div>
+  <div class="modal-body">
+    <div class="fid-section">Carbon footprint</div>
+    <div class="fid-content"><span class="fid-key">Greenhouse gas :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="carbon footprint in kg eqCO2 per kg of food" triggers="click:blur">?</button></span><span class="fid-value">{{this.roundGreenhouseGasForDetailedDisplay(foodItemDetails?.greenhouse_gas)}}</span></div>
+    <div class="fid-content"><span class="fid-key">Reference :<button type="button" class="btn btn-outline-secondary button-help" ngbTooltip="the food item used in the greenhouse gas database" triggers="click:blur">?</button></span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_ref}}</span></div>
+    <div class="fid-content"><span class="fid-key">Source :</span><span class="fid-value"><a target="_blank" href={{this.getGreenhouseGasLink()}}>link</a></span></div>
+    <div class="fid-content"><span class="fid-key">Comment:</span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_comment}}</span></div>
+    @if (this.showExpertComments) {
+      <div class="fid-content"><span class="fid-key">Comment (expert):</span><span class="fid-value">{{foodItemDetails?.greenhouse_gas_comment_expert}}</span></div>
+    }
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
 </ng-template>
