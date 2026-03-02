@@ -598,5 +598,605 @@
   "lang": "fr",
   "food_id": 120,
   "name_translation": "Haricots noirs  (farine, extrudée, cuite au four)"
+ },
+ {
+  "lang": "de",
+  "food_id": 1,
+  "name_translation": "Haferflocken, Schmelzflocken-Haferbrei (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 2,
+  "name_translation": "Haferflocken, Schmelzflocken (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 3,
+  "name_translation": "Haferkleie (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 4,
+  "name_translation": "Haferkleie (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 5,
+  "name_translation": "Weizen (durchschnittlich, roh?)"
+ },
+ {
+  "lang": "de",
+  "food_id": 6,
+  "name_translation": "Weizen (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 7,
+  "name_translation": "Vollkornweizen (gebacken)"
+ },
+ {
+  "lang": "de",
+  "food_id": 8,
+  "name_translation": "Nudeln (gekocht, aus Hartweizengrieß)"
+ },
+ {
+  "lang": "de",
+  "food_id": 9,
+  "name_translation": "Weizenflocken (Frühstücksflocken, durchschnittlich)"
+ },
+ {
+  "lang": "de",
+  "food_id": 10,
+  "name_translation": "Weizenkleie (Frühstücksflocken, z.B. Kellogg's All Bran Fibre Plus)"
+ },
+ {
+  "lang": "de",
+  "food_id": 11,
+  "name_translation": "Gepuffter Weizen (Frühstücksflocken, z.B. Honey Smacks)"
+ },
+ {
+  "lang": "de",
+  "food_id": 12,
+  "name_translation": "Mais (durchschnittlich, roh?)"
+ },
+ {
+  "lang": "de",
+  "food_id": 13,
+  "name_translation": "Mais (extrudiert, roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 14,
+  "name_translation": "Mais (Frühstücksflocken, z.B. Honey Pops)"
+ },
+ {
+  "lang": "de",
+  "food_id": 15,
+  "name_translation": "Cornflakes (geröstete Maisflocken, Kellogg’s)"
+ },
+ {
+  "lang": "de",
+  "food_id": 16,
+  "name_translation": "Roggen (roh, gemahlen)"
+ },
+ {
+  "lang": "de",
+  "food_id": 17,
+  "name_translation": "Reis (durchschnittlich, roh?)"
+ },
+ {
+  "lang": "de",
+  "food_id": 18,
+  "name_translation": "Reis (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 19,
+  "name_translation": "Weißer Reis, (poliert, eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 20,
+  "name_translation": "Brauner Reis (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 21,
+  "name_translation": "Reisproteinisolat"
+ },
+ {
+  "lang": "de",
+  "food_id": 22,
+  "name_translation": "Biertreberisolat (Gerste/Reis, roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 23,
+  "name_translation": "Raps (Canola, durchschnittlich, roh?)"
+ },
+ {
+  "lang": "de",
+  "food_id": 24,
+  "name_translation": "Raps (durchschnittlich, roh?)"
+ },
+ {
+  "lang": "de",
+  "food_id": 25,
+  "name_translation": "Gerste, (entspelzt, roh, gemahlen)"
+ },
+ {
+  "lang": "de",
+  "food_id": 26,
+  "name_translation": "Hochlandgerste (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 27,
+  "name_translation": "Gerstennudeln (aus Hochlandgerstenmehl)"
+ },
+ {
+  "lang": "de",
+  "food_id": 28,
+  "name_translation": "Buchweizen (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 29,
+  "name_translation": "Buchweizen (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 30,
+  "name_translation": "Buchweizennudeln"
+ },
+ {
+  "lang": "de",
+  "food_id": 31,
+  "name_translation": "Rispenhirse - Echte Hirse (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 32,
+  "name_translation": "Hirse (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 33,
+  "name_translation": "Gedämpfte Hirsebrötchen"
+ },
+ {
+  "lang": "de",
+  "food_id": 34,
+  "name_translation": "Quinoa (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 35,
+  "name_translation": "Weizenbrot"
+ },
+ {
+  "lang": "de",
+  "food_id": 36,
+  "name_translation": "Nährhefe"
+ },
+ {
+  "lang": "de",
+  "food_id": 37,
+  "name_translation": "Pistazien (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 38,
+  "name_translation": "Pistazien (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 39,
+  "name_translation": "Pistazien (geröstet)"
+ },
+ {
+  "lang": "de",
+  "food_id": 40,
+  "name_translation": "Walnüsse (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 41,
+  "name_translation": "Erdnüsse (geröstet)"
+ },
+ {
+  "lang": "de",
+  "food_id": 42,
+  "name_translation": "Erdnussmehl (geschält)"
+ },
+ {
+  "lang": "de",
+  "food_id": 43,
+  "name_translation": "Kürbiskernproteinkonzentrat (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 44,
+  "name_translation": "Kürbiskernproteinisolat (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 45,
+  "name_translation": "Mandeln (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 46,
+  "name_translation": "Sonnenblumenkerne (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 47,
+  "name_translation": "Cashewnüsse (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 48,
+  "name_translation": "Paranüsse (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 49,
+  "name_translation": "Pekannüsse (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 50,
+  "name_translation": "Pinienkerne (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 51,
+  "name_translation": "Haselnüsse (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 52,
+  "name_translation": "Sesambutter-Tahini (ungeröstet)"
+ },
+ {
+  "lang": "de",
+  "food_id": 53,
+  "name_translation": "Ackerbohnen - Puffbohne (Mehl, extrudiert, gebacken)"
+ },
+ {
+  "lang": "de",
+  "food_id": 54,
+  "name_translation": "Ackerbohnenproteinkonzentrat (gebacken)"
+ },
+ {
+  "lang": "de",
+  "food_id": 55,
+  "name_translation": "Ackerbohnenproteinisolat (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 56,
+  "name_translation": "Rote Kidneybohnen (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 57,
+  "name_translation": "Adzukibohnen - Rote Bohnen (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 58,
+  "name_translation": "Weiße Bohnen (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 59,
+  "name_translation": "Erbsenproteinisolat (Pulver, roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 60,
+  "name_translation": "Erbsenproteinkonzentrat (Pulver, roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 61,
+  "name_translation": "Erbsen (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 62,
+  "name_translation": "Kichererbsen (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 63,
+  "name_translation": "Grüne Spalterbsen, Mehl (gebacken)"
+ },
+ {
+  "lang": "de",
+  "food_id": 64,
+  "name_translation": "Gelbe Spalterbsen, Mehl (gebacken)"
+ },
+ {
+  "lang": "de",
+  "food_id": 65,
+  "name_translation": "Grüne Spalterbse (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 66,
+  "name_translation": "Gelbe Spalterbse (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 67,
+  "name_translation": "Grüne Linsen (ganz, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 68,
+  "name_translation": "Rote Spalterbsen (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 69,
+  "name_translation": "Kichererbsen (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 70,
+  "name_translation": "Sojabohnen (eingeweicht, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 71,
+  "name_translation": "Sojamilch"
+ },
+ {
+  "lang": "de",
+  "food_id": 72,
+  "name_translation": "Tofu (aus Soja)"
+ },
+ {
+  "lang": "de",
+  "food_id": 73,
+  "name_translation": "Sojaproteinisolat (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 74,
+  "name_translation": "Eier (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 75,
+  "name_translation": "Hähnchen (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 76,
+  "name_translation": "Schweinespeck (geräuchert, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 77,
+  "name_translation": "Schweineschinken (geräuchert, gepökelt)"
+ },
+ {
+  "lang": "de",
+  "food_id": 78,
+  "name_translation": "Rinderhackfleisch (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 79,
+  "name_translation": "Rinderhackfleisch (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 80,
+  "name_translation": "Schwarzen Soldatenfliege Larven, Fettgehalt > 20 %, getrocknet"
+ },
+ {
+  "lang": "de",
+  "food_id": 81,
+  "name_translation": "Mehlwurm-Larven, getrocknet"
+ },
+ {
+  "lang": "de",
+  "food_id": 82,
+  "name_translation": "Molke (roh, durchschnittlich)"
+ },
+ {
+  "lang": "de",
+  "food_id": 83,
+  "name_translation": "Molkenproteinisolat aus Milch (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 84,
+  "name_translation": "Molkenproteinkonzentrat aus Milch (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 85,
+  "name_translation": "Milchpulver"
+ },
+ {
+  "lang": "de",
+  "food_id": 86,
+  "name_translation": "Milch"
+ },
+ {
+  "lang": "de",
+  "food_id": 87,
+  "name_translation": "Joghurt"
+ },
+ {
+  "lang": "de",
+  "food_id": 88,
+  "name_translation": "Hüttenkäse - Körniger Frischkäse"
+ },
+ {
+  "lang": "de",
+  "food_id": 89,
+  "name_translation": "BCAA L-Leucin, L-Isoleucin, L-Valin durch Fermentation"
+ },
+ {
+  "lang": "de",
+  "food_id": 90,
+  "name_translation": "Miesmuscheln (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 91,
+  "name_translation": "Lachs (Aquakultur, roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 92,
+  "name_translation": "Thunfisch, roh"
+ },
+ {
+  "lang": "de",
+  "food_id": 93,
+  "name_translation": "Kabeljau, roh"
+ },
+ {
+  "lang": "de",
+  "food_id": 94,
+  "name_translation": "Sardelle, roh"
+ },
+ {
+  "lang": "de",
+  "food_id": 95,
+  "name_translation": "Seelachs, roh"
+ },
+ {
+  "lang": "de",
+  "food_id": 96,
+  "name_translation": "Wolfsbarsch, roh"
+ },
+ {
+  "lang": "de",
+  "food_id": 97,
+  "name_translation": "Lammkeule (gekocht, gebraten)"
+ },
+ {
+  "lang": "de",
+  "food_id": 98,
+  "name_translation": "Käse"
+ },
+ {
+  "lang": "de",
+  "food_id": 99,
+  "name_translation": "Quinoa (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 100,
+  "name_translation": "Rotkohl (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 101,
+  "name_translation": "Rotkohl (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 102,
+  "name_translation": "Brokkoli (gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 103,
+  "name_translation": "Wurzellose Zwergwasserlinse (roh, getrocknet)"
+ },
+ {
+  "lang": "de",
+  "food_id": 104,
+  "name_translation": "Banane (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 105,
+  "name_translation": "Tempeh Gembus - Soja (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 106,
+  "name_translation": "Tempeh Gembus - Soja (gedämpft)"
+ },
+ {
+  "lang": "de",
+  "food_id": 107,
+  "name_translation": "Tempeh Gembus - Soja (gebraten)"
+ },
+ {
+  "lang": "de",
+  "food_id": 108,
+  "name_translation": "Tempeh Gembus - Soja (mit Bromelain)"
+ },
+ {
+  "lang": "de",
+  "food_id": 109,
+  "name_translation": "Tempeh (aus schwarzen Sojabohnen, Indonesien)"
+ },
+ {
+  "lang": "de",
+  "food_id": 110,
+  "name_translation": "Tempeh (aus indonesischen Sojabohnen, Sorte Anjasmoro)"
+ },
+ {
+  "lang": "de",
+  "food_id": 111,
+  "name_translation": "Tempeh (aus US-amerikanischen Sojabohnen)"
+ },
+ {
+  "lang": "de",
+  "food_id": 112,
+  "name_translation": "Tempeh - Soja (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 113,
+  "name_translation": "Roggen (roh)"
+ },
+ {
+  "lang": "de",
+  "food_id": 114,
+  "name_translation": "Roggen (Brot)"
+ },
+ {
+  "lang": "de",
+  "food_id": 115,
+  "name_translation": "Gelatine (durchschnittlich)"
+ },
+ {
+  "lang": "de",
+  "food_id": 116,
+  "name_translation": "Ackerbohne (Mehl, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 117,
+  "name_translation": "Pintobohnen (Mehl, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 118,
+  "name_translation": "Pintobohnen (Mehl, extrudiert, gebacken)"
+ },
+ {
+  "lang": "de",
+  "food_id": 119,
+  "name_translation": "Schwarze Bohnen (Mehl, gekocht)"
+ },
+ {
+  "lang": "de",
+  "food_id": 120,
+  "name_translation": "Schwarze Bohnen (Mehl, extrudiert, gebacken)"
  }
 ]
