@@ -10,6 +10,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { SelectModule } from 'primeng/select';
 import { Router } from '@angular/router';
 import { FoodItemDetailsComponent } from '../food-item-details/food-item-details';
+import { hyphenate as hyphenateDe} from "hyphen/de";
 
 @Component({
   standalone: true,
@@ -82,7 +83,17 @@ export class FoodItemsComponent implements OnInit {
             // picking up the food name from the FoodItemTranslation object and copying to the FoodItem ; returning this
             let fi: FoodItem = foodItemFoodItemsTranslationArray[0] as FoodItem
             let fit: FoodItemTranslation = foodItemFoodItemsTranslationArray[1] as FoodItemTranslation
-            fi.name = fit.name_translation
+            switch(lang){
+              // languages that need hyphenation
+              case 'de': 
+                (async () => {
+                  fi.name = await hyphenateDe(fit.name_translation);
+                })();
+                break;
+              default: 
+                // languages that don't need hyphenation
+                fi.name = fit.name_translation
+            }
             return fi
           }
         )
