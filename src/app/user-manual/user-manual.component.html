@@ -1,10 +1,10 @@
 <main>
     <div>
         <h1 id="what-am-i-looking-at-">What am I looking at?</h1>
-        <p>This is a calculator that helps calculate the <em>DIAAS</em> value of a mix of food items. Make sure you&#39;ve read the <a href="/diaas-information">DIAAS information</a> page first as we won&#39;t detail <em>DIAAS</em> basics in this documentation. </p>
+        <p>This is a calculator that helps calculate the <em>DIAAS</em> value of a mix of food items. Make sure you&#39;ve read the <a routerLink="/diaas-information">DIAAS information</a> page first as we won&#39;t detail <em>DIAAS</em> basics in this documentation. </p>
         <p>As a rule of thumb, all the proteins that come from animals contain enough of all of the indispensable amino acids but most of the proteins that come from plants don&#39;t. By choosing the right food items with the right proportions, it is possible to balance the 9 indispensable amino acids when looking for protein sources in plants.</p>
-        <p>If you don&#39;t want to bother with the calculator, check out the protein combining cheat sheet :  <a href="protein-information#protein-combining-made-easy-for-vegetarians-and-flexitarians">Protein combining made easy for vegetarians and flexitarians</a></p>
-        <p>Also if you&#39;re confident that your protein intake is well above your requirement, you may not need to worry at all about protein combining. Check <a href="protein-information#do-i-really-need-to-worry-about-protein-combining-">Do I really need to worry about protein combining?</a></p>
+        <p>If you don&#39;t want to bother with the calculator, check out the protein combining cheat sheet :  <a routerLink="/protein-information" fragment="protein-combining-made-easy-for-vegetarians-and-flexitarians">Protein combining made easy for vegetarians and flexitarians</a></p>
+        <p>Also if you&#39;re confident that your protein intake is well above your requirement, you may not need to worry at all about protein combining. Check <a routerLink="/protein-information" fragment="do-i-really-need-to-worry-about-protein-combining-">Do I really need to worry about protein combining?</a></p>
         <p>The calculator may be useful for: </p>
         <ul>
         <li>flexitarians who want to reduce the carbon footprint related to their meat and dairy consumption.</li>
@@ -79,7 +79,7 @@
         <p>The below elements may require additional information:</p>
         <ul>
         <li><em>Score type</em>. Built as : <code>&lt;score-standard&gt;-[&lt;animal-model&gt;]-&lt;digestibility-model&gt;</code>.<ul>
-        <li>See <a href="/diaas-information#score-types-in-the-app">DIAAS information</a> for more details but for starters it&#39;s enough to remember that <em>DIAAS</em> (score type displayed in green in the app) is more precise than <em>PDCAAS</em> (score type displayed in orange). The <em>proxy</em> score types are also displayed in orange (scores for which we have used a similar food item due to lack of data on this specific food item).</li>
+        <li>See <a routerLink="/diaas-information" fragment="score-types-in-the-app">DIAAS information</a> for more details but for starters it&#39;s enough to remember that <em>DIAAS</em> (score type displayed in green in the app) is more precise than <em>PDCAAS</em> (score type displayed in orange). The <em>proxy</em> score types are also displayed in orange (scores for which we have used a similar food item due to lack of data on this specific food item).</li>
         </ul>
         </li>
         <li><em>Protein content</em>: g of protein per 100g of food. To have a coherent result with the greenhouse gas data, when the greenhouse gas data comes from the agribalyse database, we use the protein content reported by the ciqual database at <a href="https://ciqual.anses.fr/">https://ciqual.anses.fr/</a> (<em>Protéines, N x 6.25</em>).</li>
@@ -122,15 +122,15 @@
     </div>
     <nav class="section-nav">
         <ol>
-            <li><a href="user-manual#what-am-i-looking-at-">What am I looking at?</a></li>
-            <li><a href="user-manual#language">Language</a></li>
-            <li><a href="user-manual#contextual-help">Contextual help</a></li>
-            <li><a href="user-manual#advanced-options">Advanced options</a></li>
-            <li><a href="user-manual#mixes">Mixes</a></li>
-            <li><a href="user-manual#listing-food-items-searching-for-food-items">Listing food items, searching for food items</a></li>
-            <li><a href="user-manual#food-items-details">Food items details</a></li>
-            <li><a href="user-manual#diaas-display">DIAAS display</a></li>
-            <li><a href="user-manual#carbon-footprint">Carbon footprint</a></li>
+            <li><a routerLink="/user-manual" fragment="what-am-i-looking-at-">What am I looking at?</a></li>
+            <li><a routerLink="user-manual" fragment="language">Language</a></li>
+            <li><a routerLink="/user-manual" fragment="contextual-help">Contextual help</a></li>
+            <li><a routerLink="/user-manual" fragment="advanced-options">Advanced options</a></li>
+            <li><a routerLink="/user-manual" fragment="mixes">Mixes</a></li>
+            <li><a routerLink="/user-manual" fragment="listing-food-items-searching-for-food-items">Listing food items, searching for food items</a></li>
+            <li><a routerLink="/user-manual" fragment="food-items-details">Food items details</a></li>
+            <li><a routerLink="/user-manual" fragment="diaas-display">DIAAS display</a></li>
+            <li><a routerLink="/user-manual" fragment="carbon-footprint">Carbon footprint</a></li>
         </ol>
     </nav>
 </main>
