@@ -41,7 +41,8 @@ export const appConfig: ApplicationConfig = {
                 darkModeSelector: 'system',
                 cssLayer: false
             }
-        }
+        },
+        license: 'eyJpZCI6Ijc1ZTY1ZTZlLTdhMjItNGY5ZS1hNjUwLWJlMDY3MTcxYjk3YyIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODMxNzk5NDYsImV4cCI6MTgxNDcxNTk0Nn0.bezVJjL0LatDdi0nLZbA3GaxSBUmAItqPMcshIiIJM_j5_-qGUr3T9bzoKovQDrYKHIrnb_t0PF3e-4CZR54Bg'
     }),
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(HttpClientJsonpModule),
