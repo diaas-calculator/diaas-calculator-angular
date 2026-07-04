@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   templateUrl: './protein-info.component.html',
   styleUrl: './protein-info.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [RouterLink]
 })
 

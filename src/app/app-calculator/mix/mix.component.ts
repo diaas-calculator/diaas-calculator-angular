@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, TemplateRef, inject } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, TemplateRef, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FoodItem } from '../common/food-item';
@@ -21,6 +21,7 @@ import { FoodItemDetailsComponent } from '../food-item-details/food-item-details
     SelectModule,
     FoodItemDetailsComponent],
   providers: [MixService],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./mix.component.css']
 })
 export class MixComponent implements OnInit {

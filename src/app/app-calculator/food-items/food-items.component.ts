@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FoodItem, FoodItemTranslation} from '../common/food-item';
@@ -23,6 +23,7 @@ import { hyphenate as hyphenateDe} from "hyphen/de";
     SelectModule,
     FoodItemDetailsComponent],
   providers: [FoodItemsService],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./food-items.component.css']
 })
 export class FoodItemsComponent implements OnInit {
