@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FoodItem, FoodItemTranslation } from '../app-calculator/common/food-item';
 import { MixDetails, MixFood, MixFoodJoin, MixFoodJoinI18n } from '../app-calculator/mix/mix';
@@ -13,6 +13,7 @@ import mixFoodJson from "../../assets/data/mix_food.json";
 @Component({
   selector: 'app-mock',
   templateUrl: './mock.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './mock.component.css'
 })
 

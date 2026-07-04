@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit, TemplateRef, ViewChild } from '@angular/core'
+import { Component, Injectable, OnInit, TemplateRef, ViewChild, ChangeDetectionStrategy } from '@angular/core'
 
 import { NgbModal, NgbModalRef, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap'
 import { FoodItem } from '../common/food-item';
@@ -12,6 +12,7 @@ import { DEFAULT_GREENHOUSE_GAS_LINK } from '../common/constants';
     imports: [
     NgbTooltipModule
 ],
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./food-item-details.css']
 })
 @Injectable()

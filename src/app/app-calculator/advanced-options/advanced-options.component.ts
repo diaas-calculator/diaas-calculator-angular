@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -9,6 +9,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     NgbTooltipModule
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./advanced-options.component.css']
 })
 export class AdvancedOptionsComponent {

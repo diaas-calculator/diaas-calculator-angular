@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 
 import { MixComponent } from './mix/mix.component';
@@ -16,6 +16,7 @@ import { AdvancedOptionsComponent } from './advanced-options/advanced-options.co
     LangComponent,
     AdvancedOptionsComponent
 ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.calculator.component.css']
 })
 export class AppCalculatorComponent {

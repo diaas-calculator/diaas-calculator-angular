@@ -1,7 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
 
 import { provideProtractorTestingSupport } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, withXhr } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 
 import { HttpClientJsonpModule } from '@angular/common/http';
@@ -30,7 +30,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       AppRoutes,
       withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})),
-    provideHttpClient(),
+    provideHttpClient(withXhr()),
     provideMarkdown({ loader: HttpClient }),
     provideAnimationsAsync(),
     providePrimeNG({
