@@ -69,10 +69,6 @@
   grid-area: addtomix;
 }
 
-.food-items li button:hover, .food-items li button:focus {
-  color: #eee;
-  background-color: #000;
-}
 
 .food-items .score-letter-and-name, .food-items .score-letter-and-name-hidden {
   padding: 0.5rem 0.4rem;

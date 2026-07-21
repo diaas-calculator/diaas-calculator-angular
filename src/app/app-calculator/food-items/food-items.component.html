@@ -32,11 +32,11 @@
   (click)="add(foodItemName)">Add foodItem</button>
   -->
 
-  <button type="button" (click)="setNameFilter(foodItemName)">
+  <button type="button" (click)="setNameFilter(foodItemName)" class="btn btn-primary">
     Search
   </button>
 
-  <button type="button" (click)="foodItemName = ''; setNameFilter('')">
+  <button type="button" (click)="foodItemName = ''; setNameFilter('')" class="btn btn-primary">
     Clear name
   </button>
 </div>
@@ -75,11 +75,11 @@
         </div>
         <span class="protein-weight" title="Protein content per 100g of food" ngbTooltip="Protein content per 100g of food" triggers="click:blur">{{this.roundWeightForDisplay(foodItem.protein_content)}}</span>
         <div class="greenhouse-gas" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
-        <button type="button" class="details" title="view details"
+        <button type="button" class="details btn btn-primary" title="view details"
           (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
           View details
         </button>
-        <button type="button" class="addtomix" title="add to mix"
+        <button type="button" class="addtomix btn btn-primary" title="add to mix"
           (click)="addToMix(foodItem)">
           Add to mix
         </button>

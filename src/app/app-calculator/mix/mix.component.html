@@ -16,12 +16,12 @@
   </div>
 
 
-  <button type="button" class="load-example-mix" title="Load sample mix"
+  <button type="button" class="btn btn-primary" title="Load sample mix"
     (click)="this.loadExampleMix()">
     Load sample mix
   </button>
 
-  <button type="button" class="clear-mix" title="Clear mix"
+  <button type="button" class="btn btn-primary" title="Clear mix"
     (click)="this.clearMixAll()">
     Clear mix
   </button>
@@ -67,7 +67,7 @@
   </div>
 
 
-  <button type="button" title="View mix details" class="view-details"
+  <button type="button" title="View mix details" class="view-details btn btn-primary"
     (click)="openMixDetails(mixdetailsmodal)">
     View mix details
   </button>
@@ -164,11 +164,11 @@
         <div class="fi-greenhouse-gas-ratio" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
         <div class="fi-greenhouse-gas-total" title="Carbon footprint in g of eq CO2 for the current food weight" ngbTooltip="Carbon footprint in g of eq CO2 for the current food weight" triggers="click:blur">{{this.roundGreenhouseGasTotalForMainDisplay(foodItem.greenhouse_gas*foodItem.food_weight)}}g</div>
       </div>
-      <button type="button" class="fi-view-details" title="view details"
+      <button type="button" class="fi-view-details btn btn-primary" title="view details"
         (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
         View details
       </button>
-      <button type="button" class="remove" title="remove foodItem"
+      <button type="button" class="remove btn btn-primary" title="remove foodItem"
         (click)="remove(foodItem)">
         Remove
       </button>
