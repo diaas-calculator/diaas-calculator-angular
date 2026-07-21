@@ -89,6 +89,7 @@ export class FoodItemsComponent implements OnInit {
               case 'de': 
                 (async () => {
                   fi.name = await hyphenateDe(fit.name_translation);
+                  //console.log("fi.name hyphenated: " + fi.name)
                 })();
                 break;
               default: 

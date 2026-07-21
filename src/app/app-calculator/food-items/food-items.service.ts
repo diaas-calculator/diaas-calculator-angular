@@ -33,11 +33,13 @@ export class FoodItemsService {
 
   /* GET foodItems whose name contains search term */
   searchFoodItems(foodNameFilter: string, foodTypeFilter: string, aaProfileFilter: string, showHidden: string): FoodItem[] {
+    //console.log("getting data for english")
     return this.mockComponent.searchFoodItems(foodNameFilter, foodTypeFilter, aaProfileFilter, showHidden)
   }
 
   /* GET foodItems whose name contains search term with a translation */
   searchFoodItemsI18n(foodNameFilter: string, foodTypeFilter: string, aaProfileFilter: string, lang: string, showHidden: string): (FoodItem|FoodItemTranslation)[][] {
+    //console.log("getting data for language: " + lang)
     return this.mockComponent.searchFoodItemsI18n(foodNameFilter, foodTypeFilter, aaProfileFilter, lang, showHidden)
     }
 

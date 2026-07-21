@@ -197,6 +197,12 @@ export class MockComponent {
       this.foodItemTranslationsMap.get(
         this.getFoodItemTranslationMapKey(food_id, lang)
     )
+    if(!foodItemTranslation){
+      console.error("No translation found for food id " + food_id + " and lang " + lang)
+    }
+    /*else{
+      console.log("translated: " + foodItemTranslation.name_translation)
+    }*/
     return foodItemTranslation ? foodItemTranslation : 
       {"lang": lang, "food_id": food_id, "name_translation": name}
   }
