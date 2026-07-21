@@ -164,14 +164,14 @@
         <div class="fi-greenhouse-gas-ratio" title="Carbon footprint in kg of eq CO2 per kg of protein" ngbTooltip="Carbon footprint in kg of eq CO2 per kg of protein" triggers="click:blur">{{this.roundGreenhouseGasRatioForMainDisplay(100*foodItem.greenhouse_gas/(foodItem.protein_content))}}</div>
         <div class="fi-greenhouse-gas-total" title="Carbon footprint in g of eq CO2 for the current food weight" ngbTooltip="Carbon footprint in g of eq CO2 for the current food weight" triggers="click:blur">{{this.roundGreenhouseGasTotalForMainDisplay(foodItem.greenhouse_gas*foodItem.food_weight)}}g</div>
       </div>
-      <button type="button" class="fi-view-details btn btn-primary" title="view details"
-        (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
-        View details
-      </button>
-      <button type="button" class="remove btn btn-primary" style="--bs-btn-padding-x: .2rem;" title="remove foodItem"
-        (click)="remove(foodItem)">
-        Remove
-      </button>
+        <button type="button" class="fi-view-details btn btn-primary" title="view details" style="--bs-btn-padding-x: .2rem;" 
+          (click)="foodItemDetails = foodItem; openFoodItemDetails(foodItemDetails)">
+          View details
+        </button>
+        <button type="button" class="remove btn btn-primary" style="--bs-btn-padding-x: .2rem;" title="remove foodItem"
+          (click)="remove(foodItem)">
+          Remove
+        </button>
     </li>
   }
 </ul>
