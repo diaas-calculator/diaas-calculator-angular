@@ -2,7 +2,6 @@
 
 /* command buttons */
 .diaas-mix .view-details, .food-items li button.fi-view-details  button.fi-remove{
-  margin: 0.2rem;
   padding: 0.3rem 0.2rem;
   justify-self: center;
 }
@@ -180,6 +179,8 @@
 
 .food-items li button.fi-view-details {
   grid-area: fi-view-details;
+  align-self: center;
+  justify-self: center;
 }
 
 .food-items li button.remove {
