@@ -40,8 +40,8 @@
 .diaas-mix {
   display: grid;
   grid-template-rows: 6rem max-content;
-  grid-template-columns: 30% 35% repeat(3, 5%) repeat(2, 10%);
-  grid-template-areas: "total-label diaas protein-content-and-weight quantity greenhouse-gas view-details dummy";
+  grid-template-columns: 30% 35% repeat(3, 5%) 20%;
+  grid-template-areas: "total-label diaas protein-content-and-weight quantity greenhouse-gas view-details";
   margin: 1rem 0 3rem 0;
   align-items: center;
   background-color: #eee;
@@ -92,10 +92,6 @@
 }
 
 
-
-.diaas-mix .dummy {
-  grid-area: dummy;
-}
 
 .diaas-mix .total-label {
   padding: 0.5rem 0.6rem;
@@ -230,7 +226,7 @@
 /* average screen: leave more % to diaas */
 @media (max-width: 1200px) {
   .diaas-mix {
-    grid-template-columns: 25% 40% repeat(3, 5%) repeat(2, 10%);
+    grid-template-columns: 25% 40% repeat(3, 5%) 20%;
   }
 
   .food-items li {
@@ -243,11 +239,11 @@
   .diaas-mix {
     grid-template-rows: 4rem max-content;
     grid-template-columns: 
-      25% repeat(5, 15%)
-      25% repeat(5, 15%);
+      25% repeat(4, 18.75%)
+      25% repeat(3, 15%) 30%;
     grid-template-areas: 
-      "total-label diaas diaas diaas diaas diaas"
-      "total-label protein-content-and-weight quantity greenhouse-gas view-details dummy";
+      "total-label diaas diaas diaas diaas"
+      "total-label protein-content-and-weight quantity greenhouse-gas view-details";
   }
 
   .food-items li {
