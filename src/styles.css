@@ -37,25 +37,14 @@ a {
   cursor: pointer;
 }
 button {
-  background-color: #eee;
   border: none;
   border-radius: 0.4rem;
   cursor: pointer;
-  color: black;
   font-size: 1.2rem;
   padding: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
-}
-button:hover {
-  background-color: black;
-  color: white;
-}
-button:disabled {
-  background-color: #eee;
-  color: #aaa;
-  cursor: auto;
 }
 
 .button-help {
@@ -69,26 +58,6 @@ button:disabled {
   font-size: 0.8rem;
 }
 
-/* Navigation link styles */
-nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-right: 10px;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #e8e8e8;
-  color: #3d3d3d;
-  border-radius: 4px;
-}
-
-nav a:hover {
-  color: white;
-  background-color:  #42545C;
-}
-nav a.active {
-  background-color: black;
-  color: white;
-}
 hr {
   margin: 1.5rem 0;
 }

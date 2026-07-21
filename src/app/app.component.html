@@ -1,9 +1,23 @@
-<nav>
-  <a routerLink="/protein-diaas-and-carbon-footprint-calculator" routerLinkActive="active">Diaas calculator</a>
-  <a routerLink="/diaas-information" routerLinkActive="active">Diaas information</a>
-  <a routerLink="/protein-information" routerLinkActive="active">Protein information</a>
-  <a routerLink="/protein-carbon-footprint-information" routerLinkActive="active">Carbon footprint information</a>
-  <a routerLink="/user-manual" routerLinkActive="active">User manual</a>
-  <a routerLink="/about" routerLinkActive="active">About</a>
-</nav>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+	<li [ngbNavItem]="1">
+		<button ngbNavLink routerLink="/protein-diaas-and-carbon-footprint-calculator" routerLinkActive="active">Diaas calculator</button>
+	</li>
+	<li [ngbNavItem]="2">
+		<button ngbNavLink routerLink="/diaas-information" routerLinkActive="active">Diaas information</button>
+	</li>
+	<li [ngbNavItem]="3">
+		<button ngbNavLink routerLink="/protein-information" routerLinkActive="active">Protein information</button>
+	</li>
+	<li [ngbNavItem]="4">
+		<button ngbNavLink routerLink="/protein-carbon-footprint-information" routerLinkActive="active">Carbon footprint information</button>
+	</li>
+	<li [ngbNavItem]="5">
+		<button ngbNavLink routerLink="/user-manual" routerLinkActive="active">User manual</button>
+	</li>
+	<li [ngbNavItem]="6">
+		<button ngbNavLink routerLink="/about" routerLinkActive="active">About</button>
+	</li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
 <router-outlet></router-outlet>

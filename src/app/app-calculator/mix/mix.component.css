@@ -1,11 +1,5 @@
 /* MixComponent's private CSS styles*/
 
-/* buttons */
-button:hover, button:focus {
-  color: #eee;
-  background-color: #000;
-}
-
 /* command buttons */
 .diaas-mix .view-details, .food-items li button.fi-view-details {
   margin: 0.2rem;
