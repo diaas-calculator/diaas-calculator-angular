@@ -7,5 +7,5 @@ import {AppComponent} from './app/app.component';
 import { appConfig } from './app/app.config';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-bootstrapApplication(AppComponent, {...appConfig, providers: [provideZoneChangeDetection(), ...appConfig.providers, importProvidersFrom(NgbModule)]});
+bootstrapApplication(AppComponent, {...appConfig, providers: [...appConfig.providers, importProvidersFrom(NgbModule)]});
 
